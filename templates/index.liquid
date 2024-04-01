@@ -304,33 +304,17 @@
               <p>ニュース</p>
           </div>
           <div class="list-home-news mt-5">
+            {% for article in blog.articles %}
               <div class="news-item item-list biggerlink">
-                  <div class="date"><span>2024年00月00日</span></div>
+                  <div class="date"><span>{{ article.created_at }}</span></div>
                   <div class="box-cat text-center">
                       <a href="#" class="cat catid-1" title="">島根のニュース</a>
                   </div>
                   <div class="title">
-                      <a href="#" title="">テキストテキストテキストテキストテキストテキスト</a>
+                    <a href="{{ article.url }}">{{ article.title }}</a>
                   </div>
               </div>
-              <div class="news-item item-list biggerlink">
-                  <div class="date"><span>2024年00月00日</span></div>
-                  <div class="box-cat text-center">
-                      <a href="#" class="cat catid-1" title="">島根のニュース</a>
-                  </div>
-                  <div class="title">
-                      <a href="#" title="">テキストテキストテキストテキストテキストテキスト</a>
-                  </div>
-              </div>
-              <div class="news-item item-list biggerlink">
-                  <div class="date"><span>2024年00月00日</span></div>
-                  <div class="box-cat text-center">
-                      <a href="#" class="cat catid-1" title="">島根のニュース</a>
-                  </div>
-                  <div class="title">
-                      <a href="#" title="">テキストテキストテキストテキストテキストテキスト</a>
-                  </div>
-              </div>
+            {% endfor %}
           </div>
       </div>
   </div>
