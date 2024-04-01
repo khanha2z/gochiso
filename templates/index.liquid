@@ -308,7 +308,7 @@
             {% assign blog = blogs[blog_handle] %}
             {% for article in blog.articles %}
               <div class="news-item item-list biggerlink">
-                  <div class="date"><span>{{ article.created_at | date: "%B %d, %Y"  }}</span></div>
+                  <div class="date"><span>{{ article.created_at | date: '%Y年%m月%d日'  }}</span></div>
                   <div class="box-cat text-center">
                       <a href="#" class="cat catid-1" title="">島根のニュース</a>
                   </div>
