@@ -105,4 +105,70 @@
       </div>
   </div>
 </section>
+<section>
+  <div class="home-region">
+      <div class="container">
+          <div class="main-title mx-auto">
+              <h2>Regional specialties</h2>
+              <p>地域の特産品</p>
+          </div>
+          <div class="box-home-region">
+              <div class="home-region-left">
+                  <div class="box-title-icon">
+                      <span>01</span>
+                      <h2>雲南市</h2>
+                  </div>
+                  <p>雲南市からは、独特の気候風土が育んだ新鮮な野菜や果物が届きます。例えば、季節ごとに異なる色とりどりの野菜や、甘みが濃厚な果物などがそろいます。これらの食材は、そのまま生で食べるだけでなく、料理のアクセントにも最適です。
+                  </p>
+                  <a href="#" class="btn btn-main">続きを見る</a>
+              </div>
+              <div class="home-region-right">
+                  <div class="home-region-img">
+                      <img src="{{ 'home-region.png' | file_img_url: "master" }}">
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            {% for product in collections.frontpage.products limit:4 %}
+              <div class="col-lg-3 col-sm-6">
+                <div class="col-inner">
+                  <div class="box-product">
+                      <div class="img-product">
+                        <a href="{{ product.url | within: collection }}">
+                          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                        </a>
+                      </div>
+                      <div class="box-title-product">
+                          <a href="#">{{ product.title }}</a>
+                          <div class="price-product">
+                              <p>{{ product.price | money }}</p><span>￥10,000 </span>
+                          </div>
+                      </div>
+                      <div class="box-rate-product">
+                          <div class="rate-product">
+                              <div class="box-star">
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <p>(14件)</p>
+                              </div>
+                              <p><span>100</span>購入したアイテム</p>
+                          </div>
+                          <div class="box-btn-add-cart">
+                              <a href="{{ product.url }}" class="btn btn-cart"><img src="{{"icon-cart.svg" | asset_url}}" ></a>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}  
+          </div>
+          <div class="pt-5">
+              <a href="#" class="btn btn-main btn-shop">続きを見る</a>
+          </div>
+      </div>
+  </div>
+</section>
 
