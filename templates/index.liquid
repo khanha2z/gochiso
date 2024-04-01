@@ -20,14 +20,89 @@
       </div>
   </div>
 </section>
-
-{% for product in collections.frontpage.products limit:4 %}
-  <div>
-    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-    {{ product.price | money }}
-    {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-    <a href="{{ product.url | within: collection }}">
-      <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-    </a>
+<section>
+  <div class="home-about">
+      <div class="container">
+          <div class="main-title mx-auto">
+              <h2>About Shimane Furusato Gochiso Mall </h2>
+              <p>ふるさとごちそうモールとは</p>
+          </div>
+          <div class="home-text-about">
+              <p>「ふるさとごちそうモール」とは、<br>
+                  島根県の風土や文化を背景に、<br>
+                  地元の特産品や伝統的な料理、<br>
+                  そして地域の魅力を一堂に集めた<br>
+                  オンラインショッピングモールです。
+              </p>
+              <p>
+                  ここでは、出雲そばの風味豊かな香りや<br>
+                  松江牛の上質な肉質、<br>
+                  そして出雲大社や石見銀山といった<br>
+                  歴史ある観光地への憧れが、<br>
+                  商品を通じてあなたのお手元に届きます。<br>
+                  また、地域の生産者や職人が<br>
+                  心を込めて作り上げた逸品たちが、<br>
+                  あなたの食卓や生活に<br>
+                  彩りを与えることでしょう。
+              </p>
+              <p>ふるさとごちそうモールは、<br>
+                  島根県ならではの豊かな文化や風景を<br>
+                  世界中の皆様に届ける架け橋として、<br>
+                  地域の魅力を広め、<br>
+                  地域経済の活性化に貢献しています。
+              </p>
+              <p>どうぞ、このサイトを通じて、<br>島根県の素晴らしさをご堪能ください。</p>
+          </div>
+      </div>
   </div>
-{% endfor %}
+</section>
+<section>
+  <div class="home-product">
+      <div class="container">
+          <div class="main-title mx-auto">
+              <h2>Best Product</h2>
+              <p>人気ランキング</p>
+          </div>
+          <div class="row pt-5">
+            {% for product in collections.frontpage.products limit:4 %}
+              <div class="col-lg-3 col-sm-6">
+                <div class="col-inner">
+                  <div class="box-product">
+                      <div class="img-product">
+                        <a href="{{ product.url | within: collection }}">
+                          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                        </a>
+                      </div>
+                      <div class="box-title-product">
+                          <a href="#">{{ product.title }}</a>
+                          <div class="price-product">
+                              <p>{{ product.price | money }}</p><span>￥10,000 </span>
+                          </div>
+                      </div>
+                      <div class="box-rate-product">
+                          <div class="rate-product">
+                              <div class="box-star">
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <p>(14件)</p>
+                              </div>
+                              <p><span>100</span>購入したアイテム</p>
+                          </div>
+                          <div class="box-btn-add-cart">
+                              <a href="{{ product.url }}" class="btn btn-cart"><img src="{{"icon-cart.svg" | asset_url}}" ></a>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          <div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+

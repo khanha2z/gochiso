@@ -58,7 +58,7 @@
                           <div class="main-menu flex-col flex-right flex-grow">
                               <div class="box-search-top">
                                   <a href="#"><img src="{{ 'icon-search.png' | asset_url  }}" alt=""></a>
-                                  <a href="#"><img src="{{ 'icon-cart-1.svg' | asset_url  }}" alt=""></a>
+                                  <a href="/cart"><img src="{{ 'icon-cart-1.svg' | asset_url  }}" alt=""></a>
                               </div>
                               <div class="navbar-nav nav-main">
                                   <a href="./#home" class="nav-item nav-link active">ホーム</a>
@@ -78,7 +78,7 @@
       </div>
       <a class="menu-btn" href="javascript:void(0)"><span></span><span></span><span></span></a>
     </header>
-  {% for link in linklists.main-menu.links %}
+  {% comment %} {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
     {% if linklists[child_list_handle].links != blank %}
       <a href="{{ link.url }}">{{ link.title }}</a>
@@ -90,7 +90,6 @@
     {% endif %}
   {% endfor %}
 
-  <a href="/cart">cart</a>
 
   {% if shop.customer_accounts_enabled %}
     {% if customer %}
@@ -100,7 +99,7 @@
       {{ 'log in ' | customer_login_link }}
       {{ 'register' | customer_register_link }}
     {% endif %}
-  {% endif %}
+  {% endif %} {% endcomment %}
 
   <main role="main">
     {{ content_for_layout }}
