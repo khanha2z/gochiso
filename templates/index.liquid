@@ -304,6 +304,8 @@
               <p>ニュース</p>
           </div>
           <div class="list-home-news mt-5">
+            {% assign blog_handle = 'news' %}  // Replace 'news' with the handle of your blog
+            {% assign blog = blogs[blog_handle] %}
             {% for article in blog.articles %}
               <div class="news-item item-list biggerlink">
                   <div class="date"><span>{{ article.created_at }}</span></div>
