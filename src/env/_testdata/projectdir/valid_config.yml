@@ -1,8 +1,0 @@
-development:
-  theme_id: 123
-  password: ${STOREPASS}
-  store: $STOREDOMAIN
-  ignore_files:
-  - charmander
-  - bulbasaur
-  - squirtle
