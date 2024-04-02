@@ -347,37 +347,22 @@ a.btn.btn-main::after{
     right: -22px;
 }
 
-.box-title-icon h2 {
-    font-family: "Yuji Mai", serif;
-    font-size: 36px;
-    letter-spacing: 0.7em;
-    text-indent: 0.7em;
-}
 
-.box-title-icon span {
-    font-size: 48px;
-    font-weight: 700;
-    
-}
-
-.box-title-icon {
-    position: absolute;
-    top: -190px;
-    right: -105px;
-    z-index: 2;
-    text-align: center;
-    width: 304px;
-    height: 235px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 10px;
-    background-image: url('{{ "bg-title.png" | asset_url }}');
+.home-region-right::after {
+    content: "";
+    width: 207px;
+    height: 198px;
+    background-image: url('{{ "hoa.png" | asset_url }}');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    color: #000;
+    position: absolute;
+    top: 30px;
+    right: -103px;
+}
+.box-home-region.flex-row-reverse .home-region-right::after{
+    right: auto;
+    left: -103px;
 }
 .box-title-product a {
     font-weight: bold;
