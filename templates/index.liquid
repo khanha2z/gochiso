@@ -74,7 +74,7 @@
                         </a>
                       </div>
                       <div class="box-title-product">
-                          <a href="#">{{ product.title }}</a>
+                          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
                               <p>{{ product.price | money }}</p><span>￥10,000 </span>
                           </div>
@@ -139,7 +139,7 @@
                         </a>
                       </div>
                       <div class="box-title-product">
-                          <a href="#">{{ product.title }}</a>
+                          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
                               <p>{{ product.price | money }}</p><span>￥10,000 </span>
                           </div>
@@ -202,7 +202,7 @@
                         </a>
                       </div>
                       <div class="box-title-product">
-                          <a href="#">{{ product.title }}</a>
+                          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
                               <p>{{ product.price | money }}</p><span>￥10,000 </span>
                           </div>
@@ -264,7 +264,7 @@
                         </a>
                       </div>
                       <div class="box-title-product">
-                          <a href="#">{{ product.title }}</a>
+                          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
                               <p>{{ product.price | money }}</p><span>￥10,000 </span>
                           </div>
@@ -381,22 +381,15 @@
 <section>
   <div class="home-register">
       <div class="container">
-          <div class="row align-items-center">
-              <div class="col-lg-5 col-sm-6">
-                  <div class="col-inner">
-                    <img src="{{ 'register.png' | file_img_url: "master" }}">
-                  </div>
-              </div>
-              <div class="col-lg-7 col-sm-6">
-                  <div class="col-inner">
-                      <h3>私たちからのオファーを受け取るために電子メールに登録してください</h3>
-                      <div class="box-form mt-3">
-                          <input type="email" name="" class="form-control" placeholder="電子メールアドレス" id="">
-                          <input type="submit" class="submit-btn" value="登録する">
-                      </div>
-                  </div>
-              </div>
-          </div>
+            <div class="main-title mx-auto">
+                <h2>Register</h2>
+                <p>登録する</p>
+            </div>
+            <div class="box-form mt-3">
+                <input type="email" name="" class="form-control" placeholder="電子メールアドレス" id="">
+                <input type="submit" class="submit-btn" value="登録する">
+            </div>
+            <h3>私たちからのオファーを受け取るために電子メールに登録してください</h3>
       </div>
   </div>
 </section>
