@@ -108,18 +108,36 @@
   <footer>
     <div class="footer">
         <div class="container">
-            <div class="list-link-footer">
-                <a href="#">ホーム</a>
-                <a href="#">商品一覧</a>
-                <a href="#">雲南市</a>
-                <a href="#">浜田市</a>
-                <a href="#">出雲市</a>
-                <a href="#">おい問い合わせ</a>
-                <a href="#">よくある質問</a>
-            </div>
-            <div class="box-footer-logo pt-5">
-                <div class="logo text-center">
-                  <img src="{{ 'logo.png' | asset_url  }}" alt="mhmhm">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="box-footer-logo pt-5">
+                        <div class="logo text-center">
+                            <img src="{{ 'logo.png' | asset_url  }}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-12">
+                    <div class="list-link-footer">
+                        <a href="#">トップページ</a>
+                        <a href="#">お知らせ</a>
+                        <a href="#">ふるさとごちそうモールについて</a>
+                        <a href="#">特定商取引法に基づく表記</a>
+                        <a href="#">よくある質問</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="list-link-footer">
+                        <a href="#">商品一覧</a>
+                        <a href="#" class="sub-link">雲南市</a>
+                        <a href="#" class="sub-link">浜田市</a>
+                        <a href="#" class="sub-link">出雲市</a>
+                        <a href="#">お問い合わせ</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="info-footer">
+                        受付時間：10:00~19:00 
+                    </p>
                 </div>
             </div>
             <hr class="hr-footer">
