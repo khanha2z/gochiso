@@ -371,6 +371,35 @@
   </div>
 </section>
 <section>
+    <div class="home-blog">
+        <div class="container">
+            <div class="main-title mx-auto">
+                <h2>Blog</h2>
+                <p>島根のブログ</p>
+            </div>
+            <div class="row pt-3">
+                {% assign blog_handle = 'blog' %}
+                {% assign blog = blogs[blog_handle] %}
+                {% for article in blog.articles %}
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="col-inner">
+                            <div class="box-blog-post">
+                                <div class="img-blog">
+                                    <img src="{{ article.image.src }}" alt="{{ article.image.alt }}">
+                                </div>
+                                <div class="box-text-blog">
+                                    <p class="date">{{ article.created_at | date: '%Y年%m月%d日'  }}</p>
+                                    <a href="{{ article.url }}">{{ article.title }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section>
   <div class="home-register">
       <div class="container">
         <div class="justify-content-center row">
