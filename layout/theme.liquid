@@ -1,158 +1,115 @@
 <!doctype html>
-<html>
+{%- capture dir -%}
+	{%- case request.locale.iso_code -%}
+	  {%- when 'ae' or 'ar' or 'arc' or 'bcc' or 'bqi' or 'ckb' or 'dv' or 'fa' or 'glk' or 'ha' or 'he' or 'kwh' or 'ks' or 'ku' or 'mzn' or 'nqo' or 'pnb' or 'ps' or 'sd' or 'ug' or 'ur' or 'yi' -%}
+	    rtl
+	  {%- else -%}
+	    ltr
+	{%- endcase -%}
+{%- endcapture -%}
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ dir }}">
 <head>
-  <title>{{ page_title }}</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="{{ page_description | escape }}">
-  <link rel="canonical" href="{{ canonical_url }}">
-  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  {{ content_for_header }} <!-- Header hook for plugins -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  {{ 'application.css' | asset_url | stylesheet_tag }}
-  {{ 'style.css' | asset_url | stylesheet_tag }}
-  {{ 'style-sm.css' | asset_url | stylesheet_tag }}
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" defer></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
-  <script src="{{ 'wow.min.js' | asset_url }}" defer></script>
-  <script src="{{ 'application.js' | asset_url }}" defer></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+	<meta name="theme-color" content="{{ settings.color_body_bg }}">
+	<link rel="canonical" href="{{ canonical_url }}">
+	<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+	{% render 'head-preload' %}
+
+	{% if settings.favicon != blank -%}
+		<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+	{%- endif %}
+
+	<title>
+	{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+	</title>
+
+	{% if page_description %}
+	<meta name="description" content="{{ page_description | escape }}">
+	{% endif %}
+
+	{%- unless settings.heading_font.system? and settings.body_font.system? -%}
+		<link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+	{%- endunless -%}
+
+	{% render 'social-meta-tags' %}
+
+	{{ 'app.css' | asset_url | stylesheet_tag }}
+
+	{% render 'head-variables' %}
+
+	<script>
+		window.theme = window.theme || {};
+		theme = {
+			settings: {
+				money_with_currency_format: {{- shop.money_format | json -}},
+				cart_drawer: {{- settings.cart_drawer -}},
+				product_id: {% if product %}{{ product.id }}{% else %}false{% endif %},
+			},
+			routes: {
+				root_url: '{{ routes.root_url }}',
+				cart_url: '{{ routes.cart_url }}',
+				cart_add_url: '{{ routes.cart_add_url }}',
+				search_url: '{{ routes.search_url }}',
+				cart_change_url: '{{ routes.cart_change_url }}',
+				cart_update_url: '{{ routes.cart_update_url }}',
+				predictive_search_url: '{{ routes.predictive_search_url }}',
+			},
+			variantStrings: {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+      },
+			strings: {
+				requiresTerms: `{{ 'sections.cart.terms_confirm' | t }}`,
+			}
+		};
+	</script>
+	{{ content_for_header }} <!-- Header hook for plugins -->
+
+	<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 </head>
-<body>
-    <header>
-      <div class="header-wrapper">
-          <div class="container wow fadeIn" data-wow-delay="0.1s">
-              <nav class="navbar navbar-expand-lg navbar-light wow fadeIn justify-content-between align-items-lg-start" data-wow-delay="0.1s">
-                  <a href="index.php" class="navbar-brand ms-4 ms-lg-0">
-                      <img src="{{ 'logo.png' | asset_url  }}" alt="mhmhm">
-                  </a>
-                  <div class="main-menu flex-col flex-right flex-grow">
-                      <div class="box-search-top">
-                          <a href="#"><img src="{{ 'icon-search.png' | asset_url  }}" alt=""></a>
-                          <a href="#"><img src="{{ 'icon-cart-1.svg' | asset_url  }}" alt=""></a>
-                      </div>
-                      <div class="navbar-nav nav-main">
-                          <a href="./#home" class="nav-item nav-link active">ホーム</a>
-                          <a href="#" class="nav-item nav-link">商品一覧</a>
-                          <a href="#" class="nav-item nav-link">雲南市</a>
-                          <a href="#" class="nav-item nav-link">浜田市</a>
-                          <a href="#" class="nav-item nav-link">出雲市</a>
-                          <a href="#" class="nav-item nav-link">お問い合わせ</a>
-                          <a href="#" class="nav-item nav-link">よくある質問</a>
-                      </div>
-                  </div>
-              </nav>
-          </div>
-      </div>
-      <div class="menu-pc ml-20 hide-for-small">
-          <div class="menu-pc-cont">
-              <div class="box-menu-pc">
-                  <div class="menu-pc-left">
-                      
-                  </div>
-                  <div class="menu-pc-right">
-                      <nav class="navbar navbar-expand-lg navbar-light wow fadeIn justify-content-between align-items-lg-start" data-wow-delay="0.1s">
-                          <div class="main-menu flex-col flex-right flex-grow">
-                              <div class="box-search-top">
-                                  <a href="#"><img src="{{ 'icon-search.png' | asset_url  }}" alt=""></a>
-                                  <a href="/cart"><img src="{{ 'icon-cart-1.svg' | asset_url  }}" alt=""></a>
-                              </div>
-                              <div class="navbar-nav nav-main">
-                                  <a href="./#home" class="nav-item nav-link active">ホーム</a>
-                                  <a href="#" class="nav-item nav-link">商品一覧</a>
-                                  <a href="#" class="nav-item nav-link">雲南市</a>
-                                  <a href="#" class="nav-item nav-link">浜田市</a>
-                                  <a href="#" class="nav-item nav-link">出雲市</a>
-                                  <a href="#" class="nav-item nav-link">お問い合わせ</a>
-                                  <a href="#" class="nav-item nav-link">よくある質問</a>
-                              </div>
-                          </div>
-                      </nav>
-                  </div>
-      
-              </div>
-          </div>
-      </div>
-      <a class="menu-btn" href="javascript:void(0)"><span></span><span></span><span></span></a>
-    </header>
-  {% comment %} {% for link in linklists.main-menu.links %}
-    {% assign child_list_handle = link.title | handleize %}
-    {% if linklists[child_list_handle].links != blank %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-      [{% for childlink in linklists[child_list_handle].links %}
-        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-      {% endfor %}]
-    {% else %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-    {% endif %}
-  {% endfor %}
+<body class="animations-{{ settings.animations }} button-uppercase-{{ settings.button_uppercase }} navigation-uppercase-{{ settings.navigation_uppercase }} product-title-uppercase-{{ settings.product_title_uppercase }}{% if customer %} customer-logged-in{% endif %} template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | replace: '.', '-' | handle }}">
+	<a class="screen-reader-shortcut" href="#main-content">{{ 'accessibility.skip_to_text' | t }}</a>
+	<div id="wrapper">
+		{% sections 'header-group' %}
+		<div role="main" id="main-content">
+			{{ content_for_layout }}
+		</div>
+		{% sections 'footer-group' %}
+		{% render 'cart-drawer' %}
+		{% render 'product-drawer' %}
+		{% render 'search-drawer' %}
+		<div class="click-capture"></div>
+	</div>
 
-
-  {% if shop.customer_accounts_enabled %}
-    {% if customer %}
-      <a href="/account">account</a>
-      {{ 'log out'  | customer_logout_link }}
-    {% else %}
-      {{ 'log in ' | customer_login_link }}
-      {{ 'register' | customer_register_link }}
-    {% endif %}
-  {% endif %} {% endcomment %}
-
-  <main role="main">
-    {{ content_for_layout }}
-  </main>
-  <footer>
-    <div class="footer">
-        <div class="container">
-            <div class="list-link-footer">
-                <a href="#">ホーム</a>
-                <a href="#">商品一覧</a>
-                <a href="#">雲南市</a>
-                <a href="#">浜田市</a>
-                <a href="#">出雲市</a>
-                <a href="#">おい問い合わせ</a>
-                <a href="#">よくある質問</a>
-            </div>
-            <div class="box-footer-logo pt-5">
-                <div class="logo text-center">
-                  <img src="{{ 'logo.png' | asset_url  }}" alt="mhmhm">
-                </div>
-            </div>
-            <hr class="hr-footer">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-sm-12">
-                    <div class="col-inner">
-                        <div class="footer-copyright">
-                            © 2024, ふるさとごちそうモール Powered by Shopify
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <div class="col-inner">
-                        <div class="list-pay">
-                            <img src="./assets/images/visa.png" alt="">
-                            <img src="./assets/images/apple.png" alt="">
-                            <img src="./assets/images/gg-pay.png" alt="">
-                            <img src="./assets/images/mastercard.png" alt="">
-                            <img src="./assets/images/amex.png" alt="">
-                            <img src="./assets/images/paypal.png" alt="">
-                            <img src="./assets/images/jcb.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="go-top">
-        <a href="#" class="btn-go-top">
-            <i class="fas fa-chevron-circle-up"></i>
-        </a>
-    </div>
-    
-</footer>
-</body>
+	{{ 'vendor.min.js' | asset_url | script_tag }}
+	{% if settings.animations %}
+		{{ 'animations.min.js' | asset_url | script_tag }}
+		<script>
+			gsap.defaults({
+				ease: Power4.easeOut
+			});
+			gsap.config({
+		    nullTargetWarn: false
+		  });
+			gsap.registerPlugin(ScrollTrigger);
+		</script>
+	{% endif %}
+	{% if settings.enable_quick_view or settings.enable_quick_add %}
+		{{ 'product.js' | asset_url | script_tag }}
+	{% endif %}
+	{{ 'slideshow.js' | asset_url | script_tag }}
+	{{ 'app.js' | asset_url | script_tag }}
+	<script type="module" src="{{ 'scroll-shadow.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+	{%- if request.design_mode -%}
+		{{ 'theme-editor.js' | asset_url | script_tag }}
+	{%- endif -%}
+	{%- if settings.cart_recommendations -%}
+	<script src="{{ 'product-recommendations.js' | asset_url }}" defer="defer"></script>
+	{%- endif -%}
+	{% render 'back-to-top' %}
+  </body>
 </html>

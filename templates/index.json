@@ -1,0 +1,563 @@
+{
+  "sections": {
+    "16479477632637c9a7": {
+      "type": "slideshow",
+      "blocks": {
+        "164794776393e76b8e-2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/broadcast-hero-gradient.jpg",
+            "slide_link": "",
+            "video_background": true,
+            "video": "",
+            "subheading": "",
+            "heading": "Affordable Luxury",
+            "heading_size": "h1",
+            "content": "Beautiful pieces to pass down for generations",
+            "description_size": "small",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_size": "large",
+            "overlay_color": "#000000",
+            "overlay_opacity": 58,
+            "overlay_gradient": "linear-gradient(349deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 69%)",
+            "button_1_text": "SHOP NOW",
+            "button_1_link": "shopify:\/\/collections",
+            "button_1_outline": true,
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_outline": false
+          }
+        },
+        "164794776393e76b8e-0": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "slide_link": "",
+            "video_background": false,
+            "video": "",
+            "subheading": "",
+            "heading": "Gently cooked and RAW collections",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "overlay_color": "#000000",
+            "overlay_opacity": 35,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_outline": true,
+            "button_2_text": "Shop now",
+            "button_2_link": "",
+            "button_2_outline": false
+          }
+        },
+        "164794776393e76b8e-1": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "slide_link": "",
+            "video_background": false,
+            "video": "",
+            "subheading": "",
+            "heading": "Like 5-STARS restaurant",
+            "heading_size": "h1-xlarge",
+            "content": "Tasty\nHealthy\nRecommended",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "overlay_color": "#000000",
+            "overlay_opacity": 45,
+            "overlay_gradient": "",
+            "button_1_text": "Shop NOW",
+            "button_1_link": "",
+            "button_1_outline": false,
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_outline": false
+          }
+        }
+      },
+      "block_order": [
+        "164794776393e76b8e-2",
+        "164794776393e76b8e-0",
+        "164794776393e76b8e-1"
+      ],
+      "custom_css": [
+        ".h1 {text-transform: uppercase;}"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "autoplay": true,
+        "autoplay_length": 6,
+        "transition": "swipe",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "scrolling_text_eVxEDc": {
+      "type": "scrolling-text",
+      "blocks": {
+        "text_PXMXWE": {
+          "type": "text",
+          "settings": {
+            "text": "Future Nature",
+            "link": "",
+            "outline_text": true
+          }
+        },
+        "text_MNhm89": {
+          "type": "text",
+          "settings": {
+            "text": "Future Nature",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_NzXPnJ": {
+          "type": "text",
+          "settings": {
+            "text": "Future Nature",
+            "link": "",
+            "outline_text": true
+          }
+        },
+        "text_8bT43p": {
+          "type": "text",
+          "settings": {
+            "text": "Future Nature",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_PXMXWE",
+        "text_MNhm89",
+        "text_NzXPnJ",
+        "text_8bT43p"
+      ],
+      "settings": {
+        "height": "height-auto",
+        "full_width": true,
+        "direction": "left",
+        "speed": "20s",
+        "text_size": 24,
+        "text_uppercase": true,
+        "image_size": "large",
+        "color_bg": "#d5c6bf",
+        "color_text": "#151515",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "scrolling_text_w6EXfN": {
+      "type": "scrolling-text",
+      "blocks": {
+        "text_a8bwCJ": {
+          "type": "text",
+          "settings": {
+            "text": "GET -10% OFF",
+            "link": "shopify:\/\/products\/test-1",
+            "outline_text": true
+          }
+        },
+        "text_jg6eik": {
+          "type": "text",
+          "settings": {
+            "text": "SALE",
+            "link": "",
+            "outline_text": true
+          }
+        },
+        "text_DGrtqU": {
+          "type": "text",
+          "settings": {
+            "text": "GET -50% OFF",
+            "link": "",
+            "outline_text": true
+          }
+        }
+      },
+      "block_order": [
+        "text_a8bwCJ",
+        "text_jg6eik",
+        "text_DGrtqU"
+      ],
+      "disabled": true,
+      "settings": {
+        "height": "height-auto",
+        "full_width": true,
+        "direction": "right",
+        "speed": "10s",
+        "text_size": 24,
+        "text_uppercase": true,
+        "image_size": "medium",
+        "color_bg": "#151515",
+        "color_text": "#f9f6ee",
+        "overlay_color": "#151515",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "46322c5c-3347-49a0-b4b9-a5f2ad634b2c": {
+      "type": "collection-tabs",
+      "blocks": {
+        "template--20690466865451__46322c5c-3347-49a0-b4b9-a5f2ad634b2c-collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "bestsellers-1"
+          }
+        },
+        "template--20690466865451__46322c5c-3347-49a0-b4b9-a5f2ad634b2c-collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "new"
+          }
+        }
+      },
+      "block_order": [
+        "template--20690466865451__46322c5c-3347-49a0-b4b9-a5f2ad634b2c-collection-1",
+        "template--20690466865451__46322c5c-3347-49a0-b4b9-a5f2ad634b2c-collection-2"
+      ],
+      "custom_css": [
+        ".h3 {display: none;}"
+      ],
+      "settings": {
+        "heading": ".",
+        "heading_left": false,
+        "description": "",
+        "full_width": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "show_view_all": false,
+        "show_progress_bar": true,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "shop_the_look_q3KkjV": {
+      "type": "shop-the-look",
+      "blocks": {
+        "product_NDkreb": {
+          "type": "product",
+          "settings": {
+            "product_handle": "charm-necklace-gold",
+            "x_position": 30,
+            "y_position": 49,
+            "x_position_mobile": 20,
+            "y_position_mobile": 20
+          }
+        },
+        "product_qp8LgB": {
+          "type": "product",
+          "settings": {
+            "product_handle": "",
+            "x_position": 20,
+            "y_position": 20,
+            "x_position_mobile": 20,
+            "y_position_mobile": 20
+          }
+        }
+      },
+      "block_order": [
+        "product_NDkreb",
+        "product_qp8LgB"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_6.webp",
+        "section_width": "grid",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_bFjfTR": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_pUmdPF": {
+          "type": "subheading",
+          "settings": {
+            "text": "Wonders of nature"
+          }
+        },
+        "heading_Nzw4yf": {
+          "type": "heading",
+          "settings": {
+            "text": "Aquamarine - Inspired by the divinity of nature",
+            "heading_size": "h3"
+          }
+        },
+        "text_tafjaJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get closer to nature with sheer elegance and refined natural shapes. The Aquamarine collection was purely inspired by the wonders of nature, enhanced with extra glamor.<\/p>",
+            "description_size": "medium"
+          }
+        },
+        "button_GRNVm9": {
+          "type": "button",
+          "settings": {
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/collections\/aquamarine"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_pUmdPF",
+        "heading_Nzw4yf",
+        "text_tafjaJ",
+        "button_GRNVm9"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/30.webp",
+        "use_video": false,
+        "video": "",
+        "video_autoplay": true,
+        "video_controls": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "section_width": "grid",
+        "layout": "text_first",
+        "content_position": "text-left",
+        "color_bg": "#d5c6bf",
+        "color_text": "#40495a",
+        "color_border": "#151515",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_qUXX4V": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_fUtbXV": {
+          "type": "subheading",
+          "settings": {
+            "text": "Wonders of nature"
+          }
+        },
+        "heading_NccMdU": {
+          "type": "heading",
+          "settings": {
+            "text": "Brooch - The enchanting spirit of pearls",
+            "heading_size": "h3"
+          }
+        },
+        "text_UpKD7J": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Immerse into the magical power of pearls. The Brooch collection was exquisitely crafted to make you feel confident and enchanting like a mermaid.<\/p>",
+            "description_size": "medium"
+          }
+        },
+        "button_temi7M": {
+          "type": "button",
+          "settings": {
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/collections\/test-2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_fUtbXV",
+        "heading_NccMdU",
+        "text_UpKD7J",
+        "button_temi7M"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/31.webp",
+        "use_video": false,
+        "video": "",
+        "video_autoplay": true,
+        "video_controls": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "section_width": "grid",
+        "layout": "image_first",
+        "content_position": "text-left",
+        "color_bg": "#d5c6bf",
+        "color_text": "#40495a",
+        "color_border": "#151515",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "collection_list_FaLtCA": {
+      "type": "collection-list",
+      "settings": {
+        "heading": "Explore Products by Category",
+        "heading_left": false,
+        "description": "<p>Discover a curated selection of top-quality products as you explore our diverse categories. <\/p>",
+        "full_width": true,
+        "collection_list": [
+          "test-2",
+          "aquamarine",
+          "new",
+          "bestsellers-1"
+        ],
+        "image_ratio": "adapt",
+        "layout": "grid",
+        "style": "style2",
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "show_progress_bar": true,
+        "mobile_swipe": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_overlay_7gjf94": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_fGAHQC": {
+          "type": "subheading",
+          "settings": {
+            "text": "About brand"
+          }
+        },
+        "heading_LLXxrz": {
+          "type": "heading",
+          "settings": {
+            "text": "The beautiful history of the Vensa brand",
+            "heading_size": "h1-large"
+          }
+        },
+        "text_qxQW6x": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Learn more About Brand and join a community that embraces authenticity, <br\/>craftsmanship, and a passion for delivering unparalleled experiences.<\/p>",
+            "description_size": "medium"
+          }
+        },
+        "button_9hn7Wg": {
+          "type": "button",
+          "settings": {
+            "button_text": "Learn more",
+            "button_link": "shopify:\/\/pages\/about-us",
+            "button_outline": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_fGAHQC",
+        "heading_LLXxrz",
+        "text_qxQW6x",
+        "button_9hn7Wg"
+      ],
+      "settings": {
+        "section_width": "full-width-row",
+        "image": "shopify:\/\/shop_images\/bg1-copyright.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "content_width": "medium",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "overlay_opacity": 48,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "gallery_fVYFiT": {
+      "type": "gallery",
+      "blocks": {
+        "image_YXUiLD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/10.png",
+            "subheading": "",
+            "title": "Sophia",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": true,
+            "block_link": ""
+          }
+        },
+        "image_NmtqBX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4.png",
+            "subheading": "",
+            "title": "Ethan",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": true,
+            "block_link": ""
+          }
+        },
+        "image_8Q6AaV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6.png",
+            "subheading": "",
+            "title": "Mason",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": true,
+            "block_link": ""
+          }
+        },
+        "image_a3egdf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7.png",
+            "subheading": "",
+            "title": "Olivia",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": true,
+            "block_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_YXUiLD",
+        "image_NmtqBX",
+        "image_8Q6AaV",
+        "image_a3egdf"
+      ],
+      "settings": {
+        "columns_desktop": 4,
+        "section_width": "full-width-row",
+        "mobile_swipe": false,
+        "image_ratio": "square",
+        "content_position": "bottom-left",
+        "text_alignment": "left",
+        "column_spacing": "small",
+        "heading_size": "h3",
+        "overlay_color": "#000000",
+        "overlay_opacity": 42,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "16479477632637c9a7",
+    "scrolling_text_eVxEDc",
+    "scrolling_text_w6EXfN",
+    "46322c5c-3347-49a0-b4b9-a5f2ad634b2c",
+    "shop_the_look_q3KkjV",
+    "image_with_text_bFjfTR",
+    "image_with_text_qUXX4V",
+    "collection_list_FaLtCA",
+    "image_with_text_overlay_7gjf94",
+    "gallery_fVYFiT"
+  ]
+}
