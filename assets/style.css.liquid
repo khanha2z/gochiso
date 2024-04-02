@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Shippori+Mincho&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Shippori+Mincho&family=Yuji+Syuku&display=swap');
 
 body{
     font-family: "Noto Sans JP", sans-serif;
@@ -357,8 +356,29 @@ a.btn.btn-main::after{
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
-    top: 30px;
+    top: -62px;
     left: -103px;
+}
+.home-region-left>h2 {
+    font-family: "Yuji Syuku", serif;
+    font-size: 36px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    letter-spacing: 0.7em;
+    text-indent: 0.7em;
+    padding-bottom: 8px;
+    position: relative;
+}
+
+.home-region-left>h2:after {
+    content: "";
+    width: calc(100% - 20px);
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    left: 10px;
+    bottom: 0;
 }
 .box-home-region.flex-row-reverse .home-region-right::after{
     left: auto;
