@@ -1,1 +1,199 @@
-test
+<section>
+    <div class="container">
+        <div class="about-01">
+            <div class="box-text-about">
+                <h2>About Shimane Furusato Gochiso Mall</h2>
+                <p>ふるさとごちそうモールとは</p>
+            </div>
+            <div class="box-text-ver">
+                <p>テキストテキストテキストテキ<br>
+                    テキストテキストテキスト<br>
+                    テキストテキストテキ<br>
+                    テキストテキストテキストテキ<br>
+                    テキストテキストテキス<br>
+                    テキストテキストテキストテキ
+                </p>
+                <p>テキストテキストテキストテキ<br>
+                    テキストテキストテキスト<br>
+                    テキストテキストテキ<br>
+                    テキストテキストテキストテキ<br>
+                    テキストテキストテキス<br>
+                    テキストテキストテキストテキ
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="info-shop">
+            <div class="main-title mx-auto">
+                <h2>Blog</h2>
+                <p>島根のブログ</p>
+            </div>
+            <div class="row pt-3">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="col-inner">
+                        <div class="box-info-shop">
+                            <div class="text-center">
+                                <img src="{{ 'icon-info.svg' | file_img_url: "master" }}">
+                            </div>
+                            <div class="title-info-shop"><span>40</span>sản phẩm</div>
+                            <p>テキストテキストテキストテキストテキストテキスト テキストテキストテキストテキストテキス </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="col-inner">
+                        <div class="box-info-shop">
+                            <div class="text-center">
+                                <img src="{{ 'icon-info.svg' | file_img_url: "master" }}">
+                            </div>
+                            <div class="title-info-shop"><span>40</span>sản phẩm</div>
+                            <p>テキストテキストテキストテキストテキストテキスト テキストテキストテキストテキストテキス </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="col-inner">
+                        <div class="box-info-shop">
+                            <div class="text-center">
+                                <img src="{{ 'icon-info.svg' | file_img_url: "master" }}">
+                            </div>
+                            <div class="title-info-shop"><span>40</span>sản phẩm</div>
+                            <p>テキストテキストテキストテキストテキストテキスト テキストテキストテキストテキストテキス </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="home-region">
+        <div class="container">
+            <div class="main-title mx-auto">
+                <h2>Regional specialties</h2>
+                <p>地域の特産品</p>
+            </div>
+            <div class="row pt-3">
+                {% for product in collections.frontpage.products limit:4 %}
+                  <div class="col-lg-3 col-sm-6">
+                    <div class="col-inner">
+                      <div class="box-product">
+                          <div class="img-product">
+                            <a href="{{ product.url | within: collection }}">
+                              <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                            </a>
+                          </div>
+                          <div class="box-title-product">
+                              <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                              <div class="price-product">
+                                  <p>{{ product.price | money }}</p><span>￥10,000 </span>
+                              </div>
+                          </div>
+                          <div class="box-rate-product">
+                              <div class="rate-product">
+                                  <div class="box-star">
+                                      <span class="fa fa-star checked"></span>
+                                      <span class="fa fa-star checked"></span>
+                                      <span class="fa fa-star checked"></span>
+                                      <span class="fa fa-star"></span>
+                                      <span class="fa fa-star"></span>
+                                      <p>(14件)</p>
+                                  </div>
+                                  <p><span>100</span>購入したアイテム</p>
+                              </div>
+                              <div class="box-btn-add-cart">
+                                  <a href="{{ product.url }}" class="btn btn-cart"><img src="{{"icon-cart.svg" | asset_url}}" ></a>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}  
+              </div>
+            <div class="pt-5">
+                <a href="#" class="btn btn-main btn-shop">続きを見る</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="home-news">
+        <div class="container">
+            <div class="main-title mx-auto">
+                <h2>News</h2>
+                <p>ニュース</p>
+            </div>
+            <div class="list-home-news mt-5">
+                <div class="news-item item-list biggerlink">
+                    <div class="date"><span>2024年00月00日</span></div>
+                    <div class="box-cat text-center">
+                        <a href="#" class="cat catid-1" title="">島根のニュース</a>
+                    </div>
+                    <div class="title">
+                        <a href="#" title="">テキストテキストテキストテキストテキストテキスト</a>
+                    </div>
+                </div>
+                <div class="news-item item-list biggerlink">
+                    <div class="date"><span>2024年00月00日</span></div>
+                    <div class="box-cat text-center">
+                        <a href="#" class="cat catid-1" title="">島根のニュース</a>
+                    </div>
+                    <div class="title">
+                        <a href="#" title="">テキストテキストテキストテキストテキストテキスト</a>
+                    </div>
+                </div>
+                <div class="news-item item-list biggerlink">
+                    <div class="date"><span>2024年00月00日</span></div>
+                    <div class="box-cat text-center">
+                        <a href="#" class="cat catid-1" title="">島根のニュース</a>
+                    </div>
+                    <div class="title">
+                        <a href="#" title="">テキストテキストテキストテキストテキストテキスト</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="about-gallery">
+        <div class="container">
+            <div class="main-title mx-auto">
+                <h2>Gallery</h2>
+                <p>島根のギャラリー</p>
+            </div>
+        </div>
+        <div class="container-fluid mt-4">
+            <div class="row gap-0">
+                <div class="col">
+                    <div class="img-gallery">
+                        <img src="{{ 'img-2.png' | file_img_url: "master" }}">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="img-gallery">
+                        <img src="{{ 'img-3.png' | file_img_url: "master" }}">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="img-gallery">
+                        <img src="{{ 'img-4.png' | file_img_url: "master" }}">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="img-gallery">
+                        <img src="{{ 'img-5.png' | file_img_url: "master" }}">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="img-gallery">
+                        <img src="{{ 'img-6.png' | file_img_url: "master" }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
