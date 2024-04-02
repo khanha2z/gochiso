@@ -385,7 +385,7 @@
                         <div class="col-inner">
                             <div class="box-blog-post">
                                 <div class="img-blog">
-                                    <img src="{{ article.image.src }}" alt="{{ article.image.alt }}">
+                                    <img src="{{ article | img_url: 'large' }}">
                                 </div>
                                 <div class="box-text-blog">
                                     <p class="date">{{ article.created_at | date: '%Y年%m月%d日'  }}</p>
