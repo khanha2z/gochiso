@@ -1146,4 +1146,19 @@ h3.title-jp {
     padding-top: 160px;
     position: relative;
     background: linear-gradient(0deg,#ffffeb,#fff6e0 48.4%,#ffedc7);
+    z-index: 1;
+}
+.page-header:after {
+    content: "";
+    width: 870px;
+    height: 410px;
+    background-image: url('{{ "izumo-2.png" | asset_url }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
 }
