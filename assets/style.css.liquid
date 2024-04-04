@@ -305,6 +305,7 @@ ul.slick-dots li.slick-active{
 }
 .box-home-region p {
     line-height: 2.81;
+    text-align: center;
 }
 img {
     max-width: 100%;
@@ -697,9 +698,12 @@ footer {
     z-index: -1;
 }
 .home-region-2 .box-home-region::after{
-    left: -140px;
-    right: auto;
-    background-image: url(../images/izumo-2.png);
+    right: 50%;
+    left: auto;
+    background-image: url('{{ "bg-home-region-2" | asset_url }}');
+}
+.box-home-region-3::after{
+    background-image: url('{{ "bg-home-region-2" | asset_url }}');
 }
 .page-about .box-home-region::after{
     display: none;
