@@ -1,7 +1,100 @@
-aaaaaaaaaaaaa
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
-{% endschema %}
+<header>
+  <div class="header-wrapper">
+      <div class="container wow fadeIn" data-wow-delay="0.1s">
+          <nav class="navbar navbar-expand-lg navbar-light wow fadeIn justify-content-between align-items-lg-start" data-wow-delay="0.1s">
+              <a href="index.php" class="navbar-brand ms-4 ms-lg-0">
+                  <img src="{{ 'logo.png' | asset_url  }}" alt="">
+              </a>
+              <div class="main-menu flex-col flex-right flex-grow">
+                <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
+                  {% render 'header-search', input_id: 'Search-In-Modal' %}
+            
+                  {%- if shop.customer_accounts_enabled -%}
+                    <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
+                      {% render 'icon-account' %}
+                      <span class="visually-hidden">
+                        {%- liquid
+                          if customer
+                            echo 'Account'
+                          else
+                            echo 'Login'
+                          endif
+                        -%}
+                      </span>
+                    </a>
+                  {%- endif -%}
+            
+                  {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                      {%- when '@app' -%}
+                        {% render block %}
+                    {%- endcase -%}
+                  {%- endfor -%}
+            
+                  <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+                    {%- liquid
+                      if cart == empty
+                        render 'icon-cart-empty'
+                      else
+                        render 'icon-cart'
+                      endif
+                    -%}
+                    <span class="visually-hidden">Card</span>
+                    {%- if cart != empty -%}
+                      <div class="cart-count-bubble">
+                        {%- if cart.item_count < 100 -%}
+                          <span aria-hidden="true">{{ cart.item_count }}</span>
+                        {%- endif -%}
+                        <span class="visually-hidden">{{ count: cart.item_count }}</span>
+                      </div>
+                    {%- endif -%}
+                  </a>
+                </div>
+                  {% comment %} <div class="box-search-top">
+                      <a href="#"><img src="{{ 'icon-search.png' | asset_url  }}" alt=""></a>
+                      <a href="#"><img src="{{ 'icon-cart-1.svg' | asset_url  }}" alt=""></a>
+                  </div> {% endcomment %}
+                  <div class="navbar-nav nav-main">
+                      <a href="./#home" class="nav-item nav-link active">ホーム</a>
+                      <a href="#" class="nav-item nav-link">商品一覧</a>
+                      <a href="#" class="nav-item nav-link">雲南市</a>
+                      <a href="#" class="nav-item nav-link">浜田市</a>
+                      <a href="#" class="nav-item nav-link">出雲市</a>
+                      <a href="#" class="nav-item nav-link">お問い合わせ</a>
+                      <a href="#" class="nav-item nav-link">よくある質問</a>
+                  </div>
+              </div>
+          </nav>
+      </div>
+  </div>
+  <div class="menu-pc ml-20 hide-for-small">
+      <div class="menu-pc-cont">
+          <div class="box-menu-pc">
+              <div class="menu-pc-left">
+                  
+              </div>
+              <div class="menu-pc-right">
+                  <nav class="navbar navbar-expand-lg navbar-light wow fadeIn justify-content-between align-items-lg-start" data-wow-delay="0.1s">
+                      <div class="main-menu flex-col flex-right flex-grow">
+                          <div class="box-search-top">
+                              <a href="#"><img src="{{ 'icon-search.png' | asset_url  }}" alt=""></a>
+                              <a href="/cart"><img src="{{ 'icon-cart-1.svg' | asset_url  }}" alt=""></a>
+                          </div>
+                          <div class="navbar-nav nav-main">
+                              <a href="./#home" class="nav-item nav-link active">ホーム</a>
+                              <a href="#" class="nav-item nav-link">商品一覧</a>
+                              <a href="#" class="nav-item nav-link">雲南市</a>
+                              <a href="#" class="nav-item nav-link">浜田市</a>
+                              <a href="#" class="nav-item nav-link">出雲市</a>
+                              <a href="#" class="nav-item nav-link">お問い合わせ</a>
+                              <a href="#" class="nav-item nav-link">よくある質問</a>
+                          </div>
+                      </div>
+                  </nav>
+              </div>
+  
+          </div>
+      </div>
+  </div>
+  <a class="menu-btn" href="javascript:void(0)"><span></span><span></span><span></span></a>
+</header>
