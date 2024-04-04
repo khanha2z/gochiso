@@ -1207,7 +1207,7 @@ h3.title-jp {
     left: 0;
     height: 245px;
     animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-    z-index: 1;
+    z-index: 3;
 }
 .bg-anim-2{
     background-image: url('{{ "bg-2.png" | asset_url }}');
@@ -1221,6 +1221,7 @@ h3.title-jp {
     height: 272px;
     animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
     z-index: 2;
+    animation-delay: 3s;
 }
 .bg-anim-3{
     background-image: url('{{ "bg-3.png" | asset_url }}');
@@ -1233,7 +1234,8 @@ h3.title-jp {
     left: 0;
     height: 403px;
     animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-    z-index: 3;
+    z-index: 1;
+    animation-delay: 6s;
 }
 @keyframes wave {
     0% {
