@@ -1055,6 +1055,8 @@ a.menu-btn.open {
 }
 .img-banner {
     text-align: center;
+    position: relative;
+    z-index: 4;
 }
 
 .cloud-1 {
@@ -1197,20 +1199,47 @@ h3.title-jp {
 .bg-anim-1{
     background-image: url('{{ "bg-1.png" | asset_url }}');
     background-repeat: repeat-x;
-    background-size: 1000px auto;
+    background-size: 1440px auto;
     background-position: bottom;
     position: absolute;
     width: 100%;
     bottom: 0;
     left: 0;
     height: 245px;
-    animation: wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    z-index: 1;
+}
+.bg-anim-2{
+    background-image: url('{{ "bg-2.png" | asset_url }}');
+    background-repeat: repeat-x;
+    background-size: 1440px auto;
+    background-position: bottom;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 272px;
+    animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    z-index: 2;
+}
+.bg-anim-3{
+    background-image: url('{{ "bg-3.png" | asset_url }}');
+    background-repeat: repeat-x;
+    background-size: 1440px auto;
+    background-position: bottom;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 403px;
+    animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    z-index: 3;
 }
 @keyframes wave {
     0% {
-    background-position-x: 0%;
+        background-position-x: 0%;
     }
     100% {
-    background-position-x: -1000px;
+        background-position-x: -1440px;
     }
 }
