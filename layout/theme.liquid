@@ -23,7 +23,7 @@
   <script src="{{ 'application.js' | asset_url }}" defer></script>
 </head>
 <body>
-    {{ sections 'header' }} 
+    {% section 'header' %}
   {% comment %} {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
     {% if linklists[child_list_handle].links != blank %}
