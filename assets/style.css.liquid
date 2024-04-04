@@ -1219,7 +1219,7 @@ h3.title-jp {
     bottom: 0;
     left: 0;
     height: 272px;
-    animation: wave 14s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation: wave2 14s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
     z-index: 2;
     animation-delay: 0.2s;
 }
@@ -1243,6 +1243,14 @@ h3.title-jp {
     }
     100% {
         background-position-x: -1440px;
+    }
+}
+@keyframes wave2 {
+    0% {
+        background-position-x: -1440px;
+    }
+    100% {
+        background-position-x: 0%;
     }
 }
 .home-register{
