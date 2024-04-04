@@ -2540,6 +2540,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 /* Header icons */
 .header__icons {
   display: flex;
+  justify-content: flex-end;
   grid-area: icons;
   justify-self: end;
   padding-right: 0.8rem;
