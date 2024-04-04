@@ -280,43 +280,8 @@ ul.slick-dots li.slick-active{
     left: 50%;
     top: 0;
 }
-.home-region-left {
-    width: 522px;
-    padding-right: 34px;
-    padding-top: 46px;
-    padding-bottom: 32px;
-    position: relative;
-    color: #fff;
-}
-.home-region-left::after{
-    content: "";
-    width: calc(50vw - 70px);
-    height: 100%;
-    background-color: #00A991;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-}
 
-.home-region-right {
-    width: calc(100% - 522px);
-    position: relative;
-    height: 450px;
-}
-.home-region-img {
-    position: absolute;
-    width: calc(50vw + 63px);
-    height: 450px;
-    left: 0;
-    top: 0;
-}
-.home-region-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.home-region-left p {
+.box-home-region p {
     line-height: 2.81;
 }
 img {
@@ -364,7 +329,7 @@ a.btn.btn-main::after{
     top: -62px;
     left: -103px;
 }
-.home-region-left>h2 {
+.box-home-region>h2 {
     font-family: "Yuji Syuku", serif;
     font-size: 36px;
     text-align: center;
@@ -376,7 +341,7 @@ a.btn.btn-main::after{
     position: relative;
 }
 
-.home-region-left>h2:after {
+.box-home-region>h2:after {
     content: "";
     width: calc(100% - 20px);
     height: 1px;
@@ -497,11 +462,11 @@ a.btn.btn-main.btn-shop::before{
     right: 24px;
 }
 
-.box-home-region.flex-row-reverse .home-region-left::after {
+.box-home-region.flex-row-reverse .box-home-region::after {
     left: 0;
 }
 
-.box-home-region.flex-row-reverse .home-region-left {
+.box-home-region.flex-row-reverse .box-home-region {
     padding-left: 32px;
     padding-right: 0;
 }
@@ -1082,7 +1047,7 @@ a.menu-btn.open {
     padding-top: 32px;
 }
 @media (max-width: 1210px) {
-    .home-region-left:after{
+    .box-home-region:after{
         width: 50vw;
     }
 }
