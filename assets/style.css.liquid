@@ -266,6 +266,7 @@ ul.slick-dots li.slick-active{
     max-width: 1010px;
     margin: 0 auto;
     min-height: 375px;
+    margin-top: 48px;
 }
 .box-home-region::after{
     content: "";
@@ -280,7 +281,28 @@ ul.slick-dots li.slick-active{
     left: 50%;
     top: 0;
 }
-
+.box-home-region::before{
+    content: "";
+    width: 221px;
+    height: 201px;
+    background-image: url('{{ "hoa-2.png" | asset_url }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+    left: -107px;
+    bottom: -40px;
+}
+.box-home-region-2::before{
+    background-image: url('{{ "hoa-3.png" | asset_url }}');
+    height: 185px;
+}
+.box-home-region-3::before{
+    background-image: url('{{ "hoa-4.png" | asset_url }}');
+    width: 287px;
+    height: 301px;
+}
 .box-home-region p {
     line-height: 2.81;
 }
