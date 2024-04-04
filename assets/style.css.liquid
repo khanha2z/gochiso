@@ -1204,7 +1204,7 @@ h3.title-jp {
     bottom: 0;
     left: 0;
     height: 245px;
-    animation: wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation: swell 5s ease -1.25s infinite, wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite;
 }
 @keyframes wave {
     0% {
@@ -1214,3 +1214,11 @@ h3.title-jp {
     background-position-x: -500px;
     }
 }
+@keyframes swell {
+    0%, 100% {
+    background-position: right bottom 10px;
+    }
+    50% {
+    background-position: right bottom 0;
+    }
+    }
