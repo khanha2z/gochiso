@@ -1195,16 +1195,22 @@ h3.title-jp {
     z-index: -1;
 }
 .bg-anim-1{
-    background: url('{{ "bg-1.png" | asset_url }}') repeat-x;
+    background-image: url('{{ "bg-1.png" | asset_url }}');
+    background-repeat: repeat-x;
+    background-size: 500px auto;
+    background-position: bottom;
     position: absolute;
-    width: 6400px;
+    width: 100%;
     bottom: 0;
     left: 0;
     height: 245px;
-    transform: translate(0, 0, 0);
-    animation: wave 7s ease infinite;
+    animation: wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
 }
 @keyframes wave {
-    0% { margin-left: 0; }
-    100% { margin-left: -1600px;}
-  }
+    0% {
+    background-position-x: 0%;
+    }
+    100% {
+    background-position-x: -500px;
+    }
+}
