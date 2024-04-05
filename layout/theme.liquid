@@ -137,7 +137,7 @@
   {{ 'style.css' | asset_url | stylesheet_tag }}
   {{ 'style-sm.css' | asset_url | stylesheet_tag }}
 </head>
-<body {% if template.name == "index" %} class="home" {% endif %} {% if template.name == "page.about" %} class="page-about" {% endif %}>
+<body  class="{% if template.name == "index" %} home {% endif %} {% if template.name == "page.about" %} page-about {% endif %}">
     {% section 'header' %}
 
   <main role="main">
