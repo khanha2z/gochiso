@@ -1266,3 +1266,47 @@ h3.title-jp {
     position: relative;
     z-index: 4;
 }
+.breadcrums {
+    position: relative;
+    padding: 20px 0 10px;
+}
+
+.breadcrums ul {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.breadcrums ul li>a {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #666666;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-decoration: underline;
+}
+
+.breadcrums ul li {
+    position: relative;
+}
+
+.breadcrums ul li:not(:last-child) {
+    margin-right: 30px;
+}
+
+.breadcrums ul li span {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #666666;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.breadcrums ul li:not(:nth-last-child(1)):after {
+    content: ">";
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    right: -21px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1;
+}
