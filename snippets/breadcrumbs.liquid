@@ -1,4 +1,5 @@
 {{ 'breadcrumbs.css' | asset_url | stylesheet_tag }}
+<div class="container">
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <a href="{{ routes.root_url }}">Top</a>
   {% if collection.url %}
@@ -45,3 +46,4 @@
     {{ 'sections.breadcrumbs.my_account' | t }}
   {% endif %}
 </nav>
+</div>
