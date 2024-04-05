@@ -12,12 +12,13 @@
       {{ collection.title }}
     {% endif %}
     {% if template contains 'cart' %}
-      <i>/</i>
-      {{ 'sections.breadcrumbs.cart' | t }}
+      <li>
+      <span>
+      {{ 'sections.breadcrumbs.cart' | t }}</span></li>
     {% endif %}
     {% if template contains 'product' %}
-      <i>/</i>
-      {{ product.title }}
+      <span>
+      {{ product.title }}</span>
     {% endif %}
     {% if template contains 'blog' %}
       {% if current_tags %}
@@ -36,16 +37,16 @@
       {{ article.title }}
     {% endif %}
     {% if template contains 'page' %}
-      <li>
-      {{ page.title }}</li>
+      <li><span>
+      {{ page.title }}</span></li>
     {% endif %}
     {% if template contains 'search' %}
-      <li>
-      {{ 'sections.breadcrumbs.search' | t }}</li>
+      <li><span>
+      {{ 'sections.breadcrumbs.search' | t }}</span></li>
     {% endif %}
     {% if template contains 'customers' %}
-      <li>
-      {{ 'sections.breadcrumbs.my_account' | t }}</li>
+      <li><span>
+      {{ 'sections.breadcrumbs.my_account' | t }}<span></li>
     {% endif %}
   </ul>
 </div>
