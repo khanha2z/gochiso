@@ -1,6 +1,6 @@
 {{ 'breadcrumbs.css' | asset_url | stylesheet_tag }}
 <nav class="breadcrumbs" aria-label="breadcrumbs">
-  <a href="{{ routes.root_url }}">{{ 'sections.breadcrumbs.home' | t }}</a>
+  <a href="{{ routes.root_url }}">Top</a>
   {% if collection.url %}
 		<i>/</i>
 		<a href="{{ routes.all_products_collection_url }}">{{ 'sections.breadcrumbs.shop' | t }}</a>
