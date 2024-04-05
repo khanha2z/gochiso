@@ -1,6 +1,7 @@
 {{ 'breadcrumbs.css' | asset_url | stylesheet_tag }}
 <div class="container">
-  <ul class="breadcrumbs" aria-label="breadcrumbs">
+  <div class="breadcrumbs">
+  <ul  aria-label="breadcrumbs">
     <li>
       <a href="{{ routes.root_url }}">Top</a>
     </li>
@@ -47,4 +48,5 @@
       {{ 'sections.breadcrumbs.my_account' | t }}</li>
     {% endif %}
   </ul>
+</div>
 </div>
