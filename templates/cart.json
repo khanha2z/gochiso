@@ -3,8 +3,8 @@
     "page-header": {
       "type": "page-header",
       "settings": {
-        "title-en": "Cart",
-        "title-jp": "カート一覧"
+        "title_en": "Cart",
+        "title_jp": "カート一覧"
       }
     },
     "cart-items": {
