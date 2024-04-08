@@ -1,0 +1,41 @@
+<section>
+    <div class="page-header">
+        <div class="container">
+            <div class="cloud-1">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <div class="cloud-2">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <div class="cloud-3">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <div class="cloud-4">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <h2 class="title-en">{{ section.settings.title-en }}</h2>
+            <h3 class="title-jp">{{ section.settings.title-jp }}</h3>
+        </div>
+    </div>
+</section>
+  
+{% schema %}
+  {
+    "name": "t:sections.page-header.name",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title-en",
+            "label": "Title EN"
+        },
+        {
+            "type": "text",
+            "id": "title-jp",
+            "label": "Title JP"
+        }
+    ]
+  }
+{% endschema %}
+  
