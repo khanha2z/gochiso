@@ -7,9 +7,6 @@
         "title_jp": "カート一覧"
       }
     },
-    "banner-section": {
-      "type": "banner-section"
-    },
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
@@ -42,7 +39,7 @@
     }
   },
   "order": [
-    "banner-section",
+    "page-header",
     "cart-items",
     "cart-footer"
   ]
