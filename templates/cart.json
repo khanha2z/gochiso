@@ -1,5 +1,12 @@
 {
   "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title-en": "Cart",
+        "title-jp": "カート一覧"
+      }
+    },
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
