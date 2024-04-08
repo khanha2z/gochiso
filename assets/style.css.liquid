@@ -207,7 +207,7 @@ ul.slick-dots li.slick-active{
     content: "";
     width: 179px;
     height: 160px;
-    background-image: url(../images/shimane1.png);
+    background-image: url('{{ "shimane1.png" | asset_url }}');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -219,7 +219,7 @@ ul.slick-dots li.slick-active{
     content: "";
     width: 208px;
     height: 156px;
-    background-image: url(../images/shimane4.png);
+    background-image: url('{{ "shimane4.png" | asset_url }}');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -387,6 +387,7 @@ a.btn.btn-main {
 }
 .img-product img {
     border-radius: 8px;
+    width: 100%;
 }
 
 .box-title-product {
@@ -1102,7 +1103,7 @@ a.menu-btn.open {
 }
 .img-blog img {
     border-radius: 10px;
-    /* background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.50) 100%) lightgray 50% / cover no-repeat; */
+    width: 100%;
 }
 
 .img-blog {
