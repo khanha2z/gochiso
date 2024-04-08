@@ -32,6 +32,33 @@ body{
     padding-top: 28px;
     margin-right: 20px;
     position: relative;
+    height: fit-content;
+}
+.navbar-nav.nav-main>a::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 25px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+@media(min-width:768px) {
+    .navbar-nav.nav-main>a:hover:before {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
 }
 .navbar-nav.nav-main a::after{
     content: "";
