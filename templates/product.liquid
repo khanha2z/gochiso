@@ -1,0 +1,429 @@
+{% comment %} {% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+<img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+{% for image in product.images %}
+  <a href="{{ image.src | img_url: 'large' }}">
+    <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+  </a>
+{% endfor %}
+<h1>{{ product.title }}</h1>
+<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+  <select name="id" id="productSelect">
+    {% for variant in product.variants %}
+      {% if variant.available %}
+        <option value="{{ variant.id }}">
+          {{ variant.title }} - {{ variant.price | money_with_currency }}
+        </option>
+      {% else %}
+        <option disabled="disabled">
+          {{ variant.title }} - sold out
+        </option>
+      {% endif %}
+    {% endfor %}
+  </select>
+  {{ current_variant.price | money }}
+  <label for="Quantity">quantity</label>
+  <input type="number" id="Quantity" name="quantity" value="1" min="1">
+  <button type="submit" name="add" id="AddToCart">Add to cart</button>
+</form>
+<div>{{ product.description }}</div> {% endcomment %}
+
+<section id="selling-product">
+  <div class="container px-3 px-md-5 padding-medium">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="row g-2">
+                  <div class="col-md-3 d-none d-lg-flex">
+                      <!-- product-thumbnail-slider -->
+                      <div class="swiper product-thumbnail-slider">
+                          <div class="swiper-wrapper">
+                              {% for image in product.images %}
+                                <div class="swiper-slide">
+                                  <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                                </div>
+                              {% endfor %}
+                          </div>
+                      </div>
+                      <!-- / product-thumbnail-slider -->
+                  </div>
+                  <div class="col-md-9">
+                      <!-- product-large-slider -->
+                      <div class="swiper product-large-slider">
+                          <div class="swiper-wrapper">
+                              {% for image in product.images %}
+                                <div class="swiper-slide">
+                                  <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                                </div>
+                              {% endfor %}
+                          </div>
+                      </div>
+                  </div>
+                      <!-- / product-large-slider -->
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="product-info">
+                  <div class="element-header">
+                      <h2 itemprop="name" class="title-product">のどぐろ煮付4食セット（特製だし付）</h2>
+                      <div class="rating-container d-flex gap-0 align-items-center">
+                          <div class="box-star">
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star"></span>
+                              <span class="fa fa-star"></span>
+                              <p>5.0</p>
+                          </div>
+                      </div>
+                  </div>
+                  <hr>
+                  <p class="product-des">手のひらサイズののどぐろを使っておりますので料理のメインの一品としてお使い頂けます。日本海産ののどぐろ煮付が簡単に召し上がって頂けます。「簡単な調理の仕方」を同封いたします。</p>
+                  <div class="product-price pt-3 pb-3">
+                      <strong>{{ current_variant.price | money }}</strong><del class="ms-2">{{ variant.price | money_with_currency }}</del>
+                  </div>
+                  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+                    {% comment %} <label for="Quantity">quantity</label> {% endcomment %}
+                    {% comment %} <input type="number" id="Quantity" name="quantity" value="1" min="1"> {% endcomment %}
+                    <div
+                        id="Quantity-Form-{{ section.id }}"
+                        class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                        {{ block.shopify_attributes }}
+                      >
+                        {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
+                        {% # theme-check-disable %}
+                        {%- assign cart_qty = cart
+                          | item_count_for_variant: product.selected_or_first_available_variant.id
+                        -%}
+                        {% # theme-check-enable %}
+                        <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+                          {{ 'products.product.quantity.label' | t }}
+                          <span class="quantity__rules-cart no-js-hidden{% if cart_qty == 0 %} hidden{% endif %}">
+                            {%- render 'loading-spinner' -%}
+                            <span
+                              >(
+                              {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
+                              )</span
+                            >
+                          </span>
+                        </label>
+                        <div class="price-per-item__container">
+                          <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                            <button class="quantity__button no-js-hidden" name="minus" type="button">
+                              <span class="visually-hidden">
+                                {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                              </span>
+                              {% render 'icon-minus' %}
+                            </button>
+                            <input
+                              class="quantity__input"
+                              type="number"
+                              name="quantity"
+                              id="Quantity-{{ section.id }}"
+                              data-cart-quantity="{{ cart_qty }}"
+                              data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                              min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                              {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                                data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                                max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                              {% endif %}
+                              step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                              value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                              form="{{ product_form_id }}"
+                            >
+                            <button class="quantity__button no-js-hidden" name="plus" type="button">
+                              <span class="visually-hidden">
+                                {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                              </span>
+                              {% render 'icon-plus' %}
+                            </button>
+                          </quantity-input>
+                          {%- liquid
+                            assign volume_pricing_array = product.selected_or_first_available_variant.quantity_price_breaks | sort: 'quantity' | reverse
+                            assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.min
+                            if cart_qty > 0
+                              assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.increment
+                            endif
+                          -%}
+                          {%- if product.quantity_price_breaks_configured? -%}
+                            <price-per-item
+                              class="no-js-hidden"
+                              id="Price-Per-Item-{{ section.id }}"
+                              data-section-id="{{ section.id }}"
+                              data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                            >
+                              {%- if product.selected_or_first_available_variant.quantity_price_breaks.size > 0 -%}
+                                {%- assign variant_price_compare = product.selected_or_first_available_variant.compare_at_price -%}
+                                <div class="price-per-item">
+                                  {%- if variant_price_compare -%}
+                                    <dl class="price-per-item--current">
+                                      <dt class="visually-hidden">
+                                        {{ 'products.product.price.regular_price' | t }}
+                                      </dt>
+                                      <dd>
+                                        <s class="variant-item__old-price">
+                                          {{ variant_price_compare | money_with_currency }}
+                                        </s>
+                                      </dd>
+                                    </dl>
+                                  {%- endif -%}
+                                  {%- if current_qty_for_volume_pricing < volume_pricing_array.last.minimum_quantity -%}
+                                    {%- assign variant_price = product.selected_or_first_available_variant.price
+                                      | money_with_currency
+                                    -%}
+                                    <span class="price-per-item--current">
+                                      {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
+                                    </span>
+                                  {%- else -%}
+                                    {%- for price_break in volume_pricing_array -%}
+                                      {%- if current_qty_for_volume_pricing >= price_break.minimum_quantity -%}
+                                        {%- assign price_break_price = price_break.price | money_with_currency -%}
+                                        <span class="price-per-item--current">
+                                          {{-
+                                            'products.product.volume_pricing.price_at_each'
+                                            | t: price: price_break_price
+                                          -}}
+                                        </span>
+                                        {%- break -%}
+                                      {%- endif -%}
+                                    {%- endfor -%}
+                                  {%- endif -%}
+                                </div>
+                              {%- else -%}
+                                {%- assign variant_price = product.selected_or_first_available_variant.price
+                                  | money_with_currency
+                                -%}
+                                {%- assign variant_price_compare = product.selected_or_first_available_variant.compare_at_price -%}
+                                <div class="price-per-item">
+                                  {%- if variant_price_compare -%}
+                                    <dl class="price-per-item--current">
+                                      <dt class="visually-hidden">
+                                        {{ 'products.product.price.regular_price' | t }}
+                                      </dt>
+                                      <dd>
+                                        <s class="variant-item__old-price">
+                                          {{ variant_price_compare | money_with_currency }}
+                                        </s>
+                                      </dd>
+                                      <dt class="visually-hidden">
+                                        {{ 'products.product.price.sale_price' | t }}
+                                      </dt>
+                                      <dd>
+                                        <span class="price-per-item--current">
+                                          {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
+                                        </span>
+                                      </dd>
+                                    </dl>
+                                  {%- else -%}
+                                    <span class="price-per-item--current">
+                                      {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
+                                    </span>
+                                  {%- endif -%}
+                                </div>
+                              {%- endif -%}
+                            </price-per-item>
+                          {%- endif -%}
+                        </div>
+                        <div class="quantity__rules caption no-js-hidden" id="Quantity-Rules-{{ section.id }}">
+                          {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
+                            <span class="divider">
+                              {{-
+                                'products.product.quantity.multiples_of'
+                                | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment
+                              -}}
+                            </span>
+                          {%- endif -%}
+                          {%- if product.selected_or_first_available_variant.quantity_rule.min > 1 -%}
+                            <span class="divider">
+                              {{-
+                                'products.product.quantity.minimum_of'
+                                | t: quantity: product.selected_or_first_available_variant.quantity_rule.min
+                              -}}
+                            </span>
+                          {%- endif -%}
+                          {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
+                            <span class="divider">
+                              {{-
+                                'products.product.quantity.maximum_of'
+                                | t: quantity: product.selected_or_first_available_variant.quantity_rule.max
+                              -}}
+                            </span>
+                          {%- endif -%}
+                        </div>
+                        {%- if product.quantity_price_breaks_configured? -%}
+                          <volume-pricing class="parent-display no-js-hidden" id="Volume-{{ section.id }}">
+                            {%- if product.selected_or_first_available_variant.quantity_price_breaks.size > 0 -%}
+                              <span class="caption-large">{{ 'products.product.volume_pricing.title' | t }}</span>
+                              <ul class="list-unstyled no-js-hidden">
+                                <li>
+                                  <span>{{ product.selected_or_first_available_variant.quantity_rule.min }}+</span>
+                                  {%- assign price = product.selected_or_first_available_variant.price
+                                    | money_with_currency
+                                  -%}
+                                  <span data-text="{{ 'products.product.volume_pricing.price_at_each' | t: price: variant_price }}">
+                                    {{- 'sections.quick_order_list.each' | t: money: price -}}
+                                  </span>
+                                </li>
+                                {%- for price_break in product.selected_or_first_available_variant.quantity_price_breaks -%}
+                                  {%- assign price_break_price = price_break.price | money_with_currency -%}
+                                  <li class="{%- if forloop.index >= 3 -%}show-more-item hidden{%- endif -%}">
+                                    <span>
+                                      {{- price_break.minimum_quantity -}}
+                                      <span aria-hidden="true">+</span></span
+                                    >
+                                    <span data-text="{{ 'products.product.volume_pricing.price_at_each' | t: price: price_break_price }}">
+                                      {{- 'sections.quick_order_list.each' | t: money: price_break_price -}}
+                                    </span>
+                                  </li>
+                                {%- endfor -%}
+                              </ul>
+                              {%- if product.selected_or_first_available_variant.quantity_price_breaks.size >= 3 -%}
+                                <show-more-button>
+                                  <button
+                                    class="button-show-more link underlined-link"
+                                    id="Show-More-{{ section.id }}"
+                                    type="button"
+                                  >
+                                    <span class="label-show-more label-text"
+                                      ><span aria-hidden="true">+ </span>{{ 'products.facets.show_more' | t }}
+                                    </span>
+                                  </button>
+                                </show-more-button>
+                              {%- endif -%}
+                            {%- endif -%}
+                          </volume-pricing>
+                        {%- endif -%}
+                      </div>
+                    <div class="cart-wrap">
+                        <div class="product-quantity pt-2">
+                            <div class="stock-button-wrap">
+                                <div class="d-flex flex-wrap">
+                                    <div class="input-group product-qty align-items-center w-75 me-3">
+                                        <span class="input-group-btn">
+                                            <button type="button"
+                                                class="quantity-left-minus btn btn-light btn-number"
+                                                data-type="minus">
+                                                -
+                                            </button>
+                                        </span>
+                                        <input type="text" id="quantity" name="quantity"
+                                            class="form-control input-number text-center p-2 mx-1" value="1">
+                                        <span class="input-group-btn">
+                                            <button type="button"
+                                                class="quantity-right-plus btn btn-light btn-number"
+                                                data-type="plus" data-field="">
+                                                +
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-product-button">
+                        <button type="submit" name="add" id="AddToCart">カートに入れる</button>
+                        <a href="#" class="buy-now">で購入</a>
+                    </div>
+                  </form>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+      <div class="product-infor">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div class="col-inner">
+                      <nav>
+                          <div class="nav nav-underline d-flex" id="nav-tab" role="tablist">
+                              <button class="nav-link fw-semibold text-uppercase px-4 py-3 active text-black" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">製品説明</button>
+                              <button class="nav-link fw-semibold text-uppercase px-4 py-3 text-black" id="nav-information-tab" data-bs-toggle="tab" data-bs-target="#nav-information" type="button" role="tab" aria-controls="nav-information" aria-selected="false" tabindex="-1">評価する</button>
+                          </div>
+                      </nav>
+                      <div class="tab-content py-3" id="nav-tabContent">
+                          <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            {{ product.description }}
+                          </div>
+                          <div class="tab-pane fade" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
+                            {{ product.description }}
+                          </div>
+                        </div>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="col-inner">
+                      <h5 class="title-side">他の製品</h5>
+                      <div class="row pt-2">
+                          <div class="col-lg-12">
+                              <div class="col-inner">
+                                  <div class="box-product">
+                                      <div class="img-product">
+                                          <img src="./assets/images/img-product.png" alt="">
+                                      </div>
+                                      <div class="box-title-product">
+                                          <a href="#">奥出雲和牛肩ロースすき焼き用 600g</a>
+                                          <div class="price-product">
+                                              <p>¥1,230</p><span>￥10,000 </span>
+                                          </div>
+                                      </div>
+                                      <div class="box-rate-product">
+                                          <div class="rate-product">
+                                              <div class="box-star">
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star"></span>
+                                                  <span class="fa fa-star"></span>
+                                                  <p>(14件)</p>
+                                              </div>
+                                              <p><span>100</span>購入したアイテム</p>
+                                          </div>
+                                          <div class="box-btn-add-cart">
+                                              <a href="#" class="btn btn-cart"><img src="./assets/images/icon-cart.svg"
+                                                      alt=""></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-12">
+                              <div class="col-inner py-3">
+                                  <div class="box-product">
+                                      <div class="img-product">
+                                          <img src="./assets/images/img-product.png" alt="">
+                                      </div>
+                                      <div class="box-title-product">
+                                          <a href="#">奥出雲和牛肩ロースすき焼き用 600g</a>
+                                          <div class="price-product">
+                                              <p>¥1,230</p><span>￥10,000 </span>
+                                          </div>
+                                      </div>
+                                      <div class="box-rate-product">
+                                          <div class="rate-product">
+                                              <div class="box-star">
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star"></span>
+                                                  <span class="fa fa-star"></span>
+                                                  <p>(14件)</p>
+                                              </div>
+                                              <p><span>100</span>購入したアイテム</p>
+                                          </div>
+                                          <div class="box-btn-add-cart">
+                                              <a href="#" class="btn btn-cart"><img src="./assets/images/icon-cart.svg"
+                                                      alt=""></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
