@@ -28,6 +28,27 @@
 </form>
 <div>{{ product.description }}</div> {% endcomment %}
 {% assign current_variant = product.selected_or_first_available_variant %}
+<section>
+    <div class="page-header">
+        <div class="container">
+            <div class="cloud-1">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <div class="cloud-2">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <div class="cloud-3">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <div class="cloud-4">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <h2 class="title-en">Product</h2>
+            <h3 class="title-jp">商品一覧</h3>
+        </div>
+    </div>
+  </section>
+  {% render 'breadcrumbs' %}
 <section id="selling-product">
   <div class="container px-3 px-md-5 padding-medium">
       <div class="row">
