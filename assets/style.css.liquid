@@ -1201,6 +1201,7 @@ h3.title-jp {
     position: relative;
     background: linear-gradient(0deg,#ffffeb,#fff6e0 48.4%,#ffedc7);
     z-index: 1;
+    overflow: hidden;
 }
 .page-header:after {
     content: "";
@@ -1256,6 +1257,15 @@ h3.title-jp {
     animation: wave 16s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
     z-index: 1;
     animation-delay: 0.5s;
+}
+.page-header .bg-anim-1{
+    bottom: -50px;
+}
+.page-header .bg-anim-2{
+    bottom: -100px;
+}
+.page-header .bg-anim-3{
+    bottom: -150px;
 }
 @keyframes wave {
     0% {
