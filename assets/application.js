@@ -223,7 +223,7 @@ $(document).ready(function() {
             slidesPerView: 3,
             autoplay: true,
             direction: "vertical",
-            spaceBetween: 20,
+            spaceBetween: 10,
         });
       
         var large_slider = new Swiper(".product-large-slider", {
