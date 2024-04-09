@@ -83,7 +83,7 @@
                   </div>
                   <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
                     {% comment %} <label for="Quantity">quantity</label> {% endcomment %}
-                    <select name="id" id="productSelect" class="d-none">
+                    {% comment %} <select name="id" id="productSelect" class="d-none">
                         {% for variant in product.variants %}
                             {% if variant.available %}
                             <option value="{{ variant.id }}">
@@ -95,8 +95,8 @@
                             </option>
                             {% endif %}
                         {% endfor %}
-                    </select>
-                    
+                    </select> {% endcomment %}
+                    <input type="text" id="productSelect" value="{{ variant.id }}" hidden>
                     <div class="cart-wrap">
                         <div class="product-quantity pt-2">
                             <div class="stock-button-wrap">
@@ -231,3 +231,25 @@
       </div>
   </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var quantityInput = document.getElementById('quantity');
+        var minusButton = document.querySelector('.quantity-left-minus');
+        var plusButton = document.querySelector('.quantity-right-plus');
+
+        minusButton.addEventListener('click', function() {
+            var currentValue = parseInt(quantityInput.value);
+            if (!isNaN(currentValue) && currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+
+        plusButton.addEventListener('click', function() {
+            var currentValue = parseInt(quantityInput.value);
+            if (!isNaN(currentValue)) {
+                quantityInput.value = currentValue + 1;
+            }
+        });
+        var quantity = this.value;
+    });
+</script>
