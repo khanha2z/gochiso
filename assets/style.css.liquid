@@ -1421,9 +1421,13 @@ img.thumb-image.img-fluid {
     display: flex;
     gap: 10px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
-
-.box-product-button a {
+.box-product-button .swym-button-bar{
+    width: 100%;
+}
+.box-product-button a,
+.box-product-button button {
     display: flex;
     width: 50%;
     height: 70px;
@@ -1434,6 +1438,7 @@ img.thumb-image.img-fluid {
     color: #fff;
     font-family: "Yuji Syuku",serif;
     font-size: 24px;
+    border: none;
 }
 
 a.buy-now {
