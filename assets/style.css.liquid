@@ -904,9 +904,12 @@ footer {
 .product-thumbnail-slider{
     height: 544px;
 }
-.product-large-slider .swiper-slide img {
+.product-large-slider .swiper-slide img ,
+.product-thumbnail-slider .swiper-slide img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 h2.title-product {
     font-family: "Yuji Syuku", serif;
