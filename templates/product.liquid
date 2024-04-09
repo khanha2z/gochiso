@@ -111,14 +111,26 @@
                         </div>
                     </div>
                     <div class="box-product-button">
-                    
-                        <a href="#" class="buy-now">で購入</a>
-                    </div>
+                        <select name="id" id="productSelect">
+                            {% for variant in product.variants %}
+                              {% if variant.available %}
+                                <option value="{{ variant.id }}">
+                                  {{ variant.title }} - {{ variant.price | money_with_currency }}
+                                </option>
+                              {% else %}
+                                <option disabled="disabled">
+                                  {{ variant.title }} - sold out
+                                </option>
+                              {% endif %}
+                            {% endfor %}
+                          </select>
                     <label for="Quantity">quantity</label>
 
                     <input type="number" id="Quantity" name="quantity" value="1" min="1">
 
                         <button type="submit" name="add" id="AddToCart">カートに入れる</button>
+                        <a href="#" class="buy-now">で購入</a>
+                    </div>
                   </form>
 
               </div>
