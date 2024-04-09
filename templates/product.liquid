@@ -184,70 +184,41 @@
                   <div class="col-inner">
                       <h5 class="title-side">他の製品</h5>
                       <div class="row pt-2">
-                          <div class="col-lg-12">
+                        {% for product in collections.frontpage.products limit:2 %}
+                            <div class="col-lg-12">
                               <div class="col-inner">
-                                  <div class="box-product">
-                                      <div class="img-product">
-                                          <img src="./assets/images/img-product.png" alt="">
-                                      </div>
-                                      <div class="box-title-product">
-                                          <a href="#">奥出雲和牛肩ロースすき焼き用 600g</a>
-                                          <div class="price-product">
-                                              <p>¥1,230</p><span>￥10,000 </span>
-                                          </div>
-                                      </div>
-                                      <div class="box-rate-product">
-                                          <div class="rate-product">
-                                              <div class="box-star">
-                                                  <span class="fa fa-star checked"></span>
-                                                  <span class="fa fa-star checked"></span>
-                                                  <span class="fa fa-star checked"></span>
-                                                  <span class="fa fa-star"></span>
-                                                  <span class="fa fa-star"></span>
-                                                  <p>(14件)</p>
-                                              </div>
-                                              <p><span>100</span>購入したアイテム</p>
-                                          </div>
-                                          <div class="box-btn-add-cart">
-                                              <a href="#" class="btn btn-cart"><img src="./assets/images/icon-cart.svg"
-                                                      alt=""></a>
-                                          </div>
-                                      </div>
-                                  </div>
+                                <div class="box-product">
+                                    <div class="img-product">
+                                      <a href="{{ product.url | within: collection }}">
+                                        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                                      </a>
+                                    </div>
+                                    <div class="box-title-product">
+                                        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                                        <div class="price-product">
+                                            <p>{{ product.price | money }}</p><span>￥10,000 </span>
+                                        </div>
+                                    </div>
+                                    <div class="box-rate-product">
+                                        <div class="rate-product">
+                                            <div class="box-star">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <p>(14件)</p>
+                                            </div>
+                                            <p><span>100</span>購入したアイテム</p>
+                                        </div>
+                                        <div class="box-btn-add-cart">
+                                            <a href="{{ product.url }}" class="btn btn-cart"><img src="{{"icon-cart.svg" | asset_url}}" ></a>
+                                        </div>
+                                    </div>
+                                </div>
                               </div>
-                          </div>
-                          <div class="col-lg-12">
-                              <div class="col-inner py-3">
-                                  <div class="box-product">
-                                      <div class="img-product">
-                                          <img src="./assets/images/img-product.png" alt="">
-                                      </div>
-                                      <div class="box-title-product">
-                                          <a href="#">奥出雲和牛肩ロースすき焼き用 600g</a>
-                                          <div class="price-product">
-                                              <p>¥1,230</p><span>￥10,000 </span>
-                                          </div>
-                                      </div>
-                                      <div class="box-rate-product">
-                                          <div class="rate-product">
-                                              <div class="box-star">
-                                                  <span class="fa fa-star checked"></span>
-                                                  <span class="fa fa-star checked"></span>
-                                                  <span class="fa fa-star checked"></span>
-                                                  <span class="fa fa-star"></span>
-                                                  <span class="fa fa-star"></span>
-                                                  <p>(14件)</p>
-                                              </div>
-                                              <p><span>100</span>購入したアイテム</p>
-                                          </div>
-                                          <div class="box-btn-add-cart">
-                                              <a href="#" class="btn btn-cart"><img src="./assets/images/icon-cart.svg"
-                                                      alt=""></a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                            </div>
+                          {% endfor %}
                       </div>
                   </div>
               </div>
