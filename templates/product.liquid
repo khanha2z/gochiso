@@ -149,7 +149,9 @@
                     </div>
                     <div class="box-product-button">
                         <button type="submit" name="add" id="AddToCart">カートに入れる</button>
-                        <a href="#" class="buy-now">で購入</a>
+                        <button type="submit" id="checkout" class="cart__checkout-button buynow button" name="checkout" form="cart">
+                            で購入
+                        </button>
                     </div>
                   </form>
 
@@ -183,7 +185,7 @@
               <div class="col-lg-3">
                   <div class="col-inner">
                       <h5 class="title-side">他の製品</h5>
-                      <div class="row pt-2">
+                      <div class="row pt-2 g-4">
                         {% for product in collections.frontpage.products limit:2 %}
                             <div class="col-lg-12">
                               <div class="col-inner">
