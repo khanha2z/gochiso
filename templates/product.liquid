@@ -83,7 +83,7 @@
                   </div>
                   <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
                     {% comment %} <label for="Quantity">quantity</label> {% endcomment %}
-                    {% comment %} <input type="number" id="Quantity" name="quantity" value="1" min="1"> {% endcomment %}
+                    
                     
                     <div class="cart-wrap">
                         <div class="product-quantity pt-2">
@@ -111,6 +111,7 @@
                             </div>
                         </div>
                     </div>
+                    <input type="number" id="Quantity" name="quantity" value="1" min="1">
                     <div class="box-product-button">
                         <button type="submit" name="add" id="AddToCart">カートに入れる</button>
                         <a href="#" class="buy-now">で購入</a>
