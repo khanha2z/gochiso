@@ -27,8 +27,7 @@
   <button type="submit" name="add" id="AddToCart">Add to cart</button>
 </form>
 <div>{{ product.description }}</div> {% endcomment %}
-<h1>{{ product.title }}</h1>
-
+{% assign current_variant = product.selected_or_first_available_variant %}
 <section id="selling-product">
   <div class="container px-3 px-md-5 padding-medium">
       <div class="row">
