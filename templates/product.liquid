@@ -27,4 +27,209 @@
   <button type="submit" name="add" id="AddToCart">Add to cart</button>
 </form>
 <div>{{ product.description }}</div>
-single
+
+<section id="selling-product">
+  <div class="container px-3 px-md-5 padding-medium">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="row g-2">
+                  <div class="col-md-3 d-none d-lg-flex">
+                      <!-- product-thumbnail-slider -->
+                      <div class="swiper product-thumbnail-slider">
+                          <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                  <img src="./assets/images/img-pro-single.png" alt="" class="thumb-image img-fluid">
+                              </div>
+                              <div class="swiper-slide">
+                                  <img src="./assets/images/img-pro-single.png" alt="" class="thumb-image img-fluid">
+                              </div>
+                              <div class="swiper-slide">
+                                  <img src="./assets/images/img-pro-single.png" alt="" class="thumb-image img-fluid">
+                              </div>
+                              <div class="swiper-slide">
+                                  <img src="./assets/images/img-pro-single.png" alt="" class="thumb-image img-fluid">
+                              </div>
+                          </div>
+                      </div>
+                      <!-- / product-thumbnail-slider -->
+                  </div>
+                  <div class="col-md-9">
+                      <!-- product-large-slider -->
+                      <div class="swiper product-large-slider">
+                          <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                  <img src="./assets/images/img-pro-single.png" alt="product-large" class="img-fluid">
+                              </div>
+                              <div class="swiper-slide">
+                                  <img src="./assets/images/img-pro-single.png" alt="product-large" class="img-fluid">
+                              </div>
+                              <div class="swiper-slide">
+                                  <img src="./assets/images/img-pro-single.png" alt="product-large" class="img-fluid">
+                              </div>
+                              <div class="swiper-slide">
+                                  <img src="./assets/images/img-pro-single.png" alt="product-large" class="img-fluid">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                      <!-- / product-large-slider -->
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="product-info">
+                  <div class="element-header">
+                      <h2 itemprop="name" class="title-product">のどぐろ煮付4食セット（特製だし付）</h2>
+                      <div class="rating-container d-flex gap-0 align-items-center">
+                          <div class="box-star">
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star"></span>
+                              <span class="fa fa-star"></span>
+                              <p>5.0</p>
+                          </div>
+                      </div>
+                  </div>
+                  <hr>
+                  <p class="product-des">手のひらサイズののどぐろを使っておりますので料理のメインの一品としてお使い頂けます。日本海産ののどぐろ煮付が簡単に召し上がって頂けます。「簡単な調理の仕方」を同封いたします。</p>
+                  <div class="product-price pt-3 pb-3">
+                      <strong>{{ current_variant.price | money }}</strong><del class="ms-2">{{ variant.price | money_with_currency }}</del>
+                  </div>
+                  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+                    {% comment %} <label for="Quantity">quantity</label> {% endcomment %}
+                    {% comment %} <input type="number" id="Quantity" name="quantity" value="1" min="1"> {% endcomment %}
+                    
+                    <div class="cart-wrap">
+                        <div class="product-quantity pt-2">
+                            <div class="stock-button-wrap">
+                                <div class="d-flex flex-wrap">
+                                    <div class="input-group product-qty align-items-center w-75 me-3">
+                                        <span class="input-group-btn">
+                                            <button type="button"
+                                                class="quantity-left-minus btn btn-light btn-number"
+                                                data-type="minus">
+                                                -
+                                            </button>
+                                        </span>
+                                        <input type="text" id="quantity" name="quantity"
+                                            class="form-control input-number text-center p-2 mx-1" value="1">
+                                        <span class="input-group-btn">
+                                            <button type="button"
+                                                class="quantity-right-plus btn btn-light btn-number"
+                                                data-type="plus" data-field="">
+                                                +
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-product-button">
+                        <button type="submit" name="add" id="AddToCart">カートに入れる</button>
+                        <a href="#" class="buy-now">で購入</a>
+                    </div>
+                  </form>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+      <div class="product-infor">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div class="col-inner">
+                      <nav>
+                          <div class="nav nav-underline d-flex" id="nav-tab" role="tablist">
+                              <button class="nav-link fw-semibold text-uppercase px-4 py-3 active text-black" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">製品説明</button>
+                              <button class="nav-link fw-semibold text-uppercase px-4 py-3 text-black" id="nav-information-tab" data-bs-toggle="tab" data-bs-target="#nav-information" type="button" role="tab" aria-controls="nav-information" aria-selected="false" tabindex="-1">評価する</button>
+                          </div>
+                      </nav>
+                      <div class="tab-content py-3" id="nav-tabContent">
+                          <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            {{ product.description }}
+                          </div>
+                          <div class="tab-pane fade" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
+                            {{ product.description }}
+                          </div>
+                        </div>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="col-inner">
+                      <h5 class="title-side">他の製品</h5>
+                      <div class="row pt-2">
+                          <div class="col-lg-12">
+                              <div class="col-inner">
+                                  <div class="box-product">
+                                      <div class="img-product">
+                                          <img src="./assets/images/img-product.png" alt="">
+                                      </div>
+                                      <div class="box-title-product">
+                                          <a href="#">奥出雲和牛肩ロースすき焼き用 600g</a>
+                                          <div class="price-product">
+                                              <p>¥1,230</p><span>￥10,000 </span>
+                                          </div>
+                                      </div>
+                                      <div class="box-rate-product">
+                                          <div class="rate-product">
+                                              <div class="box-star">
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star"></span>
+                                                  <span class="fa fa-star"></span>
+                                                  <p>(14件)</p>
+                                              </div>
+                                              <p><span>100</span>購入したアイテム</p>
+                                          </div>
+                                          <div class="box-btn-add-cart">
+                                              <a href="#" class="btn btn-cart"><img src="./assets/images/icon-cart.svg"
+                                                      alt=""></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-12">
+                              <div class="col-inner py-3">
+                                  <div class="box-product">
+                                      <div class="img-product">
+                                          <img src="./assets/images/img-product.png" alt="">
+                                      </div>
+                                      <div class="box-title-product">
+                                          <a href="#">奥出雲和牛肩ロースすき焼き用 600g</a>
+                                          <div class="price-product">
+                                              <p>¥1,230</p><span>￥10,000 </span>
+                                          </div>
+                                      </div>
+                                      <div class="box-rate-product">
+                                          <div class="rate-product">
+                                              <div class="box-star">
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star checked"></span>
+                                                  <span class="fa fa-star"></span>
+                                                  <span class="fa fa-star"></span>
+                                                  <p>(14件)</p>
+                                              </div>
+                                              <p><span>100</span>購入したアイテム</p>
+                                          </div>
+                                          <div class="box-btn-add-cart">
+                                              <a href="#" class="btn btn-cart"><img src="./assets/images/icon-cart.svg"
+                                                      alt=""></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

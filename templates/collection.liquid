@@ -1,4 +1,4 @@
-{% paginate collection.products by 2 %}
+{% comment %} {% paginate collection.products by 2 %}
   <h1>{{ collection.title }}</h1>
   {% for product in collection.products %}
     <div>
@@ -16,4 +16,61 @@
     {{ paginate | default_pagination }}
   {% endif %}
 {% endpaginate %}
-list
+list {% endcomment %}
+
+
+<section>
+  <div class="list-product">
+      <div class="container">
+          <div class="main-title mx-auto">
+              <h2>Product list</h2>
+              <p>商品一覧</p>
+          </div>
+          {% paginate collection.products by 12 %}
+            <div class="row pt-3">
+            {% for product in collection.products %}
+              <div class="col-lg-3 col-sm-6">
+                <div class="col-inner">
+                    <div class="box-product">
+                        <div class="img-product">
+                          <a href="{{ product.url | within: collection }}">
+                            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                          </a>
+                        </div>
+                        <div class="box-title-product">
+                            <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                            <div class="price-product">
+                                <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                            </div>
+                        </div>
+                        <div class="box-rate-product">
+                            <div class="rate-product">
+                                <div class="box-star">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <p>(14件)</p>
+                                </div>
+                                <p><span>100</span>購入したアイテム</p>
+                            </div>
+                            <div class="box-btn-add-cart">
+                                <a href="#" class="btn btn-cart"><img src="./assets/images/icon-cart.svg"
+                                        alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            {% else %}
+              <p>no matches</p>
+            {% endfor %}
+            {% if paginate.pages > 1 %}
+              {{ paginate | default_pagination }}
+            {% endif %}
+            </div>
+          {% endpaginate %}
+      </div>
+  </div>
+</section>
