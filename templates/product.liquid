@@ -65,7 +65,7 @@
           <div class="col-lg-6">
               <div class="product-info">
                   <div class="element-header">
-                      <h2 itemprop="name" class="title-product">のどぐろ煮付4食セット（特製だし付）</h2>
+                      <h2 itemprop="name" class="title-product">{{ product.title }}</h2>
                       <div class="rating-container d-flex gap-0 align-items-center">
                           <div class="box-star">
                               <span class="fa fa-star checked"></span>
@@ -78,7 +78,7 @@
                       </div>
                   </div>
                   <hr>
-                  <p class="product-des">手のひらサイズののどぐろを使っておりますので料理のメインの一品としてお使い頂けます。日本海産ののどぐろ煮付が簡単に召し上がって頂けます。「簡単な調理の仕方」を同封いたします。</p>
+                  <p class="product-des">{{ product.description }}</p>
                   <div class="product-price pt-3 pb-3">
                       <strong>{{ current_variant.price | money }}</strong><del class="ms-2">{{ variant.price | money_with_currency }}</del>
                   </div>
