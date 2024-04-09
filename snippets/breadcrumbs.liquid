@@ -6,9 +6,9 @@
       <a href="{{ routes.root_url }}">Top</a>
     </li>
     {% if collection.url %}
-      <li>
+      {% comment %} <li>
       <a href="{{ routes.all_products_collection_url }}">食品一覧</a>
-      </li>
+      </li> {% endcomment %}
       {{ collection.title }}
     {% endif %}
     {% if template contains 'cart' %}

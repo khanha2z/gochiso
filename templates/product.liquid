@@ -1,4 +1,4 @@
-{% assign current_variant = product.selected_or_first_available_variant %}
+{% comment %} {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
 {% for image in product.images %}
@@ -26,7 +26,7 @@
   <input type="number" id="Quantity" name="quantity" value="1" min="1">
   <button type="submit" name="add" id="AddToCart">Add to cart</button>
 </form>
-<div>{{ product.description }}</div>
+<div>{{ product.description }}</div> {% endcomment %}
 
 <section id="selling-product">
   <div class="container px-3 px-md-5 padding-medium">
@@ -37,18 +37,11 @@
                       <!-- product-thumbnail-slider -->
                       <div class="swiper product-thumbnail-slider">
                           <div class="swiper-wrapper">
-                              <div class="swiper-slide">
-                                  <img src="./assets/images/img-pro-single.png" alt="" class="thumb-image img-fluid">
-                              </div>
-                              <div class="swiper-slide">
-                                  <img src="./assets/images/img-pro-single.png" alt="" class="thumb-image img-fluid">
-                              </div>
-                              <div class="swiper-slide">
-                                  <img src="./assets/images/img-pro-single.png" alt="" class="thumb-image img-fluid">
-                              </div>
-                              <div class="swiper-slide">
-                                  <img src="./assets/images/img-pro-single.png" alt="" class="thumb-image img-fluid">
-                              </div>
+                              {% for image in product.images %}
+                                <div class="swiper-slide">
+                                  <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                                </div>
+                              {% endfor %}
                           </div>
                       </div>
                       <!-- / product-thumbnail-slider -->
@@ -57,18 +50,11 @@
                       <!-- product-large-slider -->
                       <div class="swiper product-large-slider">
                           <div class="swiper-wrapper">
-                              <div class="swiper-slide">
-                                  <img src="./assets/images/img-pro-single.png" alt="product-large" class="img-fluid">
-                              </div>
-                              <div class="swiper-slide">
-                                  <img src="./assets/images/img-pro-single.png" alt="product-large" class="img-fluid">
-                              </div>
-                              <div class="swiper-slide">
-                                  <img src="./assets/images/img-pro-single.png" alt="product-large" class="img-fluid">
-                              </div>
-                              <div class="swiper-slide">
-                                  <img src="./assets/images/img-pro-single.png" alt="product-large" class="img-fluid">
-                              </div>
+                              {% for image in product.images %}
+                                <div class="swiper-slide">
+                                  <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                                </div>
+                              {% endfor %}
                           </div>
                       </div>
                   </div>
