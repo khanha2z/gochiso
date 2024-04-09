@@ -96,11 +96,7 @@
                             {% endif %}
                         {% endfor %}
                     </select> {% endcomment %}
-                    <input type="text" id="productSelect" value="{% for variant in product.variants %}
-                        {% if variant.available %}
-                        {{ variant.id }}
-                        {% endif %}
-                    {% endfor %}" hidden>
+                    <input type="text" id="productSelect" value="{% for variant in product.variants %}{% if variant.available %}{{ variant.id }}{% endif %}{% endfor %}" hidden>
                     <div class="cart-wrap">
                         <div class="product-quantity pt-2">
                             <div class="stock-button-wrap">
