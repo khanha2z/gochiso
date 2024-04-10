@@ -154,7 +154,7 @@
         "heading_left": true,
         "description": "<p>Describe your featured collection here<\/p>",
         "full_width": false,
-        "collection": "frontpage",
+        "collection": "unnan",
         "display_type": "grid",
         "product_limit": 8,
         "columns_desktop": 4,

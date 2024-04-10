@@ -82,7 +82,7 @@
         "heading_left": false,
         "description": "",
         "full_width": false,
-        "collection": "frontpage",
+        "collection": "unnan",
         "display_type": "grid",
         "product_limit": 8,
         "columns_desktop": 4,
@@ -171,7 +171,7 @@
           "leather-goods",
           "wallets",
           "bags",
-          "frontpage"
+          "unnan"
         ],
         "image_ratio": "square",
         "layout": "carousel",
