@@ -1754,3 +1754,42 @@ table.table-legal td {
 .legal-info {
     padding: 48px 0;
 }
+.header-wrapper .cart-count-bubble {
+    border-radius: 21px;
+    border: 3px solid #FFF;
+    background: #FED700;
+    color: #fff;
+    top: -2px;
+    left: auto;
+    right: 5px;
+}
+
+.list-news-archive {
+    padding: 85px 0;
+}
+
+.list-news-archive .news-item.item-list {
+    margin-bottom: 32px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: #FFF;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.10);
+    transition: .3s;
+    position: relative;
+}
+
+.list-news-archive .news-item.item-list:hover {
+    border-color: #00A991;
+}
+
+.list-news-archive .news-item.item-list:after {
+    content: "";
+    width: 37px;
+    height: 37px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 40px;
+}
