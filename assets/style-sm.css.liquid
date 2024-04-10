@@ -147,8 +147,8 @@
         padding-left: 90px;
     }
     .page-header {
-        min-height: 400px;
-        padding-top: 100px;
+        min-height: 440px;
+        padding-top: 120px;
     }
     .product-best .col-lg-3{
         padding-bottom: 30px;
@@ -156,11 +156,7 @@
     .best-product{
         padding: 40px 10px;
     }
-    .page-header {
-        min-height: 400px;
-        padding-top: 100px;
-    }
-    
+
     .product-best .col-lg-3:after {
         width: 50px;
         height: 65px;
@@ -209,7 +205,9 @@
         display: block;
         width: 100%;
     }
-    
+    .menu-pc-cont .navbar-nav.nav-main {
+        flex-direction: column;
+    }
     nav.navbar.navbar-expand-lg {
         width: 100%;
     }
@@ -312,5 +310,36 @@
     
     .box-product-filter-price {
         margin-top: 30px;
+    }
+    
+    a.menu-btn {
+        width: 60px;
+        min-height: 60px;
+    }
+    
+    a.menu-btn span {
+        width: 25px;
+        left: 22px;
+        height: 2px;
+    }
+    
+    a.menu-btn span:nth-child(2) {
+        top: 22px;
+    }
+    
+    a.menu-btn span:nth-child(3) {
+        top: 29px;
+    }
+    
+    a.menu-btn::after {
+        font-size: 9px;
+        left: 20px;
+        top: 35px;
+    }
+    a.menu-btn.open span:nth-child(3) {
+        top: 20px;
+    }
+    h3.title-jp {
+        font-size: 26px;
     }
 }
