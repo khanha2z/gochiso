@@ -80,7 +80,7 @@
                       <div class="box-title-product">
                           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
-                              <p>{{ product.price | money }}</p><span>￥10,000 </span>
+                              <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
                           </div>
                       </div>
                       <div class="box-rate-product">
@@ -135,7 +135,7 @@
                       <div class="box-title-product">
                           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
-                              <p>{{ product.price | money }}</p><span>￥10,000 </span>
+                              <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
                           </div>
                       </div>
                       <div class="box-rate-product">
@@ -188,7 +188,7 @@
                       <div class="box-title-product">
                           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
-                              <p>{{ product.price | money }}</p><span>￥10,000 </span>
+                              <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
                           </div>
                       </div>
                       <div class="box-rate-product">
@@ -240,7 +240,7 @@
                       <div class="box-title-product">
                           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
-                              <p>{{ product.price | money }}</p><span>￥10,000 </span>
+                              <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
                           </div>
                       </div>
                       <div class="box-rate-product">
