@@ -53,26 +53,23 @@
         <div class="js-contents">
           {%- if cart != empty -%}
             <table class="cart-items">
-              <caption class="visually-hidden">
-                {{ 'sections.cart.title' | t }}
-              </caption>
               <thead>
                 <tr>
                   <th class="caption-with-letter-spacing" colspan="2" scope="col">
-                    {{ 'sections.cart.headings.product' | t }}
+                    商品
                   </th>
                   <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">
-                    {{ 'sections.cart.headings.total' | t }}
+                    購入数
                   </th>
                   <th
                     class="cart-items__heading--wide cart-items__heading--quantity small-hide caption-with-letter-spacing"
                     colspan="1"
                     scope="col"
                   >
-                    {{ 'sections.cart.headings.quantity' | t }}
+                    購入数
                   </th>
                   <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">
-                    {{ 'sections.cart.headings.total' | t }}
+                    価格
                   </th>
                 </tr>
               </thead>

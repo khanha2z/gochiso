@@ -1259,7 +1259,7 @@ h3.title-jp {
     animation-delay: 0.5s;
 }
 .page-header .bg-anim-1{
-    bottom: -50px;
+    bottom: -100px;
 }
 .page-header .bg-anim-2{
     bottom: -100px;
@@ -1516,4 +1516,40 @@ span.input-group-btn button {
 span.input-group-btn:last-child {
     right: 6px;
     left: auto;
+}
+a.cart-item__name {
+    font-size: 24px;
+    font-family: "Yuji Syuku", serif;
+}
+
+.cart-items td {
+    padding: 10px 0;
+    border: 1px solid #eee;
+    border-width: 1px 0;
+}
+
+.cart-items tr {
+    border: 1px solid #eee;
+    border-width: 1px 0;
+}
+
+.cart-items .cart-items__heading--quantity, .cart-item .cart-item__quantity, .cart-item__quantity--info quantity-popover>*, .no-js .cart-item .cart-item__quantity--info {
+    padding-left: 20px;
+}
+
+.cart-item>td+td {
+    padding-left: 32px;
+}
+
+.cart__footer>div:only-child {
+    width: 100%;
+}
+
+.totals {
+    justify-content: space-between;
+}
+
+p.totals__total-value {
+    color: #00A991;
+    font-size: 48px;
 }
