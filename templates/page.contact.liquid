@@ -28,23 +28,23 @@
 {% form 'contact' %}
   {% if form.posted_successfully? %} Thank you for your contact {% endif %}
   {{ form.errors | default_errors }}
-
+    <div class="title-form">お問い合わせ</div>
     <div class="row">
         <div class="col-6">
             <label for="ContactFormName">First name</label>
-            <input type="text" placeholder="Enter your first name" id="ContactFormName" name="contact[name]">
+            <input type="text" placeholder="Enter your first name" class="form-control" id="ContactFormName" name="contact[name]">
         </div>
         <div class="col-6">
             <label for="ContactFormEmail">Last name</label>
-            <input type="email" placeholder="Enter your email" id="ContactFormEmail" name="contact[email]">
+            <input type="email" placeholder="Enter your email" class="form-control" id="ContactFormEmail" name="contact[email]">
         </div>
         <div class="col-12">
-            <label for="ContactFormPhone">phone</label>
-            <input type="tel" id="ContactFormPhone" name="contact[phone]">
+            <label for="ContactFormPhone">Phone number</label>
+            <input type="tel" id="ContactFormPhone" placeholder="+1 201-555-0123" class="form-control" name="contact[phone]">
         </div>
         <div class="col-12">
             <label for="ContactFormMessage">message</label>
-            <textarea rows="10" id="ContactFormMessage" name="contact[body]"></textarea>
+            <textarea rows="10" id="ContactFormMessage" class="form-control" name="contact[body]"></textarea>
         </div>
         <div class="col-12">
             <input type="submit" value="send">
