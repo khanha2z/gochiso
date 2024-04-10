@@ -237,7 +237,75 @@ $(document).ready(function() {
         });
     }
     // product single page
+    $(document).ready(function() {
+        var url = window.location.href;
+        if ($('body').hasClass('home')) {
+            if (url.indexOf('#') > 0) {
+                $('#loading').hide();
+                $('html').addClass('frompage');
+                $('body').removeClass('loading-active');
+                
+                var target = url.substr(url.indexOf('#'));
+               
+                if (target != '#home') {
+                    $(window).on('load', function() {
+                        if (target == '#') {
+                            var targetY = $('body').offset().top;
+                        } else {
+                            var targetY = $(target).offset().top - 50;
+                        }
+                        var parent = $('html');
+                        setTimeout(function() {
+                            $(parent).animate({ scrollTop: targetY },
+                                400
+                            );
     
+                        }, 200);
+                    });
+                }
+    
+            } else {
+                setTimeout(function() {
+                    $('#loading').fadeOut(500);
+                    $('body').removeClass('loading-active');
+                }, 2500);
+                setTimeout(function() {
+                    $('.banner-home-text').addClass('is-animated');
+                    // $('.slide-item-1').addClass('add-animation');
+                    $('.lide-item-5 .slide-content img').addClass('is-animated');
+                   
+                }, 3000); 
+                setTimeout(function() {
+                    
+                }, 2600); 
+            }
+        } else {
+            if (url.indexOf('#') > 0) {
+                var target = url.substr(url.indexOf('#'));
+                if (target != '#home') {
+                    $(window).on('load', function() {
+                        var px =150
+                        var windowwidth = window.innerWidth || document.documentElement.clientWidth || 0;
+                        if (windowwidth < 768) {
+                            px = 0; 
+                        }
+                        if (target == '#') {
+                            var targetY = $('body').offset().top;
+                        } else {
+                            var targetY = $(target).offset().top - 50;
+                        }
+                        var parent = $('html');
+                        $(parent).animate({ scrollTop: targetY },
+                            400
+                        );
+                    });
+                }
+    
+            }
+    
+        }
+    
+    });
 });
 
 
