@@ -358,9 +358,30 @@ a.btn.btn-main {
     position: relative;
     border-radius: 6px;
     min-width: 150px;
+    transition: .3s all;
 }
-
-
+a.btn.btn-main:hover {
+    color: #E0C143;
+    background-color: #fff;
+    opacity: 1;
+}
+a.btn.btn-main::after{
+    content: "";
+    width: 28px;
+    height: 11px;
+    background-image: url('{{ "icon-right.svg" | asset_url }}');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    transition: .3s;
+}
+a.btn.btn-main:hover::after{
+    right: 10px;
+}
 .home-region-right::after {
     content: "";
     width: 207px;
