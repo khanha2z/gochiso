@@ -244,7 +244,6 @@ $(document).ready(function() {
                 $('#loading').hide();
                 $('html').addClass('frompage');
                 $('body').removeClass('loading-active');
-                
                 var target = url.substr(url.indexOf('#'));
                
                 if (target != '#home') {
@@ -305,6 +304,22 @@ $(document).ready(function() {
     
         }
     
+    });
+    $(function() {
+        setTimeout(function() {
+            $('#loading .loading-inner').fadeIn(1600);
+        }, 0); //0.5秒後にロゴをフェードイン!
+        setTimeout(function() {
+            $('#loading .loading-inner').fadeOut(500);
+            $('.banner-home-text').addClass('is-animated');
+            $('.page-cs .page-header-top').addClass('is-animated');
+            $('.slide-item-1 .slide-content img, .slide-content-2 img').addClass('is-animated');
+            // $('.slide-item-1').addClass('add-animation');
+           
+        }, 2500); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+        setTimeout(function() {
+            $('.page-header-img').addClass('is-animated');
+        }, 500); //0.5秒後にロゴをフェードイン!
     });
 });
 
