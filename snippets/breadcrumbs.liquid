@@ -29,6 +29,8 @@
         <li>
           <a href="{{ blog.url }}">{{ blog.title }}</a>
         </li>
+        <li>
+        <span>{{ current_tags }}</span></li>
         {{ current_tags }}
       {% else %}
         {{ blog.title }}
@@ -38,7 +40,9 @@
       <li>
       <a href="{{ blog.url }}" title="{{ blog.title | escape }}">{{ blog.title }}</a>
       </li>
-      {{ article.title }}
+      <li>
+        <span>{{ article.title }}</span></li>
+      
     {% endif %}
     {% if template contains 'page' %}
       <li><span>
