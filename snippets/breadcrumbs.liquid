@@ -1,4 +1,3 @@
-{{ 'breadcrumbs.css' | asset_url | stylesheet_tag }}
 <div class="container">
   <div class="breadcrums">
   <ul  aria-label="breadcrumbs">
@@ -45,11 +44,10 @@
     {% endif %}
     {% if template contains 'search' %}
       <li><span>
-      {{ 'sections.breadcrumbs.search' | t }}</span></li>
+      Search</span></li>
     {% endif %}
     {% if template contains 'customers' %}
-      <li><span>
-      {{ 'sections.breadcrumbs.my_account' | t }}<span></li>
+      <li><span>Account</span></li>
     {% endif %}
   </ul>
 </div>
