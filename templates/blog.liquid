@@ -1,19 +1,53 @@
-{% paginate blog.articles by 5 %}
 
-<h1>{{ blog.title }}</h1>
-{% for article in blog.articles %}
-  <div>
-    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-    {{ article.author }} @ {{ article.created_at }}
-    <div>
-      {% if article.excerpt.size > 0 %}
-        {{ article.excerpt }}
-      {% else %}
-        <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
-      {% endif %}
-    </div>
+<section>
+  <div class="page-header">
+      <div class="container">
+          <div class="cloud-1">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <div class="cloud-2">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <div class="cloud-3">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <div class="cloud-4">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <h2 class="title-en">News</h2>
+          <h3 class="title-jp">お知らせ</h3>
+      </div>
+      <div class="bg-anim-1"></div>
+      <div class="bg-anim-2"></div>
+      <div class="bg-anim-3"></div>
   </div>
-{% endfor %}
+</section>
+{% render 'breadcrumbs' %}
+{% paginate blog.articles by 5 %}
+<section>
+  <div class="list-news-archive">
+      <div class="container">
+          <div class="main-title mx-auto">
+              <h2>News</h2>
+              <p>お知らせ</p>
+          </div>
+          <div class="list-home-news mt-5">
+            {% for article in blog.articles %}
+
+              <div class="news-item item-list biggerlink">
+                  <div class="date"><span>{{ article.created_at | date: '%Y年%m月%d日'  }}</span></div>
+                  <div class="box-cat text-center">
+                      <a href="#" class="cat catid-1" title="">お知らせ</a>
+                  </div>
+                  <div class="title">
+                    <a href="{{ article.url }}">{{ article.title }}</a>
+                  </div>
+              </div>
+            {% endfor %}            
+          </div>
+        </div>
+    </div>
+</section>
 
 {% if paginate.pages > 1 %}
   {{ paginate | default_pagination }}
