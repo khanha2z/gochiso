@@ -103,7 +103,7 @@
                   <hr>
                   <p class="product-des">{{ product.description }}</p>
                   <div class="product-price pt-3 pb-3">
-                      <strong>{{ current_variant.price | money }}</strong><del class="ms-2">{{ variant.price | money_with_currency }}</del>
+                      <strong>{{ current_variant.price | money }}</strong><del class="ms-2">{{ current_variant.compare_at_price | money }}</del>
                   </div>
                   <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
                     {% comment %} <label for="Quantity">quantity</label> {% endcomment %}
