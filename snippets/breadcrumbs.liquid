@@ -8,7 +8,9 @@
       {% comment %} <li>
       <a href="{{ routes.all_products_collection_url }}">食品一覧</a>
       </li> {% endcomment %}
-      {{ collection.title }}
+      <li>
+        <span>{{ collection.title }}</span></li>
+      
     {% endif %}
     {% if template contains 'cart' %}
       <li>
