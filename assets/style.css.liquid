@@ -334,7 +334,7 @@ ul.slick-dots li.slick-active{
     background-image: url('{{ "hoa-4.png" | asset_url }}');
     width: 287px;
     height: 301px;
-    bottom: 80px;
+    bottom: -60px;
 }
 .box-home-region p {
     line-height: 2.81;
@@ -367,7 +367,7 @@ a.btn.btn-main:hover {
 }
 a.btn.btn-main::after{
     content: "";
-    width: 28px;
+    width: 15px;
     height: 11px;
     background-image: url('{{ "icon-right.svg" | asset_url }}');
     background-size: contain;
@@ -376,11 +376,27 @@ a.btn.btn-main::after{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 15px;
+    right: 10px;
     transition: .3s;
 }
 a.btn.btn-main:hover::after{
-    right: 10px;
+    right: 5px;
+}
+a.btn.btn-main.btn-shop::after {
+    display: none;
+}
+
+.img-product {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.box-product:hover  img {
+    transform: scale(1.1);
+}
+
+.img-product img {
+    transition: .3s;
 }
 .home-region-right::after {
     content: "";
@@ -500,7 +516,7 @@ a.btn.btn-cart {
 a.btn.btn-cart::after{
     content: "";
     width: 17px;
-    height: 17px;
+    height: 18px;
     background-image: url('{{ "icon-plus.svg" | asset_url }}');
     background-size: cover;
     background-repeat: no-repeat;
@@ -508,6 +524,10 @@ a.btn.btn-cart::after{
     position: absolute;
     top: -7px;
     right: -7px;
+    transition: .3s;
+}
+a.btn.btn-cart:hover:after {
+    transform: rotate(90deg);
 }
 a.btn.btn-main.btn-shop {
     padding-right: 66px;
