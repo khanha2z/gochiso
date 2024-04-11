@@ -35,10 +35,10 @@
                       <div class="infor-line">
                           <div class="date fs-sm-14">{{ article.created_at | date: '%Y年%m月%d日'  }}</div>
                           <div class="">
-                            {% for tag in article.tags %}
-                              {% if tag contains 'category-' %}
-                                <li>{{ tag | remove: 'category-' }}</li>
-                              {% endif %}
+                            {% for blog in blogs %}
+                                {% for article in blog.articles %}
+                                  <a href="{{ article.url }}">{{ article.title }}</a>
+                                {% endfor %}
                             {% endfor %}
                             <a href="#" class="cat catid-13">辻井循環器内科</a>
                           </div>
