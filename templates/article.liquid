@@ -46,6 +46,30 @@
       <div class="post-content">
         {{ article.content }}
       </div>
+      <div class="list-news-box">
+        {% assign current_article_index = 0 %}
+        {% assign current_article_handle = article.handle %}
+        {% for blog in blogs %}
+          {% for article in blog.articles %}
+            {% if article.handle == current_article_handle %}
+              {% assign current_article_index = forloop.index0 %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% if current_article_index != 0 %}
+            {% assign previous_article_index = current_article_index | minus: 1 %}
+            {% assign next_article_index = current_article_index | plus: 1 %}
+            {% if previous_article_index >= 0 %}
+              <a href="{{ blogs[forloop.index0].articles[previous_article_index].url }}">Previous Article</a>
+            {% endif %}
+              <a href="{{ blog.url }}" class="btn-back">一覧へ戻る</a>
+            {% if next_article_index < blog.articles.size %}
+              <a href="{{ blogs[forloop.index0].articles[next_article_index].url }}">Next Article</a>
+            {% endif %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      </div>
   </div>
 </section>
 {% if blog.comments_enabled? %}
