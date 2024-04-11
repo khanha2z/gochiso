@@ -129,7 +129,7 @@ $(document).ready(function() {
 
     var width = $(window).width();
     if (width < 767) {
-        $('.product-best').slick({
+        $('.product-best,.product-slide-sm').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             dots: true,
