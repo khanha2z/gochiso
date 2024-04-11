@@ -5,6 +5,195 @@ body{
     color: #262626 !important;
     overflow-x: hidden;
 }
+/*ANIMATION*/
+.anim {
+    opacity: 0;
+}
+
+.anim.blur {
+    opacity: 1;
+}
+
+.anim.blur.is-animated,
+.add-animation .anim.blur {
+    animation-name: blurAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes blurAnime {
+    from {
+        filter: blur(10px);
+        transform: scale(1.02);
+    }
+
+    to {
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+.anim.fade {
+    opacity: 0;
+}
+
+.anim.fade.is-animated {
+    opacity: 1;
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+.anim.slideinBottom.is-animated {
+    opacity: 1;
+    animation-name: slideinBottom;
+    animation-duration: 0.5s;
+}
+
+@keyframes slideinBottom {
+    0% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.anim.faderight.is-animated {
+    opacity: 1;
+    animation-name: faderight;
+    animation-duration: 2s;
+}
+
+.anim.fade.is-animated {
+    opacity: 1;
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+.anim.fadeleft.is-animated {
+    opacity: 1;
+    animation-name: fadeleft;
+    animation-duration: 2s;
+}
+
+.anim.fadeup.is-animated {
+    animation: fadeup 1s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+.anim.fadeup-2.is-animated {
+    opacity: 1;
+    animation-name: fadeup-2;
+    animation-duration: 0.5s;
+}
+
+.home .anim.fadedown.is-animated {
+    opacity: 1;
+    animation-name: fadedown;
+    animation-duration: 0.5s;
+}
+
+.anim.zoomin.is-animated {
+    animation: zoomIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes faderight {
+    from {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fadedown {
+    from {
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fadeup {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeup-2 {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0px);
+    }
+}
+
+@keyframes fadeleft {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+.anim.effectfade {
+    opacity: 0;
+    transform: translate(0, 20px);
+    transition: all 1.5s ease;
+}
+
+.anim.effectfade.is-animated {
+    opacity: 1;
+    transform: translate(0, 0);
+}
 .header-wrapper{
     padding: 19px 0;
     position: absolute;

@@ -448,7 +448,44 @@ $(document).ready(function() {
 
 });}
 )
-
+$(document).ready(function() {
+    $(window).scroll(function() {
+        var animTrigger = $('.anim');
+        $(animTrigger).each(function() {
+            var scroll = $(window).scrollTop(),
+                elemTop = $(this).offset().top,
+                windowHeight = $(window).height(),
+                elemHeight = $(this).height();
+            if ((scroll > elemTop - windowHeight + 150)) {
+                $(this).addClass('is-animated');
+            };
+        });
+    });
+    var animTrigger = $('.anim');
+    $(animTrigger).each(function() {
+        var scroll = $(window).scrollTop(),
+            elemTop = $(this).offset().top,
+            windowHeight = $(window).height(),
+            elemHeight = $(this).height();
+        if((windowHeight - elemTop ) > 0 ){
+            $(this).addClass('is-animated');
+        }
+    })
+    $(window).scroll(function() {
+        var animTrigger = $('.passing');
+        $(animTrigger).each(function() {
+            var scroll = $(window).scrollTop(),
+                elemTop = $(this).offset().top,
+                windowHeight = $(window).height(),
+                elemHeight = $(this).height();
+            if (scroll > elemTop - windowHeight) {
+                $(this).addClass('is-animated');
+            };
+        });
+    });
+    $(window).trigger('scroll');
+    
+});
 
 // jQuery(document).on('click', '#adong_reg_submit', function() {
 //     var email = jQuery('#email_res').val();
