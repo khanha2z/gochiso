@@ -194,12 +194,12 @@ ul.slick-dots li.slick-active{
 }
 
 .main-title p {
-    font-family: "Shippori Mincho", serif;
     font-size: 36px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     position: relative;
     text-align: center;
+    font-family: "Yuji Syuku",serif;
 }
 
 .home-product {
@@ -211,7 +211,7 @@ ul.slick-dots li.slick-active{
     padding: 85px 0 170px;
     background-color: #FFF4DA;
     background-image: url('{{ "bg-about.png" | asset_url }}');
-    background-position: bottom;
+    background-position: center bottom -30px;
     background-repeat: no-repeat;
 }
 .home-text-about p {
@@ -451,6 +451,7 @@ a.btn.btn-main.btn-shop::after {
     display: flex;
     align-items: center;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 .img-product img {
     border-radius: 8px;
@@ -614,6 +615,7 @@ a.btn.btn-main.btn-shop::before{
     flex-wrap: wrap;
     padding: 24px 48px;
     border-top: 1px solid #dbdbdb;
+    position: relative;
 }
 .news-item.item-list:last-child{
     border-bottom: 1px solid #dbdbdb;
@@ -1783,7 +1785,7 @@ table.table-legal td {
     border-color: #00A991;
 }
 
-.list-news-archive .news-item.item-list:after {
+.news-item.item-list:after {
     content: "";
     width: 37px;
     height: 37px;
@@ -1914,4 +1916,31 @@ table.table-legal td {
 }
 .single-content {
     margin-top: 40px;
+}
+.home-news .container{
+    position: relative;
+}
+.home-news .container::after{
+    content: "";
+    width: 187px;
+    height: 129px;
+    background-image: url('{{ "shimane2.png" | asset_url }}');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -100px;
+    left: -30px;
+}
+.home-news .container::before{
+    content: "";
+    width: 168px;
+    height: 105px;
+    background-image: url('{{ "shimane3.png" | asset_url }}');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -67px;
+    right: -123px;
 }
