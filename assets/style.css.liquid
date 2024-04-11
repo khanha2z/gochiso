@@ -905,7 +905,6 @@ footer::after{
 .info-shop {
     padding: 48px 0;
     border-radius: 16px;
-    background: #FFFCF4;
 }
 
 .box-info-shop {
@@ -955,7 +954,7 @@ footer::after{
     bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url(../images/icon-line.svg);
+    background-image: url('{{ "icon-line.svg" | asset_url }}');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1170,6 +1169,14 @@ a.menu-btn.open {
     top: 155px;
     animation: animateCloud2 40s linear infinite;
     width: 289px;
+}
+#about-01 .cloud-1,
+#about-01 .cloud-2{
+    width: 149px;
+}
+#about-01 .cloud-3,
+#about-01 .cloud-4{
+    width: 342px;
 }
 @keyframes animateCloud {
     0% {
@@ -2001,4 +2008,7 @@ header .cart-count-bubble {
 
 .breadcrums ul li:first-child {
     padding-left: 30px;
+}
+.about-product{
+    padding: 40px 0;
 }
