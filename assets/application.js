@@ -129,15 +129,15 @@ $(document).ready(function() {
 
     var width = $(window).width();
     if (width < 767) {
-        // $('.product-best').slick({
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1,
-        //     dots: true,
-        //     arrows: false,
-        //     infinite: true,
-        //     nextArrow: '<button class="slide-arrow next-arrow"></button>',
-        //     prevArrow: '<button class="slide-arrow prev-arrow"></button>',
-        // });
+        $('.product-best').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: false,
+            infinite: true,
+            nextArrow: '<button class="slide-arrow next-arrow"></button>',
+            prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+        });
     }
     var btn = $("#go-top");
     $(window).scroll(function() {
