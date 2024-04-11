@@ -135,8 +135,8 @@ $(document).ready(function() {
             dots: true,
             arrows: false,
             infinite: true,
-            nextArrow: '<button class="slide-arrow next-arrow"></button>',
-            prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+            nextArrow: '<button class="slide-arrow next-arrow">></button>',
+            prevArrow: '<button class="slide-arrow prev-arrow"><</button>',
         });
     }
     var btn = $("#go-top");
