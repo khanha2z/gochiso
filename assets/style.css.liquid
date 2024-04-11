@@ -1386,7 +1386,7 @@ h3.title-jp {
     font-weight: 400;
     color: #00A991;
     font-family: 'Noto Sans JP', sans-serif;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .breadcrums ul li {
@@ -1971,4 +1971,34 @@ header .cart-count-bubble {
     position: absolute;
     bottom: -120px;
     right: 20px;
+}
+.page-header::before{
+    content: "";
+    width: 100%;
+    height: 110px;
+    background-image: url('{{ "waves-1.png" | asset_url }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: -0;
+    left: 0;
+    z-index: 6;
+}
+
+.breadcrums ul li:first-child:before {
+    content: "";
+    width: 24px;
+    background-image: url('{{ "icon-home.svg" | asset_url }}');
+    height: 24px;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.breadcrums ul li:first-child {
+    padding-left: 30px;
 }

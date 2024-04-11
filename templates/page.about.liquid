@@ -49,8 +49,8 @@
     <div class="container">
         <div class="info-shop">
             <div class="main-title mx-auto">
-                <h2>Blog</h2>
-                <p>島根のブログ</p>
+                <h2>Regional specialties</h2>
+                <p>地域の特産品</p>
             </div>
             <div class="row pt-3">
                 <div class="col-lg-4 col-sm-12">
@@ -91,6 +91,55 @@
     </div>
 </section>
 <section>
+    <div class="home-product">
+        <div class="container">
+            <div class="main-title mx-auto">
+                <h2>Best Product</h2>
+                <p>人気ランキング</p>
+            </div>
+            <div class="row g-4 pt-5 product-best">
+              {% assign i = 0 %}
+              {% for product in collections.best-products.products limit:4 %}
+              {%- assign i = i | plus: 1 -%}
+                <div class="col-lg-3 col-sm-6 product-item-{{ i }}">
+                  <div class="col-inner">
+                    <div class="box-product">
+                        <div class="img-product">
+                          <a href="{{ product.url | within: collection }}">
+                            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                          </a>
+                        </div>
+                        <div class="box-title-product">
+                            <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                            <div class="price-product">
+                                <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                            </div>
+                        </div>
+                        <div class="box-rate-product">
+                            <div class="rate-product">
+                                <div class="box-star">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <p>(14件)</p>
+                                </div>
+                                <p><span>100</span>購入したアイテム</p>
+                            </div>
+                            <div class="box-btn-add-cart">
+                                <a href="{{ product.url }}" class="btn btn-cart"><img src="{{"icon-cart.svg" | asset_url}}" ></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+    </div>
+  </section>
+<section>
     <div class="home-region">
         <div class="container">
             <div class="main-title mx-auto">
@@ -98,7 +147,7 @@
                 <p>地域の特産品</p>
             </div>
             <div class="row pt-3">
-                {% for product in collections.frontpage.products limit:4 %}
+                {% for product in collections.hamada.products limit:4 %}
                   <div class="col-lg-3 col-sm-6">
                     <div class="col-inner">
                       <div class="box-product">
@@ -148,34 +197,20 @@
                 <p>ニュース</p>
             </div>
             <div class="list-home-news mt-5">
-                <div class="news-item item-list biggerlink">
-                    <div class="date"><span>2024年00月00日</span></div>
-                    <div class="box-cat text-center">
-                        <a href="#" class="cat catid-1" title="">島根のニュース</a>
-                    </div>
-                    <div class="title">
-                        <a href="#" title="">テキストテキストテキストテキストテキストテキスト</a>
-                    </div>
-                </div>
-                <div class="news-item item-list biggerlink">
-                    <div class="date"><span>2024年00月00日</span></div>
-                    <div class="box-cat text-center">
-                        <a href="#" class="cat catid-1" title="">島根のニュース</a>
-                    </div>
-                    <div class="title">
-                        <a href="#" title="">テキストテキストテキストテキストテキストテキスト</a>
-                    </div>
-                </div>
-                <div class="news-item item-list biggerlink">
-                    <div class="date"><span>2024年00月00日</span></div>
-                    <div class="box-cat text-center">
-                        <a href="#" class="cat catid-1" title="">島根のニュース</a>
-                    </div>
-                    <div class="title">
-                        <a href="#" title="">テキストテキストテキストテキストテキストテキスト</a>
-                    </div>
-                </div>
-            </div>
+                {% assign blog_handle = 'news' %}
+                {% assign blog = blogs[blog_handle] %}
+                {% for article in blog.articles %}
+                  <div class="news-item item-list biggerlink">
+                      <div class="date"><span>{{ article.created_at | date: '%Y年%m月%d日'  }}</span></div>
+                      <div class="box-cat text-center">
+                          <a href="#" class="cat catid-1" title="">お知らせ</a>
+                      </div>
+                      <div class="title">
+                        <a href="{{ article.url }}">{{ article.title }}</a>
+                      </div>
+                  </div>
+                {% endfor %}
+              </div>
         </div>
     </div>
 </section>
