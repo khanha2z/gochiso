@@ -26,6 +26,7 @@ $(document).ready(function() {
             }
         });
     });
+    product-best
     $('.slide-banner').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -129,7 +130,7 @@ $(document).ready(function() {
 
     var width = $(window).width();
     if (width < 767) {
-        $('#slide-your-course, #slide-suitable-course, #slide-hot-course').slick({
+        $('.product-best').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             dots: true,
