@@ -34,7 +34,14 @@
                   <div class="title-line">
                       <div class="infor-line">
                           <div class="date fs-sm-14">{{ article.created_at | date: '%Y年%m月%d日'  }}</div>
-                          <div class=""><a href="#" class="cat catid-13">辻井循環器内科</a></div>
+                          <div class="">
+                            {% for tag in article.tags %}
+                              {% if tag contains 'category-' %}
+                                <li>{{ tag | remove: 'category-' }}</li>
+                              {% endif %}
+                            {% endfor %}
+                            <a href="#" class="cat catid-13">辻井循環器内科</a>
+                          </div>
                       </div>
                       <div class="title-single pt-45 pt-sm-10">{{ article.title }}</div>
                   </div>
