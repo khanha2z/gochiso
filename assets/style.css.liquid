@@ -202,6 +202,7 @@ ul.slick-dots li.slick-active{
     background-image: url('{{ "bg-about.png" | asset_url }}');
     background-position: center bottom -30px;
     background-repeat: no-repeat;
+    z-index: 1;
 }
 .home-text-about p {
     writing-mode: vertical-rl;
@@ -257,6 +258,7 @@ ul.slick-dots li.slick-active{
     top: 0;
     left: 112px;
     top: 49px;
+    z-index: -1;
 }
 .home-about::before{
     content: "";
@@ -270,6 +272,7 @@ ul.slick-dots li.slick-active{
     top: 0;
     right: 112px;
     top: 49px;
+    z-index: -1;
 }
 .home-region{
     padding-top: 130px;
@@ -754,9 +757,14 @@ div#go-top {
     opacity: 0;
     color: #E0C143 ;
     transition: .3s;
+    z-index: 99;
 }
 div#go-top i{
     color: #E0C143 ;
+    transition: .3s;
+}
+div#go-top:hover i {
+    color: #A28719;
 }
 #go-top.show {
     opacity: 1;
@@ -1029,7 +1037,7 @@ body main {
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-    padding-top: 32px;
+    padding-top: 82px;
 }
 .menu-pc-right .navbar{
     justify-content: center !important;
