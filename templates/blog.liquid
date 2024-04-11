@@ -37,6 +37,11 @@
               <div class="news-item item-list biggerlink">
                   <div class="date"><span>{{ article.created_at | date: '%Y年%m月%d日'  }}</span></div>
                   <div class="box-cat text-center">
+                    {% for blog in blogs %}
+                        {% for article in blog.articles %}
+                          <a href="{{ article.url }}">{{ article.title }}</a>
+                        {% endfor %}
+                    {% endfor %}
                       <a href="#" class="cat catid-1" title="">お知らせ</a>
                   </div>
                   <div class="title">
