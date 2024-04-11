@@ -26,7 +26,6 @@ $(document).ready(function() {
             }
         });
     });
-    product-best
     $('.slide-banner').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
