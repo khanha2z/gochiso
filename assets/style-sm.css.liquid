@@ -253,7 +253,8 @@
     }
     .box-home-region p {
         line-height: 2;
-        text-align: justify;
+        text-align: center;
+        font-size: 15px;
     }
     .box-blog-post{
         margin-bottom: 30px;
@@ -422,12 +423,15 @@
         flex-direction: row;
         justify-content: center;
         padding-left: 65px;
+        margin-top: 15px;
     }
     
     .product-best ul.slick-dots li,
     .product-slide-sm ul.slick-dots li {
         margin: 0 5px;
         border-color: #00A991;
+        width: 10px;
+        height: 10px;
     }
     
     .product-best ul.slick-dots li.slick-active,
@@ -459,5 +463,19 @@
         width: 100vw;
         left: -12px;
         height: 540px;
+    }
+    .box-home-region>h2 {
+        font-size: 24px;
+    }
+    .home-news .container::after {
+        width: 95px;
+        height: 65px;
+        top: -40px;
+    }
+    
+    .home-news .container::before {
+        width: 85px;
+        height: 57px;
+        bottom: -60px;
     }
 } 
