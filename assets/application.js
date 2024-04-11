@@ -282,7 +282,6 @@ $(document).ready(function() {
         } else {
             if (url.indexOf('#') > 0) {
                 var target = url.substr(url.indexOf('#'));
-                $('#loading').hide();
                 if (target != '#home') {
                     $(window).on('load', function() {
                         var px =150
