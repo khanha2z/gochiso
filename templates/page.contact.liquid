@@ -21,7 +21,16 @@
       <div class="bg-anim-3"></div>
   </div>
 </section>
-{% render 'breadcrumbs' %}
+<div class="container">
+    <div class="breadcrums">
+        <ul aria-label="breadcrumbs">
+            <li>
+            <a href="/">Top</a>
+            </li>
+            <li><span>接触</span></li>
+        </ul>
+    </div>
+</div>
 <section>
   <div class="container">
       <div class="box-form-contact">
@@ -30,11 +39,11 @@
   {{ form.errors | default_errors }}
     <div class="title-form">お問い合わせ</div>
     <div class="row">
-        <div class="col-6 col-sm-12">
+        <div class="col-12 col-lg-6">
             <label for="ContactFormName">First name</label>
             <input type="text" placeholder="Enter your first name" class="form-control" id="ContactFormName" name="contact[name]">
         </div>
-        <div class="col-6 col-sm-12">
+        <div class="col-12 col-lg-6">
             <label for="ContactFormEmail">Last name</label>
             <input type="email" placeholder="Enter your email" class="form-control" id="ContactFormEmail" name="contact[email]">
         </div>
