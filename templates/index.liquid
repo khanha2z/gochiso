@@ -212,6 +212,7 @@
       </div>
   </div>
 </section>
+
 <section>
   <div class="home-region-3">
       <div class="container anim fadeup">
@@ -261,6 +262,7 @@
       </div>
   </div>
 </section>
+
 <section>
   <div class="home-news">
       <div class="containeranim fadeup">
@@ -272,10 +274,13 @@
             {% assign blog_handle = 'news' %}
             {% assign blog = blogs[blog_handle] %}
             {% for article in blog.articles %}
+              <script>console.log({{ article | json }});</script>
               <div class="news-item item-list biggerlink">
                   <div class="date"><span>{{ article.created_at | date: '%Y年%m月%d日'  }}</span></div>
                   <div class="box-cat text-center">
-                      <a href="#" class="cat catid-1" title="">お知らせ</a>
+                    {% for tag in article.tags %}
+                      <a href="{{ blog.url | escape }}/tagged/{{ tag | handle }}" class="cat catid-1">{{ tag }}</a>
+                    {% endfor %}
                   </div>
                   <div class="title">
                     <a href="{{ article.url }}">{{ article.title }}</a>
