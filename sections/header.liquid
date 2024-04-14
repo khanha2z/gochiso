@@ -100,7 +100,7 @@
                   </div> {% endcomment %}
 
                   <div class="navbar-nav nav-main">
-                      {%- for link in section.settings.menu.links -%}
+                      {%- for link in section.settings.main-menu.links -%}
                         <a href="{{ link.url }}" class="nav-item nav-link">{{ link.title | escape }}</a>
                       {%- endfor -%}
 
@@ -171,7 +171,7 @@
                           </a>
                         </div>
                           <div class="navbar-nav nav-main">
-                              {%- for link in section.settings.menu.links -%}
+                              {%- for link in section.settings.main-menu.links -%}
                                 <a href="{{ link.url }}" class="nav-item nav-link">{{ link.title | escape }}</a>
                               {%- endfor -%}
                           </div>
