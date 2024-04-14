@@ -22,7 +22,7 @@
         "disabled": false,
         "settings": {
           "hide_star": false,
-          "collection_target_class": "nav-information",
+          "collection_target_class": "",
           "hide_name": false,
           "hide_email": false,
           "hide_title": false,
