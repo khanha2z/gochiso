@@ -98,14 +98,19 @@
                       <a href="#"><img src="{{ 'icon-search.png' | asset_url  }}" alt=""></a>
                       <a href="#"><img src="{{ 'icon-cart-1.svg' | asset_url  }}" alt=""></a>
                   </div> {% endcomment %}
+
                   <div class="navbar-nav nav-main">
-                      <a href="./#home" class="nav-item nav-link active">ホーム</a>
-                      <a href="#" class="nav-item nav-link">商品一覧</a>
+                      {%- for link in section.settings.menu.links -%}
+                        <a href="{{ link.url }}" class="nav-item nav-link">{{ link.title | escape }}</a>
+                      {%- endfor -%}
+
+                      {% comment %} <a href="./#home" class="nav-item nav-link active">ホーム</a>
+                      <a href="/collections/all" class="nav-item nav-link">商品一覧</a>
                       <a href="#" class="nav-item nav-link">雲南市</a>
                       <a href="#" class="nav-item nav-link">浜田市</a>
                       <a href="#" class="nav-item nav-link">出雲市</a>
                       <a href="#" class="nav-item nav-link">お問い合わせ</a>
-                      <a href="#" class="nav-item nav-link">よくある質問</a>
+                      <a href="#" class="nav-item nav-link">よくある質問</a> {% endcomment %}
                   </div>
               </div>
           </nav>
@@ -166,13 +171,9 @@
                           </a>
                         </div>
                           <div class="navbar-nav nav-main">
-                              <a href="./#home" class="nav-item nav-link active">ホーム</a>
-                              <a href="#" class="nav-item nav-link">商品一覧</a>
-                              <a href="#" class="nav-item nav-link">雲南市</a>
-                              <a href="#" class="nav-item nav-link">浜田市</a>
-                              <a href="#" class="nav-item nav-link">出雲市</a>
-                              <a href="#" class="nav-item nav-link">お問い合わせ</a>
-                              <a href="#" class="nav-item nav-link">よくある質問</a>
+                              {%- for link in section.settings.menu.links -%}
+                                <a href="{{ link.url }}" class="nav-item nav-link">{{ link.title | escape }}</a>
+                              {%- endfor -%}
                           </div>
                       </div>
                   </nav>
