@@ -115,13 +115,13 @@ cart-items .title-wrapper-with-link {
   line-height: calc(1 + 0.5 / var(--font-body-scale));
 }
 
-.cart-item cart-remove-button {
+.cart-item .cart-remove-button {
   display: flex;
   margin-left: 1rem;
 }
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
-  .cart-item cart-remove-button {
+  .cart-item .cart-remove-button {
     width: 4.5rem;
     height: 4.5rem;
   }
@@ -306,7 +306,7 @@ cart-remove-button .icon-remove {
     width: 10rem;
   }
 
-  .cart-item cart-remove-button {
+  .cart-item .cart-remove-button {
     margin: 0.5rem 0 0 1.5rem;
   }
 
