@@ -274,7 +274,7 @@
             {% assign blog_handle = 'news' %}
             {% assign blog = blogs[blog_handle] %}
             {% for article in blog.articles %}
-              <script>console.log({{ article | json }});</script>
+              <script>console.log({{ article.blog | json }});</script>
               <div class="news-item item-list biggerlink">
                   <div class="date"><span>{{ article.created_at | date: '%Y年%m月%d日'  }}</span></div>
                   <div class="box-cat text-center">
