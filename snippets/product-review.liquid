@@ -1,3 +1,16 @@
-<div id='epr-product-title-review' data-product-id='{{ product.id }}' data-product-handle='{{ product.handle }}' data-product-title='{{ product.title }}'></div>
+{%- if product.metafields.reviews.rating.value != blank -%}
+<a class="star-rating-container" href="#shopify-product-reviews">
+    <div class="star-rating" style="--star-rating: {{ product.metafields.reviews.rating.value.rating }};"></div>
+    <span>{{ product.metafields.reviews.rating_count }}</span>
+</a>
+{%- endif -%}
 
+{% comment %} <div class="box-star">
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <p>(14件)</p>
+</div> {% endcomment %}
 <p><span>100</span>購入したアイテム</p>
