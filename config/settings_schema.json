@@ -8,12 +8,12 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
-    "name": "Home Page",
+    "name": "Logo",
     "settings": [
       {
         "type": "image_picker",
         "id": "logo",
-        "label": "Title 1"
+        "label": "Logo"
       },
       {
         "type": "range",
@@ -23,14 +23,34 @@
         "step": 10,
         "default": 100,
         "unit": "px",
-        "label": "Title 2"
+        "label": "Logo Width"
       },
       {
         "type": "image_picker",
         "id": "favicon",
-        "label": "Title 3",
-        "info": "t:settings_schema.logo.settings.favicon.info"
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Contact",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hour-open",
+        "label": "受付時間"
+      },
+      {
+        "type": "text",
+        "id": "facebook_url",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "text",
+        "id": "instagram_url",
+        "label": "Instagram URL"
       }
     ]
   }
+
 ]
