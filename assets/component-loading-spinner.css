@@ -51,11 +51,11 @@
 }
 
 .loading__spinner:not(.hidden) + .cart-item__price-wrapper,
-.loading__spinner:not(.hidden) ~ cart-remove-button {
+.loading__spinner:not(.hidden) ~ .cart-remove-button {
   opacity: 50%;
 }
 
-.loading__spinner:not(.hidden) ~ cart-remove-button {
+.loading__spinner:not(.hidden) ~ .cart-remove-button {
   pointer-events: none;
   cursor: default;
 }
