@@ -274,13 +274,10 @@
             {% assign blog_handle = 'news' %}
             {% assign blog = blogs[blog_handle] %}
             {% for article in blog.articles %}
-              <script>console.log({{ article.blogs | json }});</script>
               <div class="news-item item-list biggerlink">
                   <div class="date"><span>{{ article.created_at | date: '%Y年%m月%d日'  }}</span></div>
                   <div class="box-cat text-center">
-                    {% for tag in article.tags %}
-                      <a href="{{ blog.url | escape }}/tagged/{{ tag | handle }}" class="cat catid-1">{{ tag }}</a>
-                    {% endfor %}
+                    <a href="{{ blog.url | escape }}" class="cat catid-1">{{ blog.title | escape }}</a>
                   </div>
                   <div class="title">
                     <a href="{{ article.url }}">{{ article.title }}</a>
