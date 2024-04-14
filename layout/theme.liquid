@@ -160,20 +160,42 @@
                 </div>
                 <div class="col-lg-3 col-sm-12 d-none d-lg-block">
                     <div class="list-link-footer">
-                        <a href="#">トップページ</a>
-                        <a href="#">お知らせ</a>
-                        <a href="#">ふるさとごちそうモールについて</a>
-                        <a href="#">特定商取引法に基づく表記</a>
-                        <a href="#">よくある質問</a>
+                        {%- for link in linklists.footer.links -%}
+                            <a href="{{ link.url }}">{{ link.title | escape }}</a>
+
+                            {%- liquid
+                                assign has_sub_menu = false
+                                if link.links.size > 0
+                                    assign has_sub_menu = true
+                                endif
+                            -%}
+
+                            {%- if has_sub_menu == true -%}
+                                {%- for l in link.links -%}
+                                    <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                                {%- endfor -%}
+                            {%- endif -%}
+                        {%- endfor -%}
                     </div>
                 </div>
                 <div class="col d-none d-lg-block">
                     <div class="list-link-footer">
-                        <a href="#">商品一覧</a>
-                        <a href="#" class="sub-link">雲南市</a>
-                        <a href="#" class="sub-link">浜田市</a>
-                        <a href="#" class="sub-link">出雲市</a>
-                        <a href="#">お問い合わせ</a>
+                        {%- for link in linklists.footer-menu-2.links -%}
+                            <a href="{{ link.url }}">{{ link.title | escape }}</a>
+
+                            {%- liquid
+                                assign has_sub_menu = false
+                                if link.links.size > 0
+                                    assign has_sub_menu = true
+                                endif
+                            -%}
+
+                            {%- if has_sub_menu == true -%}
+                                {%- for l in link.links -%}
+                                    <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                                {%- endfor -%}
+                            {%- endif -%}
+                        {%- endfor -%}
                     </div>
                 </div>
                 <div class="col">
