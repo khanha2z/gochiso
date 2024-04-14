@@ -1,7 +1,7 @@
 <form method="post" action="/cart/add">
     <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-    <input min="1" type="number" id="quantity" name="quantity" value="1"/>
-    <button type="submit" class="btn btn-cart">
+    <input min="1" type="number" id="quantity" name="quantity" value="1" hidden/>
+    <button type="submit" class="btn btn-cart" name="add">
         <img src="{{"icon-cart.svg" | asset_url}}"/>
     </button>
 </form>
