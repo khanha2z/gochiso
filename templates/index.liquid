@@ -397,3 +397,94 @@
         <div class="bg-anim-3"></div>
   </div>
 </section>
+
+
+{% schema %}
+{
+  "name": "Blog post",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "featured_image",
+      "name": "Featured image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "Adapt image"
+            },
+            {
+              "value": "small",
+              "label": "small"
+            },
+            {
+              "value": "medium",
+              "label": "medium"
+            },
+            {
+              "value": "large",
+              "label": "large"
+            }
+          ],
+          "default": "adapt",
+          "label": "featured image heigh",
+          "info": "featured image heigh"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Titlte",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "show date"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "show author"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "Content",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "Share",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "text",
+          "default": "Share"
+        },
+        {
+          "type": "paragraph",
+          "content": "para"
+        },
+        {
+          "type": "paragraph",
+          "content": "para"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
