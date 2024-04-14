@@ -16,6 +16,19 @@
         "disabled": true,
         "settings": {
         }
+      },
+      "4095653568973655092": {
+        "type": "shopify:\/\/apps\/mag-product-review\/blocks\/app-embed\/0cf5caa0-e138-46b8-999b-520d16633e4c",
+        "disabled": false,
+        "settings": {
+          "hide_star": false,
+          "collection_target_class": "",
+          "hide_name": false,
+          "hide_email": false,
+          "hide_title": false,
+          "hide_description": false,
+          "hide_image": false
+        }
       }
     }
   },
