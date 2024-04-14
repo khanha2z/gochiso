@@ -172,7 +172,7 @@
 
                             {%- if has_sub_menu == true -%}
                                 {%- for l in link.links -%}
-                                    <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                                    <a href="{{ link.url }}" class="sub-link">{{ link.title | escape }}</a>
                                 {%- endfor -%}
                             {%- endif -%}
                         {%- endfor -%}
@@ -192,7 +192,7 @@
 
                             {%- if has_sub_menu == true -%}
                                 {%- for l in link.links -%}
-                                    <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                                    <a href="{{ link.url }}" class="sub-link">{{ link.title | escape }}</a>
                                 {%- endfor -%}
                             {%- endif -%}
                         {%- endfor -%}
