@@ -212,15 +212,15 @@
                 {% assign blog_handle = 'news' %}
                 {% assign blog = blogs[blog_handle] %}
                 {% for article in blog.articles %}
-                  <div class="news-item item-list biggerlink">
-                      <div class="date"><span>{{ article.created_at | date: '%Y年%m月%d日'  }}</span></div>
-                      <div class="box-cat text-center">
-                          <a href="#" class="cat catid-1" title="">お知らせ</a>
-                      </div>
-                      <div class="title">
-                        <a href="{{ article.url }}">{{ article.title }}</a>
-                      </div>
-                  </div>
+                    <div class="news-item item-list biggerlink">
+                        <div class="date"><span>{{ article.created_at | date: '%Y年%m月%d日'  }}</span></div>
+                        <div class="box-cat text-center">
+                            <a href="{{ blog.url | escape }}" class="cat catid-1">{{ blog.title | escape }}</a>
+                        </div>
+                        <div class="title">
+                            <a href="{{ article.url }}">{{ article.title }}</a>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
             <div class="pt-5">
