@@ -71,6 +71,7 @@
             {% assign i = 0 %}
             {% for product in collections.best-products.products limit:4 %}
             {%- assign i = i | plus: 1 -%}
+              {{ product }}
               <div class="col-lg-3 col-sm-6 product-item-{{ i }}">
                 <div class="col-inner">
                   <div class="box-product">
