@@ -76,7 +76,7 @@
                           <div class="swiper-wrapper">
                               {% for image in product.images %}
                                 <div class="swiper-slide">
-                                  <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+                                  <img src="{{ image.src | img_url: '' }}" alt="{{ image.alt | escape }}" width="800">
                                 </div>
                               {% endfor %}
                           </div>
