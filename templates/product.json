@@ -1,11 +1,52 @@
 {
-    "sections": {
-      "main-product": {
-        "type": "main-product"
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "settings": {
       }
     },
-    "order": [
-      "main-product"
-    ]
-  }
-  
+    "1713148865b204838f": {
+      "type": "apps",
+      "blocks": {
+        "mag_product_review_form_fwQ3xi": {
+          "type": "shopify:\/\/apps\/mag-product-review\/blocks\/form\/0cf5caa0-e138-46b8-999b-520d16633e4c",
+          "settings": {
+            "block_heading": "",
+            "rating": "",
+            "no_rating": "",
+            "subtitle1": "",
+            "subtitle2": "",
+            "review_btn": "",
+            "form_heading": "",
+            "name_label": "",
+            "email_label": "",
+            "review_title_label": "",
+            "review_description_label": "",
+            "ratings_label": "",
+            "review_image_label": "",
+            "submit_btn_label": "",
+            "sort_label": "",
+            "sort1_label": "",
+            "sort2_label": "",
+            "sort3_label": ""
+          }
+        },
+        "mag_product_review_star_PkNUzL": {
+          "type": "shopify:\/\/apps\/mag-product-review\/blocks\/star\/0cf5caa0-e138-46b8-999b-520d16633e4c",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "mag_product_review_form_fwQ3xi",
+        "mag_product_review_star_PkNUzL"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main-product",
+    "1713148865b204838f"
+  ]
+}
