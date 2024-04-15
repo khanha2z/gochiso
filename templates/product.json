@@ -12,7 +12,7 @@
           "type": "shopify:\/\/apps\/mag-product-review\/blocks\/form\/0cf5caa0-e138-46b8-999b-520d16633e4c",
           "settings": {
             "block_heading": "",
-            "rating": "",
+            "rating": "3",
             "no_rating": "",
             "subtitle1": "",
             "subtitle2": "",
