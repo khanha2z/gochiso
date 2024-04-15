@@ -88,6 +88,7 @@
                       <div class="box-rate-product">
                           <div class="rate-product">
                             {% render 'product-review' product: product %}
+                            <div id='epr-product-title-review' data-product-id='{{ product.id }}' data-product-handle='{{ product.handle }}' data-product-title='{{ product.title }}'></div>
                           </div>
                           <div class="box-btn-add-cart">
                             {% render 'product-card' product: product %}
