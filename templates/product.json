@@ -1,11 +1,7 @@
 {
     "sections": {
       "main-product": {
-        "type": "main-product",
-        "settings": {
-          "title_en": "Cart",
-          "title_jp": "カート一覧"
-        }
+        "type": "main-product"
       }
     },
     "order": [
