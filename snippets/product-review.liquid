@@ -7,7 +7,9 @@
 </div>
 
 <script>
-  console.log({{ product.metafields.reviews | json }})
+  console.log({{ product.metafields | json }});
+
+  console.log({{ product | json }});
 </script>
 
 {%- if product.metafields.reviews.rating.value != blank -%}
