@@ -51,7 +51,7 @@ list {% endcomment %}
           </div>
           <div class="row g-4 pt-4 product-best">
             {% for product in collections.best-products.products limit:4 %}
-              <div class="col-lg-3 col-sm-6 product-item-1">
+              <div class="col-lg-3 col-sm-6 product-item-{{ forloop.index }}">
                 <div class="col-inner">
                   <div class="box-product">
                       <div class="img-product">
