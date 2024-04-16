@@ -21,7 +21,7 @@
         "type": "shopify:\/\/apps\/mag-product-review\/blocks\/app-embed\/0cf5caa0-e138-46b8-999b-520d16633e4c",
         "disabled": false,
         "settings": {
-          "hide_star": false,
+          "hide_star": true,
           "collection_target_class": "epr-product-title-review",
           "hide_name": false,
           "hide_email": false,
