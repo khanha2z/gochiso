@@ -22,7 +22,7 @@
         "disabled": false,
         "settings": {
           "hide_star": false,
-          "collection_target_class": "rate-product",
+          "collection_target_class": "epr-product-title-review",
           "hide_name": false,
           "hide_email": false,
           "hide_title": false,
