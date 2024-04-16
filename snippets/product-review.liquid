@@ -9,7 +9,7 @@
 <div id="epr-product-collection-review" data-product-id='{{ product.id }}' data-product-handle='{{ handle }}' data-product-title='{{ product.title }}'></div>
 
 <script>
-  console.log( {{ product | json }} )
+  console.log( {{ product.metafields | json }} )
 </script>
 
 <p><span>100</span>購入したアイテム</p>
