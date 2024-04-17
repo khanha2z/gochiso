@@ -173,6 +173,7 @@ usf.templates = {
         <div class="usf-title">
             <a :href="productUrl" :attrs="usf.plugins.invoke('getProductTitleAttrs', pluginData)" v-html="product.title"></a>
         </div>
+        <div id="epr-product-collection-review" data-product-id='{{ product.id }}' data-product-handle='{{ handle }}' data-product-title='{{ product.title }}'></div>
 
         <!-- Labels -->
         <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin>
