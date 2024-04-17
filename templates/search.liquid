@@ -5,17 +5,39 @@
   </form>
 
   {% if search.performed %}
+    <div class="row g-4 pt-5">
     {% for item in search.results %}
-      {% if item.featured_image %}
-        <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-          {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
-        </a>
-      {% endif %}
-      <h5>{{ item.title | link_to: item.url }}</h5>
-      <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+      <div class="col-lg-3 col-sm-6 product-item-{{ i }}">
+        <div class="col-inner">
+          <div class="box-product">
+              <div class="img-product">
+                {% if item.featured_image %}
+                  <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
+                    {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
+                  </a>
+                {% endif %}
+              </div>
+              <div class="box-title-product">
+                  <a href="{{ item.url | within: collection }}">{{ item.title | link_to: item.url }}</a>
+                  <div class="price-product">
+                      <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                  </div>
+              </div>
+              <div class="box-rate-product">
+                  <div class="rate-product">
+                    {% render 'product-review' product: product,  handle:product.handle %}
+                  </div>
+                  <div class="box-btn-add-cart">
+                    {% render 'product-card' product: product %}
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
     {% else %}
       no results
     {% endfor %}
+    </div>
   {% endif %}
 
   {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
