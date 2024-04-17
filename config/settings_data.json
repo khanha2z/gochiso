@@ -34,8 +34,8 @@
         "type": "shopify:\/\/apps\/mag-form-builder\/blocks\/formBuilder\/a1074dc9-da75-4be4-856f-aa55cf4ede25",
         "disabled": false,
         "settings": {
-          "success_title": "Success!",
-          "success_text": "Mail sent successfully.",
+          "success_title": "成功！",
+          "success_text": "メールは正常に送信されました。",
           "svg_color": "#82ce34",
           "button_color": "#82ce34"
         }
