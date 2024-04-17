@@ -27,43 +27,45 @@
   </div>
 </section>
   {% if search.performed %}
-    <div class="container list-best-product">
-      <div class="row g-4 pt-5">
-      {% for item in search.results %}
-        <div class="col-lg-3 col-sm-6 product-item">
-          <div class="col-inner">
-            <div class="box-product">
-                <div class="img-product">
-                  {% if item.featured_image %}
-                    <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-                      {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
-                    </a>
-                  {% endif %}
-                </div>
-                <div class="box-title-product">
-                    <h5>{{ item.title | link_to: item.url }}</h5>
-                    <div class="price-product">
-                        <p>{{ item.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
-                    </div>
-                </div>
-                <div class="box-rate-product">
-                    <div class="rate-product">
-                      {% render 'product-review' product: item,  handle:item.handle %}
-                    </div>
-                    <div class="box-btn-add-cart">
-                      {% render 'product-card' product: item %}
-                    </div>
-                </div>
+    <div class="list-best-product">
+      <div class="container">
+        <div class="row g-4 pt-5">
+        {% for item in search.results %}
+          <div class="col-lg-3 col-sm-6 product-item">
+            <div class="col-inner">
+              <div class="box-product">
+                  <div class="img-product">
+                    {% if item.featured_image %}
+                      <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
+                        {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
+                      </a>
+                    {% endif %}
+                  </div>
+                  <div class="box-title-product">
+                      <h5>{{ item.title | link_to: item.url }}</h5>
+                      <div class="price-product">
+                          <p>{{ item.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                      </div>
+                  </div>
+                  <div class="box-rate-product">
+                      <div class="rate-product">
+                        {% render 'product-review' product: item,  handle:item.handle %}
+                      </div>
+                      <div class="box-btn-add-cart">
+                        {% render 'product-card' product: item %}
+                      </div>
+                  </div>
+              </div>
             </div>
           </div>
-        </div>
-      {% else %}
-        <div class="col-12">
-          <div class="alert alert-danger" role="alert">
-             No results
+        {% else %}
+          <div class="col-12">
+            <div class="alert alert-danger" role="alert">
+               No results
+            </div>
           </div>
+        {% endfor %}
         </div>
-      {% endfor %}
       </div>
     </div>
   {% endif %}
