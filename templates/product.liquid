@@ -72,7 +72,7 @@
                   </div>
                   <div class="col-md-9">
                       <!-- product-large-slider -->
-                      <div class="swiper product-large-slider">
+                      <div class="swiper product-large-slider img-product">
                           <div class="swiper-wrapper">
                               {% for image in product.images %}
                                 <div class="swiper-slide">
@@ -191,9 +191,9 @@
                               <div class="col-inner">
                                 <div class="box-product">
                                     <div class="img-product">
-                                      <a href="{{ product.url | within: collection }}">
-                                        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-                                      </a>
+                                        <a href="{{ product.url | within: collection }}">
+                                            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                                        </a>
                                     </div>
                                     <div class="box-title-product">
                                         <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
