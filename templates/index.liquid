@@ -127,7 +127,7 @@
                       <div class="box-title-product">
                           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
-                              <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                              <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
                           </div>
                       </div>
                       <div class="box-rate-product">
@@ -169,7 +169,7 @@
                       <div class="box-title-product">
                           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
-                              <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                              <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
                           </div>
                       </div>
                       <div class="box-rate-product">
@@ -211,7 +211,7 @@
                       <div class="box-title-product">
                           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                           <div class="price-product">
-                              <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                              <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
                           </div>
                       </div>
                       <div class="box-rate-product">
