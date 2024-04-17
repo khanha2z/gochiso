@@ -1,17 +1,100 @@
 <!-- /templates/customers/activate_account.liquid -->
-{% form 'activate_customer_password' %}
-{{ form.errors | default_errors }}
-<div class="password">
-  <label for="password">Password</label>
-  <input type="password" name="customer[password]" />
-</div>
-<div class="password_confirm">
-  <label for="password_confirmation">Password Confirmation</label>
-  <input type="password" name="customer[password_confirmation]" />
-</div>
-<div class="action_bottom">
-  <input type="submit" value="Activate Account" />
-  <span>or</span>
-  <input type="submit" name="decline" value="Decline Invitation" />
-</div>
-{% endform %}
+
+<section id="home-contact" class="login">
+    <div class="login-wrap">
+        <div class="container">
+            <div class="box-login">
+                <p class="welcome mb-2">アカウントをアクティブ化する</p>
+                <p class="note">サービスの利用を開始するにはログインしてください</p>
+                
+                {% form 'activate_customer_password' %}
+                    {{ form.errors | default_errors }}
+                    <div class=" form-group">
+                        <label for="password">Password</label>
+                        <input type="password" value="" name="customer[password]" size="30" />
+                    </div>
+
+                    <div class=" form-group">
+                      <label for="password_confirmation">パスワードの確認</label>
+                      <input type="password" name="customer[password_confirmation]" />
+                    </div>
+                
+                    <button type="submit" class="btn btn-block mb-2">アカウントをアクティブ化する</button>
+                    <span>or</span>
+                    <button type="submit" name="decline" class="btn btn-block mb-2">招待を断る</button>
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .login-wrap {
+        padding: 120px 0px;
+        background-color: #F1F1F5;
+        position: relative;
+    }
+
+    .box-login {
+        background: #fff;
+        width: 540px;
+        max-width: 100%;
+        padding: 24px;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: 0 3px 4px rgba(153,155,168,.25);
+        font-size: 14px;
+        color: #25324B;
+    }
+
+    #home-contact::after {
+        border: none;
+        background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #home-contact::after {
+        border: none;
+        background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .box-login .welcome {
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .box-login .note {
+        color: #7C8493;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .input-label {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.19;
+        color: #171347;
+    }
+
+    .box-login input.form-control, .box-login .btn {
+        height: 48px !important;
+        border-radius: 0;
+        border: 1px solid #D6DDEB;
+        background-color: #FAFBFC;
+        box-shadow: none;
+        display: block;
+        font-size: 14px;
+    }
+
+    .box-login .btn:hover {
+        background-color: #E0C143 !important;
+        border-color: #E0C143 !important;
+    }
+</style>

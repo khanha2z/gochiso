@@ -1,39 +1,120 @@
 <!-- /templates/customers/addresses.liquid -->
 
-<h2>New Address</h2>
-{% form 'customer_address', customer.new_address %}
-
-{{ form.errors | default_errors }}
-
-<label for="first_name">First Name</label>
-<input type="text" value="" name="address[first_name]" size="30" />
-
-<label for="last_name">Last Name</label>
-<input type="text" value="" name="address[last_name]" size="30" />
-
-<label for="company">Company</label>
-<input type="text" value="" name="address[company]" />
-
-<label for="address1">Address 1</label>
-<input type="text" value="" name="address[address1]" />
-
-<label for="address2">Address 2</label>
-<input type="text" value="" name="address[address2]" />
-
-<label for="city">City</label>
-<input type="text" value="" name="address[city]" />
-
-<!-- See docs for @shopify/theme-addresses to support Country and Province -->
-<label for="country">Country</label>
-<select name="address[country]" /></select>
-
-<label for="province">Province</label>
-<select name="address[province]" /></select>
-
-<label for="zip">Zip/Post Code</label>
-<input type="text" value="" name="address[zip]" />
-
-<label for="phone">Phone Number</label>
-<input type="tel" value="" name="address[phone]" />
-
-{% endform %}
+<section id="home-contact" class="login">
+    <div class="login-wrap">
+        <div class="container">
+            <div class="box-login">
+          
+                <h2>New Address</h2>
+                {% form 'customer_address', customer.new_address %}
+                
+                {{ form.errors | default_errors }}
+                
+                <label for="first_name">First Name</label>
+                <input type="text" value="" name="address[first_name]" size="30" />
+                
+                <label for="last_name">Last Name</label>
+                <input type="text" value="" name="address[last_name]" size="30" />
+                
+                <label for="company">Company</label>
+                <input type="text" value="" name="address[company]" />
+                
+                <label for="address1">Address 1</label>
+                <input type="text" value="" name="address[address1]" />
+                
+                <label for="address2">Address 2</label>
+                <input type="text" value="" name="address[address2]" />
+                
+                <label for="city">City</label>
+                <input type="text" value="" name="address[city]" />
+                
+                <!-- See docs for @shopify/theme-addresses to support Country and Province -->
+                <label for="country">Country</label>
+                <select name="address[country]" /></select>
+                
+                <label for="province">Province</label>
+                <select name="address[province]" /></select>
+                
+                <label for="zip">Zip/Post Code</label>
+                <input type="text" value="" name="address[zip]" />
+                
+                <label for="phone">Phone Number</label>
+                <input type="tel" value="" name="address[phone]" />
+                
+                {% endform %}
+  
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  <style>
+    .login-wrap {
+        padding: 120px 0px;
+        background-color: #F1F1F5;
+        position: relative;
+    }
+  
+    .box-login {
+        background: #fff;
+        width: 540px;
+        max-width: 100%;
+        padding: 24px;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: 0 3px 4px rgba(153,155,168,.25);
+        font-size: 14px;
+        color: #25324B;
+    }
+  
+    #home-contact::after {
+        border: none;
+        background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+  
+    #home-contact::after {
+        border: none;
+        background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+  
+    .box-login .welcome {
+        font-size: 28px;
+        font-weight: 700;
+    }
+  
+    .box-login .note {
+        color: #7C8493;
+    }
+  
+    .form-group {
+        margin-bottom: 1rem;
+    }
+  
+    .input-label {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.19;
+        color: #171347;
+    }
+  
+    .box-login input.form-control, .box-login .btn {
+        height: 48px !important;
+        border-radius: 0;
+        border: 1px solid #D6DDEB;
+        background-color: #FAFBFC;
+        box-shadow: none;
+        display: block;
+        font-size: 14px;
+    }
+  
+    .box-login .btn:hover {
+        background-color: #E0C143 !important;
+        border-color: #E0C143 !important;
+    }
+  </style>

@@ -1,26 +1,107 @@
 <!-- /templates/customers/account.liquid -->
 
-{% if customer.default_address %}
-  <h2>Address</h2>
-  <p>{{ customer.default_address.address1 }}</p>
-  {% if customer.default_address.address2 != "" %}
-    <p>{{ customer.default_address.address2 }}</p>
-  {% endif %}
-  <p>{{ customer.default_address.city}}, {% if address.province_code %}{{ customer.default_address.province_code }}, {% endif %}{{ customer.default_address.country }}</p>
-  <p>{{ customer.default_address.zip }}</p>
-  <p>{{ customer.default_address.phone }}</p>
-{% endif %}
+<section id="home-contact" class="login">
+  <div class="login-wrap">
+      <div class="container">
+          <div class="box-login">
+        
+            {% if customer.default_address %}
+              <p class="welcome mb-2">住所</p>
+              <p>{{ customer.default_address.address1 }}</p>
+              {% if customer.default_address.address2 != "" %}
+                <p>{{ customer.default_address.address2 }}</p>
+              {% endif %}
+              <p>{{ customer.default_address.city}}, {% if address.province_code %}{{ customer.default_address.province_code }}, {% endif %}{{ customer.default_address.country }}</p>
+              <p>{{ customer.default_address.zip }}</p>
+              <p>{{ customer.default_address.phone }}</p>
+            {% endif %}
 
-<div id="customer_orders">
-  <h2>Orders</h2>
-  {% paginate customer.orders by 10 %}
-  {% if customer.orders.size != 0 %}
-    {% for order in customer.orders %}
-      <!-- order details here -->
-    {% endfor %}
-  {% else %}
-    <p>You haven't placed any orders yet.</p>
-  {% endif %}
-  {{ paginate | default_pagination }}
-  {% endpaginate %}
-</div>
+            <div id="customer_orders">
+              <p class="welcome mb-2">注文</p>
+              {% paginate customer.orders by 10 %}
+              {% if customer.orders.size != 0 %}
+                {% for order in customer.orders %}
+                  <!-- order details here -->
+                {% endfor %}
+              {% else %}
+                <p>You haven't placed any orders yet.</p>
+              {% endif %}
+              {{ paginate | default_pagination }}
+              {% endpaginate %}
+            </div>
+
+          </div>
+      </div>
+  </div>
+</section>
+
+<style>
+  .login-wrap {
+      padding: 120px 0px;
+      background-color: #F1F1F5;
+      position: relative;
+  }
+
+  .box-login {
+      background: #fff;
+      width: 540px;
+      max-width: 100%;
+      padding: 24px;
+      margin: 0 auto;
+      border-radius: 5px;
+      box-shadow: 0 3px 4px rgba(153,155,168,.25);
+      font-size: 14px;
+      color: #25324B;
+  }
+
+  #home-contact::after {
+      border: none;
+      background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  #home-contact::after {
+      border: none;
+      background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+  .box-login .welcome {
+      font-size: 28px;
+      font-weight: 700;
+  }
+
+  .box-login .note {
+      color: #7C8493;
+  }
+
+  .form-group {
+      margin-bottom: 1rem;
+  }
+
+  .input-label {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.19;
+      color: #171347;
+  }
+
+  .box-login input.form-control, .box-login .btn {
+      height: 48px !important;
+      border-radius: 0;
+      border: 1px solid #D6DDEB;
+      background-color: #FAFBFC;
+      box-shadow: none;
+      display: block;
+      font-size: 14px;
+  }
+
+  .box-login .btn:hover {
+      background-color: #E0C143 !important;
+      border-color: #E0C143 !important;
+  }
+</style>

@@ -1,21 +1,109 @@
 <!-- /templates/customers/register.liquid -->
 
-{% form 'create_customer' %}
+<section id="home-contact" class="login">
+    <div class="login-wrap">
+        <div class="container">
+            <div class="box-login">
+                <p class="welcome mb-2">ログイン</p>
+                <p class="note">サービスの利用を開始するにはログインしてください</p>
+                
+                {% form 'create_customer' %}
+                    {{ form.errors | default_errors }}
 
-{{ form.errors | default_errors }}
+                    <div class=" form-group">
+                        <label for="first_name">ファーストネーム</label>
+                        <input type="text" value="" name="customer[first_name]" size="30" />
+                    </div>
 
-<label for="first_name">First Name</label>
-<input type="text" value="" name="customer[first_name]" size="30" />
+                    <div class=" form-group">
+                        <label for="last_name">苗字</label>
+                        <input type="text" value="" name="customer[last_name]" size="30" />
+                    </div>
 
-<label for="last_name">Last Name</label>
-<input type="text" value="" name="customer[last_name]" size="30" />
+                    <div class=" form-group">
+                        <label for="email">電子メールアドレス</label>
+                        <input type="email" value="" name="customer[email]" size="30" />
+                    </div>
 
-<label for="email">Email Address</label>
-<input type="email" value="" name="customer[email]" size="30" />
+                    <div class=" form-group">
+                        <label for="password">パスワード</label>
+                        <input type="password" value="" name="customer[password]" size="30" />
+                    </div>
+                
+                    <button type="submit" class="btn btn-block mb-2">ジャンキー</button>
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</section>
 
-<label for="password">Password</label>
-<input type="password" value="" name="customer[password]" size="30" />
+<style>
+    .login-wrap {
+        padding: 120px 0px;
+        background-color: #F1F1F5;
+        position: relative;
+    }
 
-<input type="submit" value="Create" />
+    .box-login {
+        background: #fff;
+        width: 540px;
+        max-width: 100%;
+        padding: 24px;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: 0 3px 4px rgba(153,155,168,.25);
+        font-size: 14px;
+        color: #25324B;
+    }
 
-{% endform %}
+    #home-contact::after {
+        border: none;
+        background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #home-contact::after {
+        border: none;
+        background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .box-login .welcome {
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .box-login .note {
+        color: #7C8493;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .input-label {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.19;
+        color: #171347;
+    }
+
+    .box-login input.form-control, .box-login .btn {
+        height: 48px !important;
+        border-radius: 0;
+        border: 1px solid #D6DDEB;
+        background-color: #FAFBFC;
+        box-shadow: none;
+        display: block;
+        font-size: 14px;
+    }
+
+    .box-login .btn:hover {
+        background-color: #E0C143 !important;
+        border-color: #E0C143 !important;
+    }
+</style>
