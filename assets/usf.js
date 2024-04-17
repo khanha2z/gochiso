@@ -150,7 +150,7 @@ usf.templates = {
 `,
     // Grid view item
     searchResultsGridViewItem: `
-<div class="usf-sr-product usf-grid__item" :product-selector="product.id" :data-usf-pid="product.id">    
+<div class="usf-sr-product usf-grid__item" :product-selector="product.id" :data-usf-pid="product.id">    ádasdaas
     <a :href="productUrl" @click="onItemClick" @mouseover="onItemHover" @mouseleave="onItemLeave" class="usf-grid__item-link">
         <!-- product image -->
         <div class="usf-img-wrapper usf-sr-product__image-container" :class="{'usf-has-second-img': hoverImage}">
@@ -177,7 +177,6 @@ usf.templates = {
         <!-- Labels -->
         <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin>
     </a>
-    ádasdaas
     <!-- vendor -->
     <div class="usf-vendor">
         <a v-if="usf.settings.search.showVendor" :href="usf.platform.baseUrl + '/collections/vendors?q=' + encodeURIComponent(product.vendor)" v-html="product.vendor"></a>
