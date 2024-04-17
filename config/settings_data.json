@@ -45,7 +45,7 @@
         "disabled": false,
         "settings": {
           "visible_page_button": true,
-          "target_class": ""
+          "target_class": ".img-product"
         }
       }
     }
