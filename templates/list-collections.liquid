@@ -101,7 +101,7 @@
           </div>
 
             <div class="row pt-3">
-         {% for collection in collections %} 
+    
               {% for product in collection.products %}
                 <div class="col-lg-3 col-sm-6">
                   <div class="col-inner">
@@ -130,7 +130,7 @@
                 </div>
               {% else %}
                 <p>no matches</p>
-              {% endfor %}
+           
               {% endfor %}
             </div>
       
@@ -139,7 +139,7 @@
 </section>
 
 {% for collection in collections %} 
- 
+  {% unless collection.handle == 'frontpage' %}
     {% for product in collection.products limit:5 %}
       <div>
         <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -150,6 +150,6 @@
         </a>
       </div>
     {% endfor %}
-
+  {% endunless %}
 {% endfor %}
 
