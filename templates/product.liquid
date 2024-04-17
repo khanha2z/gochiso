@@ -12,7 +12,7 @@
     {% for variant in product.variants %}
       {% if variant.available %}
         <option value="{{ variant.id }}">
-          {{ variant.title }} - {{ variant.price | money_with_currency }}
+          {{ variant.title }} - {{ product.compare_at_price | money }}
         </option>
       {% else %}
         <option disabled="disabled">
@@ -103,7 +103,7 @@
                         {% for variant in product.variants %}
                             {% if variant.available %}
                             <option value="{{ variant.id }}">
-                                {{ variant.title }} - {{ variant.price | money_with_currency }}
+                                {{ variant.title }} - {{ product.compare_at_price | money }}
                             </option>
                             {% else %}
                             <option disabled="disabled">
@@ -142,7 +142,7 @@
                     </div>
                     <div class="box-product-button">
                         <button type="submit" name="add" id="AddToCart">カートに入れる</button>
-                        <button type="submit" id="checkout" class="cart__checkout-button buynow button" name="checkout" form="cart"></button>
+                        <button type="submit" id="checkout" class="cart__checkout-button buynow button" name="checkout" form="cart">で購入</button>
                     </div>
                   </form>
 
@@ -189,7 +189,7 @@
                                     <div class="box-title-product">
                                         <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
                                         <div class="price-product">
-                                            <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                                            <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
                                         </div>
                                     </div>
                                     <div class="box-rate-product">
