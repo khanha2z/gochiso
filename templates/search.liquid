@@ -30,7 +30,7 @@
     <div class="container list-best-product">
       <div class="row g-4 pt-5">
       {% for item in search.results %}
-        <div class="col-lg-3 col-sm-6 product-item-{{ i }}">
+        <div class="col-lg-3 col-sm-6 product-item">
           <div class="col-inner">
             <div class="box-product">
                 <div class="img-product">
@@ -58,7 +58,11 @@
           </div>
         </div>
       {% else %}
-        no results
+        <div class="col-12">
+          <div class="alert alert-danger" role="alert">
+             No results
+          </div>
+        </div>
       {% endfor %}
       </div>
     </div>
