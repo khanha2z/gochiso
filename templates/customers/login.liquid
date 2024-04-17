@@ -1,28 +1,71 @@
-<!-- /templates/customers/login.liquid -->
+<!-- /templates/customers/login.liquid -->#
 
-<h2>Login</h2>
-{% form 'customer_login' %}
+<section id="home-contact" class="login">
+    <div class="login-wrap">
+        <div class="container">
+            <div class="box-login">
+                <p class="welcome mb-2">Login</p>
+                <p class="note">サービスの利用を開始するにはログインしてください</p>
+                
+                {% form 'customer_login' %}
+                    {{ form.errors | default_errors }}
+                
+                    <label for="customer_email">Email Address</label>
+                    <input type="email" name="customer[email]">
+                
+                    <label for="customer_password">Password</label>
+                    <input type="password" name="customer[password]">
+                
+                    <input type="submit" value="Sign In">
+                {% endform %}
+                
+                <p class="welcome mb-2">Forgot Password</p>
+                <p class="note">サービスの利用を開始するにはログインしてください</p>
+                {% form 'recover_customer_password' %}
+                    {{ form.errors | default_errors }}
+                
+                    <label for="customer_email">Email Address</label>
+                    <input type="email" name="email">
+                
+                    <input type="submit" value="Submit">
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</section>
 
-{{ form.errors | default_errors }}
+<style>
+    .login-wrap {
+        padding: 120px 0px;
+        background-color: #F1F1F5;
+        position: relative;
+    }
 
-<label for="customer_email">Email Address</label>
-<input type="email" name="customer[email]" />
+    .box-login {
+        background: #fff;
+        width: 540px;
+        max-width: 100%;
+        padding: 24px;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: 0 3px 4px rgba(153,155,168,.25);
+        font-size: 14px;
+        color: #25324B;
+    }
 
-<label for="customer_password">Password</label>
-<input type="password" name="customer[password]" />
+    #home-contact::after {
+        border: none;
+        background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 
-<input type="submit" value="Sign In" />
-
-{% endform %}
-
-<h2>Forgot Password</h2>
-{% form 'recover_customer_password' %}
-
-{{ form.errors | default_errors }}
-
-<label for="customer_email">Email Address</label>
-<input type="email" name="email" />
-
-<input type="submit" value="Submit" />
-
-{% endform %}
+    #home-contact::after {
+        border: none;
+        background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+</style>
