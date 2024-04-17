@@ -44,8 +44,8 @@
         "type": "shopify:\/\/apps\/wishlist-myappgurus\/blocks\/wishlist\/c6177d6e-9cc4-45ab-abe5-45a6a5289882",
         "disabled": false,
         "settings": {
-          "visible_page_button": false,
-          "target_class": ".img-product"
+          "visible_page_button": true,
+          "target_class": ".img-product\n.element-header"
         }
       }
     }
