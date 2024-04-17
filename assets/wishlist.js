@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				dl.style.display = 'none';
 			});
 		} else {
-			console.error("No <dl> elements were found.");
+			console.error("<dl> 要素が見つかりませんでした。");
 		}
 	}
 
@@ -75,16 +75,16 @@ document.addEventListener("DOMContentLoaded", () => {
 		let modal = `<div class="removepopup-main-wrapper remove-popup">
 			<div class="popup-wrapper">
 				<div class="popup-header">
-					<p>Remove</p>
+					<p>取り除く</p>
 					<span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
 				</div>
 				<div class="popup-body">
-					<p>Are you sure you want to remove product from wishlist?</p>
+					<p>製品をウィッシュリストから削除してもよろしいですか?</p>
 				</div>
 				<div class="popup-footer">
 					<div class="popup-footer-btn">
-						<div class="popupbtn cancel">Cancle</div>
-						<div class="popupbtn delete">Remove</div>
+						<div class="popupbtn cancel">キャンクル</div>
+						<div class="popupbtn delete">取り除く</div>
 					</div> 
 				</div>
 			</div>
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 									</div>`).join('')}
 								</div>`
 				: `<div class="mag-no-categorys">
-										No categories available
+										利用可能なカテゴリがありません
 									</div>` }
 								</div>
 						</div>
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					<div class='popup-content-main footer'>
 						<div class="mag-popup-pro-url">
 							<div class="mag-popup-pro-action">
-								<button class="mag-view-wishlist btn button">View Wishlist</button>
+								<button class="mag-view-wishlist btn button">ウィッシュリストを見る</button>
 							</div>
 						</div>
 					</div>
@@ -194,9 +194,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				currDate = Date.now();
 			if (categoryWrapper) {
 				if (categoryName.trim() == '') {
-					document.querySelector('.mag-cat-exist').innerHTML = "Category can't be blank.";
+					document.querySelector('.mag-cat-exist').innerHTML = "カテゴリを空白にすることはできません。";
 				} else if (categoryExist !== -1) {
-					document.querySelector('.mag-cat-exist').innerHTML = 'Category already exist.';
+					document.querySelector('.mag-cat-exist').innerHTML = 'カテゴリはすでに存在します。';
 				} else {
 					document.querySelector('.mag-cat-exist').innerHTML = '';
 					// let catElement = appendElementInHtml(`<div class="mag-category-name" data-category="${categoryName}">${categoryName}</div>`);
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				}
 			} else {
 				if (categoryName.trim() == '') {
-					document.querySelector('.mag-cat-exist').innerHTML = "Category can't be blank.";
+					document.querySelector('.mag-cat-exist').innerHTML = "カテゴリを空白にすることはできません。";
 				} else {
 					document.querySelector('.mag-cat-exist').innerHTML = '';
 					let catElement = `<div class="mag-categorys-wrapper">
@@ -707,7 +707,7 @@ document.addEventListener("DOMContentLoaded", () => {
 									<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
 								</svg>
 							</button>
-							<h2 class="popup-heading">Wishlist Products</h2>
+							<h2 class="popup-heading">ウィッシュリスト製品</h2>
 						</div>
 						<div class="popup-body">
 							<div class="popup-content">
@@ -747,7 +747,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					<div class="mag-popup-pro-url">
 						<div class="mag-popup-pro-checkbox">
 							<input type="checkbox" class="magSelectAllCheckbox" id="magSelectAllCheckbox">
-							<label for="magSelectAllCheckbox">Select all</label>
+							<label for="magSelectAllCheckbox">すべて選択</label>
 						</div>
 					</div>
 				</div>
@@ -814,7 +814,7 @@ document.addEventListener("DOMContentLoaded", () => {
 						}));
 					}));
 				} else {
-					productData += `<div class='popup-content-main no-products' style='max-width: 1000px'>No wishlist items found.</div>`;
+					productData += `<div class='popup-content-main no-products' style='max-width: 1000px'>ウィッシュリストの項目が見つかりませんでした。</div>`;
 				}
 			} else {
 				let filteredProducts = wishlistProducts.filter(product => {
@@ -864,15 +864,15 @@ document.addEventListener("DOMContentLoaded", () => {
 					</div>`;
 					}));
 				} else {
-					productData += `<div class='popup-content-main no-products' style='max-width: 1000px'>No wishlist items found.</div>`;
+					productData += `<div class='popup-content-main no-products' style='max-width: 1000px'>ウィッシュリストの項目が見つかりませんでした。</div>`;
 				}
 			}
 			productData += `</div>
 				<div class='popup-content-main footer' style='max-width: 1000px'>
 					<div class="mag-popup-pro-url">
 						<div class="mag-popup-pro-action">
-							<button class="mag-remove-wishlist btn button">Clear</button>
-							<button class="mag-add-to-cart btn button">AddToCart</button>
+							<button class="mag-remove-wishlist btn button">クリア</button>
+							<button class="mag-add-to-cart btn button">カートに追加</button>
 						</div>
 					</div>
 				</div>
@@ -1042,7 +1042,7 @@ document.addEventListener("DOMContentLoaded", () => {
 							window.location.href = '/cart';
 						});
 				} else {
-					appendToast('No product selected', true)
+					appendToast('製品が選択されていません', true)
 				}
 			});
 		}
@@ -1062,7 +1062,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					appendToast('Removed', false);
 					location.reload();
 				} else {
-					appendToast('No product selected', true);
+					appendToast('製品が選択されていません', true);
 				}
 			});
 		}
