@@ -176,6 +176,14 @@ usf.templates = {
 
         <!-- Labels -->
         <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin>
+        <div class="box-rate-product">
+            <div class="rate-product">
+                {% render 'product-review' product: product,  handle:product.handle %}
+            </div>
+            <div class="box-btn-add-cart">
+                {% render 'product-card' product: product %}
+            </div>
+        </div>
     </a>
 
     <!-- vendor -->
