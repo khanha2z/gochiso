@@ -176,6 +176,7 @@ usf.templates = {
 
         <!-- Labels -->
         <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin>
+        ádsadsad
         <div class="box-rate-product">
             <div class="rate-product">
                 {% render 'product-review' product: product,  handle:product.handle %}
