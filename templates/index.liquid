@@ -271,7 +271,9 @@
                         <div class="col-inner">
                             <div class="box-blog-post">
                                 <div class="img-blog">
-                                    <img src="{{ article | img_url: 'large' }}">
+                                    <div class="position-relative">
+                                       <img src="{{ article | img_url: 'large' }}">
+                                    </div>
                                 </div>
                                 <div class="box-text-blog">
                                     <a href="{{ article.url }}">{{ article.title }}</a>
