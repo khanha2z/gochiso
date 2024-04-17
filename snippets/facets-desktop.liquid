@@ -9,7 +9,6 @@
     {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, collapse_on_larger_devices: false %}
 {% endcomment %}
 
-{%- if enable_filtering -%}
 	{%- unless results.products.size == 0 -%}
 		<facet-filters-form class="facets-desktop-container facets">
 			<form id="FacetFiltersForm" class="facets__form">
@@ -235,4 +234,3 @@
 			</form>
 		</facet-filters-form>
 	{%- endunless -%}
-{%- endif -%}
