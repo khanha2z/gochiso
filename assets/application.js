@@ -136,7 +136,7 @@ $(document).ready(function() {
             arrows: false,
             infinite: true,
             centerMode: true,
-            centerPadding: '50px',
+            centerPadding: '20px',
         });
     }
     var btn = $("#go-top");
