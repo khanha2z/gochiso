@@ -177,7 +177,7 @@ usf.templates = {
         <!-- Labels -->
         <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin>
     </a>
-
+    ádasdaas
     <!-- vendor -->
     <div class="usf-vendor">
         <a v-if="usf.settings.search.showVendor" :href="usf.platform.baseUrl + '/collections/vendors?q=' + encodeURIComponent(product.vendor)" v-html="product.vendor"></a>
