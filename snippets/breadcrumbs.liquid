@@ -12,6 +12,10 @@
         <span>{{ collection.title }}</span></li>
       
     {% endif %}
+    {% if template contains 'collections' %}
+      <li>
+      <span>商品</span></li>
+    {% endif %}
     {% if template contains 'cart' %}
       <li>
       <span>カート</span></li>
