@@ -131,6 +131,8 @@ list {% endcomment %}
                 <div class="col-inner">
                     <div class="box-product">
                         <div class="img-product">
+							<div class="wishlistBtn" id="addToWishlistCollectionIcon" pro_handle="{{ product.handle }}" pro-url="{{ product.url }}">
+							</div>
                           <a href="{{ product.url | within: collection }}">
                             <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
                           </a>
