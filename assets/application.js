@@ -135,6 +135,8 @@ $(document).ready(function() {
             dots: true,
             arrows: false,
             infinite: true,
+            centerMode: true,
+            centerPadding: '20px',
         });
     }
     var btn = $("#go-top");
