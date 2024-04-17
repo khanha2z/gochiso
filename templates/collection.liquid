@@ -98,7 +98,7 @@ list {% endcomment %}
 		assign facets_desktop = 'drawer'
 	endunless
 -%}
-
+{{ 'nouislider.js' | asset_url | script_tag }}
 <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 {%- render 'facets-mobile', results: collection, enable_filtering: enable_filtering, enable_sorting: enable_sorting, show_counts: show_counts, filter_color_swatches: filter_color_swatches -%}
 {%- render 'facets-desktop', results: collection, enable_filtering: enable_filtering, enable_sorting: enable_sorting, show_counts: show_counts, filter_color_swatches: filter_color_swatches -%}
