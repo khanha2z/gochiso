@@ -5,42 +5,64 @@
         <div class="container">
             <div class="box-login">
           
-                <h2>New Address</h2>
+                <h2>新しいアドレス</h2>
                 {% form 'customer_address', customer.new_address %}
                 
-                {{ form.errors | default_errors }}
-                
-                <label for="first_name">First Name</label>
-                <input type="text" value="" name="address[first_name]" size="30" />
-                
-                <label for="last_name">Last Name</label>
-                <input type="text" value="" name="address[last_name]" size="30" />
-                
-                <label for="company">Company</label>
-                <input type="text" value="" name="address[company]" />
-                
-                <label for="address1">Address 1</label>
-                <input type="text" value="" name="address[address1]" />
-                
-                <label for="address2">Address 2</label>
-                <input type="text" value="" name="address[address2]" />
-                
-                <label for="city">City</label>
-                <input type="text" value="" name="address[city]" />
-                
-                <!-- See docs for @shopify/theme-addresses to support Country and Province -->
-                <label for="country">Country</label>
-                <select name="address[country]" /></select>
-                
-                <label for="province">Province</label>
-                <select name="address[province]" /></select>
-                
-                <label for="zip">Zip/Post Code</label>
-                <input type="text" value="" name="address[zip]" />
-                
-                <label for="phone">Phone Number</label>
-                <input type="tel" value="" name="address[phone]" />
-                
+                    {{ form.errors | default_errors }}
+                    
+                        <div class=" form-group">
+                            <label for="first_name">ファーストネーム</label>
+                            <input type="text" value="" name="address[first_name]" size="30" />
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="last_name">苗字</label>
+                            <input type="text" value="" name="address[last_name]" size="30" />
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="company">Company</label>
+                            <input type="text" value="" name="address[company]" />
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="address1">アドレス1</label>
+                            <input type="text" value="" name="address[address1]" />
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="address2">アドレス2</label>
+                            <input type="text" value="" name="address[address2]" />
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="city">市</label>
+                            <input type="text" value="" name="address[city]" />
+                        </div>
+
+                        <!-- See docs for @shopify/theme-addresses to support Country and Province -->
+                        <div class="form-group">
+                            <label for="country">国</label>
+                            <select name="address[country]" /></select>
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="province">州</label>
+                            <select name="address[province]" /></select>
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="zip">郵便番号</label>
+                            <input type="text" value="" name="address[zip]" />
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" value="" name="address[phone]" />
+                        </div>
+
+
+                    <button type="submit" class="btn btn-block mb-2">追加</button>                    
                 {% endform %}
   
             </div>
