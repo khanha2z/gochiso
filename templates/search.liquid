@@ -1,9 +1,34 @@
 {% paginate search.results by 10 %}
-  <form action="/search" method="get" role="search">
+  <form action="/search" method="get" role="search" class="d-none">
     <input type="search" name="q" value="{{ search.terms | escape }}">
     <button type="submit">search</button>
   </form>
+<section>
+  <div class="banner-home">
+      <div class="container">
+          <div class="cloud-1">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <div class="cloud-2">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <div class="cloud-3">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <div class="cloud-4">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
 
+          <div class="img-banner">
+              <img src="{{ "izumo-full.png"| asset_url}}" class="img-fluid" alt="">
+          </div>
+      </div>
+    <div class="bg-anim-1"></div>
+    <div class="bg-anim-2"></div>
+    <div class="bg-anim-3"></div>
+
+  </div>
+</section>
   {% if search.performed %}
     <div class="row g-4 pt-5">
     {% for item in search.results %}
