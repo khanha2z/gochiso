@@ -40,7 +40,71 @@
       }
   }
 {% endstyle %}
-
+<section>
+  <div class="page-header">
+      <div class="container">
+          <div class="cloud-1">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <div class="cloud-2">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <div class="cloud-3">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <div class="cloud-4">
+              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+          </div>
+          <h2 class="title-en">Product</h2>
+          <h3 class="title-jp">商品一覧</h3>
+      </div>
+      <div class="bg-anim-1"></div>
+      <div class="bg-anim-2"></div>
+      <div class="bg-anim-3"></div>
+  </div>
+</section>
+{% render 'breadcrumbs' %}
+<section>
+  <div class="list-best-product">
+      <div class="container">
+          <div class="main-title mx-auto">
+              <h2>Best Product</h2>
+              <p>人気ランキング</p>
+          </div>
+          <div class="row g-4 pt-4 product-best">
+            {% for product in collections.best-products.products limit:4 %}
+              <div class="col-lg-3 col-sm-6 product-item-{{ forloop.index }}">
+                <div class="col-inner">
+                  <div class="box-product">
+                      <div class="img-product">
+                        <a href="{{ product.url | within: collection }}">
+                          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                        </a>
+                      </div>
+                      <div class="box-title-product">
+                          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                          <div class="price-product">
+                              <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                          </div>
+                      </div>
+                      <div class="box-rate-product">
+                          <div class="rate-product">
+                              {% render 'product-review' product: product,  handle:product.handle %}
+                          </div>
+                          <div class="box-btn-add-cart">
+                            {% render 'product-card' product: product %}
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          <div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 <div class="usf-page-width">
   	{%- assign search_title = 'general.search.title' | t -%}
   	{% if search_title contains "translation missing"%}
