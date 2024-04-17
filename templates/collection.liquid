@@ -86,24 +86,6 @@ list {% endcomment %}
       </div>
   </div>
 </section>
-{{- 'facets.css' | asset_url | stylesheet_tag -}}
-{%- liquid
-	assign enable_filtering = section.settings.enable_filtering
-	assign enable_sorting = section.settings.enable_sorting
-	assign show_counts = section.settings.show_counts
-	assign filter_color_swatches = section.settings.filter_color_swatches
-	assign facets_desktop = section.settings.facets_desktop
-
-	unless enable_filtering
-		assign facets_desktop = 'drawer'
-	endunless
--%}
-
-<script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
-{%- render 'facets-mobile', results: collection, enable_filtering: enable_filtering, enable_sorting: enable_sorting, show_counts: show_counts, filter_color_swatches: filter_color_swatches -%}
-{%- render 'facets-desktop', results: collection, enable_filtering: enable_filtering, enable_sorting: enable_sorting, show_counts: show_counts, filter_color_swatches: filter_color_swatches -%}
-{%- render 'facets-bar', results: collection, enable_filtering: enable_filtering, enable_sorting: enable_sorting, facets_desktop: facets_desktop -%}
-
 <section>
   <div class="list-product">
       <div class="container">
