@@ -1418,12 +1418,16 @@ a.menu-btn.open {
 .img-blog img {
     border-radius: 10px;
     width: 100%;
+      transition: .5s;
 }
 
 .img-blog {
     position: relative;
+      overflow: hidden;
 }
-
+.img-blog img:hover {
+  transform: scale(1.2);
+}
 .img-blog:after {
     content: "";
     width: 100%;
