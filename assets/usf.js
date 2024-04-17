@@ -150,7 +150,7 @@ usf.templates = {
 `,
     // Grid view item
     searchResultsGridViewItem: `
-<div class="usf-sr-product usf-grid__item" :product-selector="product.id" :data-usf-pid="product.id">    ádasdaas
+<div class="usf-sr-product test usf-grid__item" :product-selector="product.id" :data-usf-pid="product.id">    ádasdaas
     <a :href="productUrl" @click="onItemClick" @mouseover="onItemHover" @mouseleave="onItemLeave" class="usf-grid__item-link">
         <!-- product image -->
         <div class="usf-img-wrapper usf-sr-product__image-container" :class="{'usf-has-second-img': hoverImage}">
