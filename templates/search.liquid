@@ -18,7 +18,7 @@
           <div class="cloud-4">
               <img src="{{"cloud-1.svg" | asset_url}}" alt="">
           </div>
-          <h2 class="title-en">Product</h2>
+          <h2 class="title-en">Search</h2>
           <h3 class="title-jp">商品一覧</h3>
       </div>
       <div class="bg-anim-1"></div>
@@ -27,38 +27,40 @@
   </div>
 </section>
   {% if search.performed %}
-    <div class="row g-4 pt-5">
-    {% for item in search.results %}
-      <div class="col-lg-3 col-sm-6 product-item-{{ i }}">
-        <div class="col-inner">
-          <div class="box-product">
-              <div class="img-product">
-                {% if item.featured_image %}
-                  <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-                    {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
-                  </a>
-                {% endif %}
-              </div>
-              <div class="box-title-product">
-                  <a href="{{ item.url | within: collection }}">{{ item.title | link_to: item.url }}</a>
-                  <div class="price-product">
-                      <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
-                  </div>
-              </div>
-              <div class="box-rate-product">
-                  <div class="rate-product">
-                    {% render 'product-review' product: product,  handle:product.handle %}
-                  </div>
-                  <div class="box-btn-add-cart">
-                    {% render 'product-card' product: product %}
-                  </div>
-              </div>
+    <div class="container">
+      <div class="row g-4 pt-5">
+      {% for item in search.results %}
+        <div class="col-lg-3 col-sm-6 product-item-{{ i }}">
+          <div class="col-inner">
+            <div class="box-product">
+                <div class="img-product">
+                  {% if item.featured_image %}
+                    <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
+                      {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
+                    </a>
+                  {% endif %}
+                </div>
+                <div class="box-title-product">
+                    <a href="{{ item.url | within: collection }}">{{ item.title | link_to: item.url }}</a>
+                    <div class="price-product">
+                        <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                    </div>
+                </div>
+                <div class="box-rate-product">
+                    <div class="rate-product">
+                      {% render 'product-review' product: product,  handle:product.handle %}
+                    </div>
+                    <div class="box-btn-add-cart">
+                      {% render 'product-card' product: product %}
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
+      {% else %}
+        no results
+      {% endfor %}
       </div>
-    {% else %}
-      no results
-    {% endfor %}
     </div>
   {% endif %}
 
