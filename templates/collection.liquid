@@ -360,7 +360,9 @@ list {% endcomment %}
               <h2>Product list</h2>
               <p>商品一覧</p>
           </div>
-          <div class="row py-5">
+          <div id="usf_container"></div>
+
+          <!-- <div class="row py-5">
             <div class="col-lg-8 col-sm-12">
                 <div class="col-inner">
                     <div class="box-product-filter">
@@ -388,7 +390,7 @@ list {% endcomment %}
                     </div>
                 </div>
             </div>
-          </div>
+          </div> -->
           {% paginate collection.products by 12 %}
             <div class="row pt-3">
             {% for product in collection.products %}
