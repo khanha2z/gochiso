@@ -99,9 +99,9 @@
                 </div>
             </div>
           </div>
-          {% paginate collection.products by 12 %}
+
             <div class="row pt-3">
-         {% for collection in collections %} 
+         
               {% for product in collection.products %}
                 <div class="col-lg-3 col-sm-6">
                   <div class="col-inner">
@@ -131,12 +131,8 @@
               {% else %}
                 <p>no matches</p>
               {% endfor %}
-          {% endfor %}
-            {% if paginate.pages > 1 %}
-              {{ paginate | default_pagination }}
-            {% endif %}
-            </div>
-          {% endpaginate %}
+          
+      
       </div>
   </div>
 </section>
