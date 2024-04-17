@@ -269,15 +269,17 @@
                 {% for article in blog.articles %}
                     <div class="col-lg-3 col-sm-12">
                         <div class="col-inner">
-                            <div class="box-blog-post">
-                                <div class="img-blog">
-                                    <img src="{{ article | img_url: 'large' }}">
-                                </div>
-                                <div class="box-text-blog">
-                                    <a href="{{ article.url }}">{{ article.title }}</a>
-                                    <p class="date">{{ article.created_at | date: '%Y年%m月%d日'  }}</p>
-                                </div>
-                            </div>
+                          <a href="{{ article.url }}">
+                              <div class="box-blog-post">
+                                  <div class="img-blog">
+                                      <img src="{{ article | img_url: 'large' }}">
+                                  </div>
+                                  <div class="box-text-blog">
+                                      <h3 class="title">{{ article.title }}</h3>
+                                      <p class="date">{{ article.created_at | date: '%Y年%m月%d日'  }}</p>
+                                  </div>
+                              </div>
+                            </a>
                         </div>
                     </div>
                 {% endfor %}
