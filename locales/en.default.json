@@ -458,7 +458,7 @@
       "payment_status": "Payment status",
       "fulfillment_status": "Fulfillment status",
       "total": "Total",
-      "none": "You haven't placed any orders yet."
+      "none": "まだ注文をしていません。"
     },
     "recover_password": {
       "title": "Reset your password",
