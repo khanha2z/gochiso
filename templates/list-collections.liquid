@@ -101,7 +101,38 @@
           </div>
           {% paginate collection.products by 12 %}
             <div class="row pt-3">
-            {% for collection in collections %} 
+              {% for collection in collections %} 
+                {% unless collection.handle == 'frontpage' %}
+                  {% for product in collection.products limit:5 %}
+                    {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
+                      <div class="col-lg-3 col-sm-6">
+                        <div class="col-inner">
+                            <div class="box-product">
+                                <div class="img-product">
+                                  <a href="{{ product.url | within: collection }}">
+                                    <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                                  </a>
+                                </div>
+                                <div class="box-title-product">
+                                    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                                    <div class="price-product">
+                                        <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
+                                    </div>
+                                </div>
+                                <div class="box-rate-product">
+                                    <div class="rate-product">
+                                        {% render 'product-review' product: product,  handle:product.handle %}
+                                    </div>
+                                    <div class="box-btn-add-cart">
+                                      {% render 'product-card' product: product %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                  {% endfor %}
+                {% endunless %}
+              {% endfor %}
               {% for product in collection.products %}
                 <div class="col-lg-3 col-sm-6">
                   <div class="col-inner">
@@ -131,7 +162,6 @@
               {% else %}
                 <p>no matches</p>
               {% endfor %}
-            {% endfor %}
             {% if paginate.pages > 1 %}
               {{ paginate | default_pagination }}
             {% endif %}
@@ -140,21 +170,4 @@
       </div>
   </div>
 </section>
-
-{% for collection in collections %} 
-  {% unless collection.handle == 'frontpage' %}
-    {% for product in collection.products limit:5 %}
-      {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
-      <div>
-        
-        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-        {{ product.price | money }}
-        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-        <a href="{{ product.url | within: collection }}">
-          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-        </a>
-      </div>
-    {% endfor %}
-  {% endunless %}
-{% endfor %}
 
