@@ -39,7 +39,7 @@
         "disabled": true,
         "settings": {
           "visible_page_button": true,
-          "target_class": ".box-product .img-product"
+          "target_class": ".img-product"
         }
       },
       "5946647744298494267": {
