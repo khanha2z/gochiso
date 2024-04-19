@@ -139,11 +139,19 @@
   </div>
 </section>
 
- {%- for collection in collections.products limit:5 %}
-   <div>
-        <p><a href="{{ collection.url | within: collection }}">
-                              <img src="{{ collection.featured_image.src | img_url: 'large' }}" alt="{{ collection.featured_image.alt | escape }}">
-                            </a></p>
-   <a href="{{ collection.url | within: collection }}">{{ collection.title }}</a>
-   </div>
-      {%- endfor -%}
+{% paginate collection.products by 2 %}
+  <h1>{{ collection.title }}</h1>
+  {% for product in collection.products %}
+    <div class="abc">
+      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      {{ product.price | money }}
+      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+      <a href="{{ product.url | within: collection }}">
+        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+      </a>
+    </div>
+  {% else %}
+    <p>no matches</p>
+  {% endfor %}
+  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
+{% endpaginate %}
