@@ -1,77 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-	var domain = "https://wishlist.myappgurus.com/",
-		customerId = __st.cid,
-		shopId = __st.a,
-		shopName = Shopify.shop,
-		customArray = [],
-		wishlistProducts = [],
-		wishlistButton = document.querySelector('.view-wishlist-bottom-btn');
-
-	const hsbToHex = (hsb) => {
-		const { hue, saturation, brightness } = hsb; const h = hue / 360; const s = saturation; const v = brightness; const i = Math.floor(h * 6); const f = h * 6 - i; const p = v * (1 - s); const q = v * (1 - f * s); const t = v * (1 - (1 - f) * s); let r, g, b;
-		switch (i % 6) { case 0: r = v; g = t; b = p; break; case 1: r = q; g = v; b = p; break; case 2: r = p; g = v; b = t; break; case 3: r = p; g = q; b = v; break; case 4: r = t; g = p; b = v; break; case 5: r = v; g = p; b = q; break; }
-		const toHex = (c) => { const hex = Math.round(c * 255).toString(16); return hex.length === 1 ? '0' + hex : hex; };
-		const hexColor = `#${toHex(r)}${toHex(g)}${toHex(b)}`; return hexColor;
-	}
-
-	const saveWishlistProducts = (domain, wishlistProducts, customerId, shopName, shopId) => { let fd = new FormData(); fd.append('wishlistProducts', JSON.stringify(wishlistProducts)); fd.append('customerId', customerId); fd.append('shopName', shopName); fd.append('shopId', shopId); fetch(`${domain}saveWishlistProducts`, { method: "POST", headers: { 'Accept': 'application/json', 'Authorization': `Bearer ${window.sessionToken}` }, body: fd }).then(res => res.json()).then(response => { }) }
-
-	const saveWishlistProductsWithCategory = (domain, category, wishlistProducts, customerId, shopName, shopId) => { let fd = new FormData(document.querySelector('#mag-create-category')); fd.append('shopId', shopId); fd.append('shopName', shopName); fetch(`${domain}saveCategory`, { method: "POST", headers: { 'Accept': 'application/json', 'Authorization': `Bearer ${window.sessionToken}` }, body: fd }).then(res => res.json()).then(response => { }) }
-
-	const formatMoney = (cents, format) => {
-		if (typeof cents == 'string') { cents = cents.replace('.', ''); } var value = ''; var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/; var formatString = (format || this.money_format);
-		function defaultOption(opt, def) { return (typeof opt == 'undefined' ? def : opt); }
-		function formatWithDelimiters(number, precision, thousands, decimal) {
-			precision = defaultOption(precision, 2); thousands = defaultOption(thousands, ','); decimal = defaultOption(decimal, '.');
-			if (isNaN(number) || number == null) { return 0; } number = (number / 100.0).toFixed(precision); var parts = number.split('.'), dollars = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + thousands), cents = parts[1] ? (decimal + parts[1]) : ''; return dollars + cents;
-		}
-		switch (formatString.match(placeholderRegex)[1]) { case 'amount': value = formatWithDelimiters(cents, 2); break; case 'amount_no_decimals': value = formatWithDelimiters(cents, 0); break; case 'amount_with_comma_separator': value = formatWithDelimiters(cents, 2, '.', ','); break; case 'amount_no_decimals_with_comma_separator': value = formatWithDelimiters(cents, 0, '.', ','); break; }
-		return formatString.replace(placeholderRegex, value);
-	};
-
-	const catWishlistProuctsCount = (wp, ca) => { if (ca[0].categorised == '1') { return wp.reduce((c, i) => { let cat = Object.values(i)[0]; return Array.isArray(cat) && cat.length > 0 ? c + cat.length : c; }, 0); } else { return wp.filter(item => Object.keys(item).length > 1 || !Array.isArray(Object.values(item)[0])).length; } }
-
-	const setWishlistProductCount = (wp, ca) => { if (wishlistButton.classList.contains('wishlist-footer')) { wishlistButton.setAttribute('data-value', catWishlistProuctsCount(wp, ca)); } else if (wishlistButton.classList.contains('wishlist-center')) { wishlistButton.setAttribute('data-value', `${ca[0].wishlist_btn_text}(${catWishlistProuctsCount(wp, ca)})`) } }
-
-	const appendElementInHtml = (data) => { let parser = new DOMParser(), htmlBtnDocument = parser.parseFromString(data, 'text/html'), htmlBtnElement = htmlBtnDocument.body.firstChild; return htmlBtnElement; }
-
-	const catExistOrNot = (wp, cn) => { return wp.findIndex(item => Object.keys(item)[0].toLocaleLowerCase() === cn.toLocaleLowerCase()); }
-
-	const addCatToLocalStorage = (wp, cn) => { wp.push({ [cn]: [] }); localStorage.setItem('wishlistProducts', JSON.stringify(wp)); }
-
-	const isCatHandleExist = (wp, ph) => { return wp.some(item => { let cat = Object.values(item)[0]; return Array.isArray(cat) && cat.some(p => p.pro_handle === ph); }); };
-
-	const isHandleExist = (wp, ph) => { return wp.some(p => p.pro_handle === ph); }
-
-	const addItemToCart = async (variantId, quantity, properties) => {
-		fetch(`${window.location.origin}/cart/add.json`, {
-			method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
-			body: JSON.stringify({ id: variantId, quantity: quantity, properties: properties })
-		}).then(res => res.json()).then(response => { window.location.href = '/cart'; })
-	}
-
-	const updateArray = (wc, properties) => { let items = []; wc.forEach(curr => { let id = parseInt(curr.getAttribute('data-id')), quantity = parseInt(document.querySelector(`[type="number"][data-id="${id}"]`).value); if (curr.checked == true) { items.push({ id, quantity, properties }); } }); return items; }
-
-	const updateWishlistRemoveArray = (wc) => { let items = []; wc.forEach(curr => { let pro_category = curr.getAttribute('data-cat'), pro_handle = curr.getAttribute('data-handle'); if (curr.checked == true) { items.push({ pro_category, pro_handle }); } }); return items; }
-
-	const removeItemFromCategoryArray = (wishlistArray, removals) => { return wishlistArray.map(category => { let categoryNameKey = Object.keys(category)[0]; if (removals.some(removal => removal.pro_category === categoryNameKey)) { let updatedItems = category[categoryNameKey].filter(item => !removals.some(removal => removal.pro_category === categoryNameKey && item.pro_handle === removal.pro_handle)); return { [categoryNameKey]: updatedItems }; } return category; }); }
-
-	const removeObjectsByHandle = (wishlistArray, categoryName, handleToRemove) => { let updatedWishlist = wishlistArray.map(category => { if (Object.keys(category)[0] === categoryName) { let updatedItems = category[categoryName].filter(item => item.pro_handle !== handleToRemove); return { [categoryName]: updatedItems }; } return category; }); return updatedWishlist; }
-
-	const appendToast = (msg, error) => { let toast = `<div class="cartadd active ${(error == true) ? 'error' : ''}">${msg}</div>`, element = appendElementInHtml(toast); document.querySelector('body').insertAdjacentElement('afterbegin', element); setTimeout(() => { document.querySelector('.cartadd').remove(); }, 3000); }
-
-	if (window.location.href.includes("/cart")) {
-		const productOptionDLs = document.querySelectorAll('dl');
-		if (productOptionDLs.length > 0) {
-			productOptionDLs.forEach(dl => {
-				dl.style.display = 'none';
-			});
-		} else {
-			console.error("<dl> 要素が見つかりませんでした。");
-		}
-	}
-
-	const appendModal = (curr, customArray, wishlistProducts, handle) => {
+	appendModal = (curr, customArray, wishlistProducts, handle) => {
 		let modal = `<div class="removepopup-main-wrapper remove-popup">
 			<div class="popup-wrapper">
 				<div class="popup-header">
@@ -117,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
-	const customizedPopup = (currVar, wishlistCategorys, productHandle, productId, customArray) => {
+	customizedPopup = (currVar, wishlistCategorys, productHandle, productId, customArray) => {
 		let caterizedPopup = `<div class="popup popup-active">
 			<div class="popup-overlay popup-toggle"></div>
 			<div class="popup-main-wrapper mag-category-popup">
@@ -228,82 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
-	var authenticate = () => {
-		fetch(`${domain}authentication`, {
-			body: JSON.stringify({
-				shopId: shopId,
-			}),
-			method: "POST",
-			headers: {
-				'Accept': 'application/json',
-				'Authorization': `Bearer ${window.sessionToken}`
-			},
-		})
-			.then(res => res.json())
-			.then(response => {
-				if (response == 1) {
-					fetch(`${domain}adminConfiguration`, {
-						method: "POST",
-						headers: {
-							'Accept': 'application/json',
-							"Content-type": "application/json;",
-							'Authorization': `Bearer ${window.sessionToken}`
-						},
-						body: JSON.stringify({
-							shopId: shopId,
-							customerId: customerId,
-							shopName: shopName,
-						}),
-					})
-						.then(res => res.json())
-						.then(response => {
-							customArray.push({
-								'Display_Count_Users': response.store_customisations.Display_Count_Users,
-								'Enable_custom_button': response.store_customisations.Enable_custom_button,
-								'allow_guest': response.store_customisations.allow_guest,
-								'categorised': response.store_customisations.categorised,
-								'custom_css': response.store_customisations.custom_css,
-								'text_for_add_to_wishlist': response.store_customisations.text_for_add_to_wishlist,
-								'text_for_view_to_wishlist': response.store_customisations.text_for_view_to_wishlist,
-								'wishlist_btn': response.store_customisations.wishlist_btn,
-								'wishlist_btn_color': response.store_customisations.wishlist_btn_color,
-								'wishlist_btn_position': response.store_customisations.wishlist_btn_position,
-								'wishlist_btn_text': response.store_customisations.wishlist_btn_text,
-								'wishlist_color_after': response.store_customisations.wishlist_color_after,
-								'wishlist_color_before': response.store_customisations.wishlist_color_before,
-								'wishlist_launcher_btn': response.store_customisations.wishlist_launcher_btn,
-								'moneyFormat': response.moneyFormat,
-							});
-							// if (response.wishlistProducts.length > 0 || customerId != undefined) {
-							// 	wishlistProducts = response.wishlistProducts;
-							// } else {
-							wishlistProducts = (JSON.parse(localStorage.getItem('wishlistProducts')) != null) ? JSON.parse(localStorage.getItem('wishlistProducts')) : [];
-							// }
-							addWishlistBtnToBody(customArray);
-							addWishListButtonToCollectionPage(customArray);
-							if (__st.p == 'product') {
-								addWishListButtonToProductPage(customArray);
-							}
-						})
-				}
-			})
-	}
-
-	var addWishlistBtnToBody = (customArray) => {
-		if (customArray[0].wishlist_launcher_btn == 'wishlist-footer') {
-			wishlistButton.classList.add(customArray[0].wishlist_btn_position, 'wishlist-footer');
-			setWishlistProductCount(wishlistProducts, customArray);
-		} else {
-			wishlistButton.classList.add(customArray[0].wishlist_btn_position, 'wishlist-center');
-			setWishlistProductCount(wishlistProducts, customArray);
-		}
-		wishlistButton.style.backgroundColor = JSON.parse(customArray[0].wishlist_btn_color) != null ? hsbToHex(JSON.parse(customArray[0].wishlist_btn_color)) : customArray[0].wishlist_btn_color;
-		wishlistButton.addEventListener('click', () => {
-			appendDataInTable();
-		});
-	}
-
-	var addWishListButtonToCollectionPage = (customArray) => {
+	addWishListButtonToCollectionPage = (customArray) => {
 		let wishlist = (window.myappgurus.wishlist.target_class != '') ? document.querySelectorAll(`${window.myappgurus.wishlist.target_class}`) : document.querySelectorAll('.card__heading.h5');
 		if (wishlist.length > 0) {
 			wishlist.forEach(curr => {
@@ -343,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	var addWishlistBtn = (customArray) => {
+	addWishlistBtn = (customArray) => {
 		let wishlistBtn = document.querySelectorAll('.wishlistBtn');
 		wishlistBtn.forEach(curr => {
 			let productHandle = decodeURI(curr.getAttribute('pro_handle'));
@@ -399,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
-	var createNewCategory = () => {
+	createNewCategory = () => {
 		let createCategoryBtn = document.querySelector('.mag-create-new-category');
 		if (createCategoryBtn) {
 			createCategoryBtn.addEventListener('click', () => {
@@ -408,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	var addProToCategory = (currCat, productHandle, productId, customArray) => {
+	addProToCategory = (currCat, productHandle, productId, customArray) => {
 		let categoryNameBtn = document.querySelectorAll('[name="mag-category"]');
 		if (categoryNameBtn) {
 			categoryNameBtn.forEach(curr => {
@@ -463,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	var addProToCategoryOnId = (id, currCat, productHandle, productId, customArray) => {
+	addProToCategoryOnId = (id, currCat, productHandle, productId, customArray) => {
 		let categoryNameBtn = document.querySelector(`#mag-category-${id}`);
 		if (categoryNameBtn) {
 			categoryNameBtn.addEventListener('change', () => {
@@ -560,7 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// 	}
 	// }
 
-	var removeProductClick = (handle, customArray) => {
+	removeProductClick = (handle, customArray) => {
 		if ((customArray[0].allow_guest == '0' || customArray[0].allow_guest == null) && customerId == undefined) {
 			window.location.href = '/account/login';
 		} else {
@@ -586,7 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	var addWishListButtonToProductPage = (customArray) => {
+	addWishListButtonToProductPage = (customArray) => {
 		let wishlistBtn = document.querySelector('.mag-pdp-wishlist');
 		if (wishlistBtn) {
 			let productId = wishlistBtn.getAttribute('data-product-id'),
@@ -694,7 +547,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	var appendDataInTable = () => {
+	appendDataInTable = () => {
 		var productData = '';
 		// async function fetchData() {
 		productData += `<div class="popup popup-active">
@@ -739,7 +592,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		// }
 	}
 
-	var wishlistProductsData = () => {
+	wishlistProductsData = () => {
 		let productData = '';
 		let shopUrl = window.location.hostname;
 
@@ -896,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		fetchData();
 	};
 
-	var wishlsitProductsAction = () => {
+	wishlsitProductsAction = () => {
 		let selectAllCheckbox = document.querySelector('.magSelectAllCheckbox'),
 			wishlistCheckbox = document.querySelectorAll('.wishlistPro'),
 			wishlistProAddToCart = document.querySelectorAll('.magAddToCart'),
@@ -1069,5 +922,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		}
 	}
-	authenticate();
 });
