@@ -359,45 +359,42 @@ document.addEventListener("DOMContentLoaded", () => {
 					// addWishlistBtn();
 				} else {
 
-					if (productHandle !== null && productHandle !== undefined && productHandle == "null" && productHandle != "") {
-						if ((customArray[0].allow_guest == '0' || customArray[0].allow_guest == null) && customerId == undefined) {
-							window.location.href = '/account/login';
-						} else {
-							fetch(`/products/${productHandle}.json`)
-								.then(res => res.json())
-								.then(response => {
-									let wishlistCategorys = wishlistProducts.reduce((categories, item) => {
-										let category = Object.keys(item)[0],
-											values = Object.values(item)[0];
-										if (Array.isArray(values)) {
-											categories.push(category);
+					if ((customArray[0].allow_guest == '0' || customArray[0].allow_guest == null) && customerId == undefined) {
+						window.location.href = '/account/login';
+					} else {
+						fetch(`/products/${productHandle}.json`)
+							.then(res => res.json())
+							.then(response => {
+								let wishlistCategorys = wishlistProducts.reduce((categories, item) => {
+									let category = Object.keys(item)[0],
+										values = Object.values(item)[0];
+									if (Array.isArray(values)) {
+										categories.push(category);
+									}
+									return categories;
+								}, []);
+								let productId = response.product.id;
+								if (customArray[0].categorised == '1') {
+									customizedPopup(curr, wishlistCategorys, productHandle, productId, customArray);
+								} else {
+									if (!curr.classList.contains('addedtowishlist_icon')) {
+										wishlistProducts.push({ "pro_handle": productHandle, "pro_id": productId });
+										localStorage.setItem('wishlistProducts', JSON.stringify(wishlistProducts));
+										if (__st.a == '80546955604') {
+											curr.querySelector('svg').setAttribute('fill', 'black');
+										} else {
+											curr.querySelector('svg').setAttribute('fill', 'red');
 										}
-										return categories;
-									}, []);
-									let productId = response.product.id;
-									if (customArray[0].categorised == '1') {
-										customizedPopup(curr, wishlistCategorys, productHandle, productId, customArray);
-									} else {
-										if (!curr.classList.contains('addedtowishlist_icon')) {
-											wishlistProducts.push({ "pro_handle": productHandle, "pro_id": productId });
-											localStorage.setItem('wishlistProducts', JSON.stringify(wishlistProducts));
-											if (__st.a == '80546955604') {
-												curr.querySelector('svg').setAttribute('fill', 'black');
-											} else {
-												curr.querySelector('svg').setAttribute('fill', 'red');
-											}
-											// curr.querySelector('svg').setAttribute('fill', 'black');
-											curr.classList.add('addedtowishlist_icon');
-											setWishlistProductCount(wishlistProducts, customArray);
-											if (customerId != undefined) {
-												saveWishlistProducts(domain, wishlistProducts, customerId, shopName, shopId);
-											}
+										// curr.querySelector('svg').setAttribute('fill', 'black');
+										curr.classList.add('addedtowishlist_icon');
+										setWishlistProductCount(wishlistProducts, customArray);
+										if (customerId != undefined) {
+											saveWishlistProducts(domain, wishlistProducts, customerId, shopName, shopId);
 										}
 									}
-								})
-						}
+								}
+							})
 					}
-					
 				}
 			});
 		});
@@ -894,13 +891,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			wishlsitProductsAction();
 		}
 		var getProductsAsync = (pro_handle) => {
-			if (pro_handle !== null && pro_handle !== undefined && pro_handle == "null" && pro_handle != "") {
-				return fetch(`/products/${pro_handle}.json`)
+			return fetch(`/products/${pro_handle}.json`)
 				.then(res => res.json())
 				.then(data => data.product);
-			} else {
-				return false;
-			}
 		}
 		fetchData();
 	};
