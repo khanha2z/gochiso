@@ -82,6 +82,10 @@ list {% endcomment %}
       </div>
   </div>
 </section>
+{% for collection in product.collections %}
+  {{ collection.title }}
+{% endfor %}
+
 <section>
   <div class="list-product">
       <div class="container">
@@ -158,6 +162,3 @@ list {% endcomment %}
       </div>
   </div>
 </section>
-{% for collection in product.collections %}
-  {{ collection.title }}
-{% endfor %}
