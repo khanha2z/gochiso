@@ -139,10 +139,7 @@
   </div>
 </section>
 
-{% assign collection_handle = 'your-collection-handle' %}  <!-- Thay 'your-collection-handle' bằng handle của bộ sưu tập bạn muốn hiển thị -->
-{% assign collection = collections[collection_handle] %}
 
-{% if collection %}
   {% paginate collection.products by 12 %}
     {% for product in collection.products %}
       <div class="col-lg-3 col-sm-6">
@@ -174,6 +171,3 @@
       <p>Không có sản phẩm nào</p>
     {% endfor %}
   {% endpaginate %}
-{% else %}
-  <p>Bộ sưu tập không tồn tại</p>
-{% endif %}
