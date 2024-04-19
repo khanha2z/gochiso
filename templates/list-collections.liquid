@@ -140,17 +140,7 @@
 </section>
 
  {%- for collection in collections -%}
-        <li
-          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
-        >
-          {% render 'card-collection',
-            card_collection: collection,
-            media_aspect_ratio: section.settings.image_ratio,
-            columns: 3
-          %}
-        </li>
+        <a href="{{ collection.url | within: collection }}">
+                              <img src="{{ collection.featured_image.src | img_url: 'large' }}" alt="{{ collection.featured_image.alt | escape }}">
+                            </a>
       {%- endfor -%}
