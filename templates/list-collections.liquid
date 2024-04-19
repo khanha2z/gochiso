@@ -138,3 +138,12 @@
       </div>
   </div>
 </section>
+
+{% for collection in collections %}
+{% if collection.image %}
+  {{ collection.image | image_url: width: 450, height: 450 | image_tag: collection.image.alt }}
+{% else %}
+  {% assign alt = collection.title | escape %}
+  {{ collection.products.first.image | image_url: width: 450, height: 450 | image_tag: alt }}
+{% endif %}
+{% endfor %}
