@@ -34,18 +34,18 @@
           "button_color": "#E0C143"
         }
       },
-      "5946647744298494267": {
-        "type": "shopify:\/\/apps\/wishlist-plus\/blocks\/wishlist-app-embed\/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "1166917345295625399": {
         "type": "shopify:\/\/apps\/wishlist-myappgurus\/blocks\/wishlist\/c6177d6e-9cc4-45ab-abe5-45a6a5289882",
         "disabled": true,
         "settings": {
           "visible_page_button": true,
           "target_class": ".box-product .img-product"
+        }
+      },
+      "5946647744298494267": {
+        "type": "shopify:\/\/apps\/wishlist-plus\/blocks\/wishlist-app-embed\/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+        "disabled": true,
+        "settings": {
         }
       }
     }
