@@ -831,43 +831,44 @@ document.addEventListener("DOMContentLoaded", () => {
 				if (filteredProducts.length > 0) {
 					await Promise.all(filteredProducts.map(async curr => {
 						let data = await getProductsAsync(curr.pro_handle);
-						productData += `<div class='popup-content-main' style='max-width: 1000px' data-handle="${curr.pro_handle}">
-							<div class="mag-popup-pro-url">
-								<div class="mag-popup-pro-checkbox">
-									<input type="checkbox" name="wishlistPro" class="wishlistPro" data-id="${data.variants[0].id}" data-handle="${curr.pro_handle}">
-								</div>
-								<div class="mag-popup-pro-image">
-									<a href="${shopUrl}/products/${curr.pro_handle}">
-										<img src='${(data.image != null) ? data.image.src : "https://wishlist.myappgurus.com/public/guide_imgs/no-image.jpg"}' alt='${(data.image != null) ? data.image.alt : ""}'>
-									</a>
-								</div>
-								<div class="mag-popup-content-wrapper">
-									<div class="mag-popup-pro-title">
-										${data.title}
+						if (data !== false)
+							productData += `<div class='popup-content-main' style='max-width: 1000px' data-handle="${curr.pro_handle}">
+								<div class="mag-popup-pro-url">
+									<div class="mag-popup-pro-checkbox">
+										<input type="checkbox" name="wishlistPro" class="wishlistPro" data-id="${data.variants[0].id}" data-handle="${curr.pro_handle}">
 									</div>
-									<div class="mag-popup-pro-price">
-										${formatMoney(data.variants[0].price, customArray[0].moneyFormat)}
+									<div class="mag-popup-pro-image">
+										<a href="${shopUrl}/products/${curr.pro_handle}">
+											<img src='${(data.image != null) ? data.image.src : "https://wishlist.myappgurus.com/public/guide_imgs/no-image.jpg"}' alt='${(data.image != null) ? data.image.alt : ""}'>
+										</a>
 									</div>
-									<div class="mag-popup-pro-wrapper">
-									<div class="mag-popup-pro-price">
-										<div class="qty d-flex align-center">
-											<a href="javascript:void(0)" class="qty-btn minus" data-id="${data.variants[0].id}" disabled>-</a>
-											<input type="number" data-id="${data.variants[0].id}" value="1" min="1">
-											<a href="javascript:void(0)" class="qty-btn plus" data-id="${data.variants[0].id}">+</a>
+									<div class="mag-popup-content-wrapper">
+										<div class="mag-popup-pro-title">
+											${data.title}
 										</div>
-									</div>
-									<div class="mag-popup-pro-atc">
-										<span class="magAddToCart" data-id="${data.variants[0].id}" data-handle="${curr.pro_handle}">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>
-										</span>
-										<span class="magRemoveWishlist" data-id="${data.variants[0].id}" data-handle="${curr.pro_handle}">
-										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6zM8 9h8v10H8zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-										</span>
+										<div class="mag-popup-pro-price">
+											${formatMoney(data.variants[0].price, customArray[0].moneyFormat)}
+										</div>
+										<div class="mag-popup-pro-wrapper">
+										<div class="mag-popup-pro-price">
+											<div class="qty d-flex align-center">
+												<a href="javascript:void(0)" class="qty-btn minus" data-id="${data.variants[0].id}" disabled>-</a>
+												<input type="number" data-id="${data.variants[0].id}" value="1" min="1">
+												<a href="javascript:void(0)" class="qty-btn plus" data-id="${data.variants[0].id}">+</a>
+											</div>
+										</div>
+										<div class="mag-popup-pro-atc">
+											<span class="magAddToCart" data-id="${data.variants[0].id}" data-handle="${curr.pro_handle}">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>
+											</span>
+											<span class="magRemoveWishlist" data-id="${data.variants[0].id}" data-handle="${curr.pro_handle}">
+											<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6zM8 9h8v10H8zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+											</span>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>`;
+						</div>`;
 					}));
 				} else {
 					productData += `<div class='popup-content-main no-products' style='max-width: 1000px'>ウィッシュリストの項目が見つかりませんでした。</div>`;
@@ -893,9 +894,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			wishlsitProductsAction();
 		}
 		var getProductsAsync = (pro_handle) => {
-			return fetch(`/products/${pro_handle}.json`)
+			if (pro_handle !== null && pro_handle !== undefined && pro_handle == "null" && pro_handle != "") {
+				return fetch(`/products/${pro_handle}.json`)
 				.then(res => res.json())
 				.then(data => data.product);
+			} else {
+				return false;
+			}
 		}
 		fetchData();
 	};
