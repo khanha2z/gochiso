@@ -20,6 +20,23 @@
 {%- endstyle -%}
 
 {%- unless settings.cart_type == 'drawer' -%}
+  <script>      
+    window.shopUrl = 'https://gochiso-mall.myshopify.com';
+    window.routes = {
+        cart_add_url: '/cart/add',
+        cart_change_url: '/cart/change',
+        cart_update_url: '/cart/update',
+        cart_url: '/cart',
+        predictive_search_url: '/search/suggest',
+    };
+
+    window.myappgurus = window.myappgurus || {};
+    if (typeof(window.myappgurus) != undefined) {
+      window.myappgurus.wishlist = {
+        "target_class" : ".wishlist-box"
+      }
+    }
+  </script>
   <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 {%- endunless -%}
 
