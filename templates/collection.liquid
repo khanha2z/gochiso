@@ -150,7 +150,9 @@ list {% endcomment %}
                     </div>
                   </div>
                 {% else %}
-                  <p>No matches</p>
+                  <div class="alert alert-danger" role="alert">
+                    No matches
+                  </div>
                 {% endfor %}
               </div>
               {% if paginate.pages > 1 %}<div class="pagination-wrapper">{{ paginate | default_pagination }}</div>{% endif %}
