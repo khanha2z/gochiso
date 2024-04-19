@@ -159,3 +159,13 @@ list {% endcomment %}
       </div>
   </div>
 </section>
+{% unless settings.product == blank %}
+  {% assign product = all_products[settings.product] %}
+
+  {% if product %}
+    {{ product.title }} - {{ product.price }}
+  {% else %}
+    No product, or invalid product, selected.
+  {% endif %}
+{% endunless %}
+
