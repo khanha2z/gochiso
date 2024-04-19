@@ -158,4 +158,6 @@ list {% endcomment %}
       </div>
   </div>
 </section>
-
+{% for collection in product.collections %}
+  {{ collection.title }}
+{% endfor %}
