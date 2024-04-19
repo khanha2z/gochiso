@@ -121,7 +121,7 @@ list {% endcomment %}
           </div>
       
             <div class="row pt-3">
-            {% for product in collections limit:4 %}
+            {% for product in collections %}
               <div class="col-lg-3 col-sm-6">
                 <div class="col-inner">
                     <div class="box-product">
@@ -150,22 +150,7 @@ list {% endcomment %}
             {% endfor %}
      
             </div>
-      {% paginate collection.products by 2 %}
-  <h1>{{ collection.title }}</h1>
-  {% for product in collection.products %}
-    <div class="abc">
-      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-      {{ product.price | money }}
-      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-      <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-      </a>
-    </div>
-  {% else %}
-    <p>no matches</p>
-  {% endfor %}
-  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
-{% endpaginate %}
+
       </div>
   </div>
 </section>
