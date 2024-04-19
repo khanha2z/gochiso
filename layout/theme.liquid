@@ -149,6 +149,10 @@
     {{ 'style-sm.css' | asset_url | stylesheet_tag }}
     {{ 'style-sm.css' | asset_url | stylesheet_tag }}
     <link href="https://cdn.shopify.com/extensions/5e6ff13f-c46f-47b2-bcf0-f6dd3ee372bf/wishlist-myappgurus-36/assets/app.css" rel="stylesheet" type="text/css" media="all">
+    <script>      
+        window.shopUrl = 'https://gochiso-mall.myshopify.com';
+    </script>
+    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
 </head>
 <body class="{% if template.name == "index" %} home {% endif %}{% if template.name == "page.about" %} page-about {% endif %}">
 
@@ -257,9 +261,6 @@
             <div class="img-wrap"><img src="{{ 'logo-footer.png' | asset_url  }}" alt="" class="img-fluid"></div>
         </div>
     </div>
-    <script>      
-        window.shopUrl = 'https://gochiso-mall.myshopify.com';
-    </script>
     <script src="{{ 'jquery.js' | asset_url }}" defer="defer"></script>
     <script src="https://unpkg.com/focus-trap/dist/focus-trap.umd.js" defer="defer"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer="defer"></script>
@@ -272,7 +273,6 @@
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
 </body>
 </html>
 
