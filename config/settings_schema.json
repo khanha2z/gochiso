@@ -51,5 +51,15 @@
         "label": "Instagram URL"
       }
     ]
+  },
+  {
+    "name": "Product",
+    "settings": [
+      {
+        "type": "product",
+        "id": "product",
+        "label": "Product"
+      }
+    ]
   }
 ]
