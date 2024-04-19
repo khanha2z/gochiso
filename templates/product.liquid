@@ -88,18 +88,13 @@
           <div class="col-lg-5">
               <div class="product-info">
                   <div class="element-header">
-                        <h2 itemprop="name" class="title-product  wishlist-box"><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h2>
+                        <h2 itemprop="name" class="title-product">{{ product.title }}</h2>
                         <div class="rating-container d-flex gap-0 align-items-center">
-                                <div id='epr-product-title-review' data-product-id='{{ product.id }}' data-product-handle='{{ product.handle }}' data-product-title='{{ product.title }}'></div>
+                            <div id='epr-product-title-review' data-product-id='{{ product.id }}' data-product-handle='{{ product.handle }}' data-product-title='{{ product.title }}'></div>
                         </div>
 
-                        <div class="rating-container d-flex gap-0 align-items-center">
-                            <div class="mag_wishlist_manually btn_collection-grid" pro_handle="{{ product.handle }}"
-                                pro-url="{{ product.url }}">
-                            </div>
-                            <div class="mag_wishlist_manually btn_product-grid" pro_handle="{{ product.handle }}"
-                                pro-url="{{ product.url }}">
-                            </div>
+                        <div class="mag-pdp-wishlist" pro_handle="{{ product.handle }}"
+                            pro-url="{{ product.url }}">
                         </div>
                   </div>
                   <hr>
