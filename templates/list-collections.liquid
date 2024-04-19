@@ -108,18 +108,11 @@
                       <div class="box-product">
                         <div class="img-product">
                           <a href="{{ product.url | within: collection }}">
-                            {%- if collection.image -%}
-                              {%- assign collection_image = collection.image -%}
-                            {%- elsif collection.products.first and collection.products.first.images != empty -%}
-                              {%- assign collection_image = collection.products.first.featured_image -%}
-                            {%- else -%}
-                              {%- assign collection_image = blank -%}
-                            {%- endif -%}
+                              <img src="{{ collection_image | img_url: '480x' }}" alt="">
                           </a>
                         </div>
                         <div class="box-title-product">
                           <a href="{{ collection.url }}">
-                            <img src="{{ collection_image | img_url: '480x' }}" alt="">
                             {{ collection.title }}
                           </a>
                         </div>
