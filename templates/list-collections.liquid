@@ -138,34 +138,3 @@
       </div>
   </div>
 </section>
-
-    <div class="grid__item sidebar-hidden">        
-      <div class="collection-list">
-        <div class="grid-uniform grid-link__container col-main">
-          {% include 'tool-grid' %}          
-          <div class="products-grid-view">
-          {% if section.settings.collection.products.size > 0 %}      
-          <ul>
-            {% case section.settings.collection_grid %}
-            {% when '2' %}
-            {%- assign grid_item_width = 'wide--one-half post-large--one-half large--one-half medium--one-half small-grid__item' -%}            
-            {% when '3' %}
-            {%- assign grid_item_width = 'wide--one-third post-large--one-third large--one-half medium--one-half small-grid__item' -%}            
-            {% when '4' %}
-            {%- assign grid_item_width = 'wide--one-quarter post-large--one-third large--one-half medium--one-half small-grid__item' -%}            
-            {% when '5' %}
-            {%- assign grid_item_width = 'wide--one-fifth post-large--one-quarter large--one-half medium--one-half small-grid__item' -%}            
-            {% endcase %}
-            {% for product in section.settings.collection.products %}
-            {% include 'product-grid-item',grid_item_width: grid_item_width %}
-            {% endfor %}
-          </ul>
-          {% else %}
-          <div class="grid__item">
-            <p><em>{{ 'home_page.onboarding.no_products_html' | t }}</em></p>
-          </div>
-          {% endif %}
-          </div>
-        </div>
-      </div>
-    </div>
