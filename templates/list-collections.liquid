@@ -68,39 +68,9 @@
   <div class="list-product">
       <div class="container">
           <div class="main-title mx-auto">
-              <h2>Product list</h2>
+              <h2>Product Category</h2>
               <p>商品一覧</p>
           </div>
-          <div class="row py-5">
-            <div class="col-lg-8 col-sm-12">
-                <div class="col-inner">
-                    <div class="box-product-filter">
-                        <label for="#"><span>キーワードで探す</span><input type="text" class="form-control" placeholder="キーワードを入力"></label>
-                        <label for="#">
-                            <span>カテゴリー</span>
-                            <select>
-                                <option value="すべてのカテゴリー">すべてのカテゴリー</option>
-                                <option value="すべてのカテゴリー">すべてのカテゴリー</option>
-                                <option value="すべてのカテゴリー">すべてのカテゴリー</option>
-                            </select>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-12">
-                <div class="col-inner">
-                    <div class="box-product-filter-price">
-                        <label for="#">
-                            <span>価格帯で絞り込む</span>
-                            <input type="text" class="form-control" placeholder="">
-                            <span>～</span>
-                            <input type="text" class="form-control" placeholder="">
-                        </label>
-                    </div>
-                </div>
-            </div>
-          </div>
-
           <div class="row pt-3">
             {%- for collection in collections -%}
               <div class="col-lg-3 col-sm-6">
