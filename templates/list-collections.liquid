@@ -138,3 +138,42 @@
       </div>
   </div>
 </section>
+
+{% assign collection_handle = 'your-collection-handle' %}  <!-- Thay 'your-collection-handle' bằng handle của bộ sưu tập bạn muốn hiển thị -->
+{% assign collection = collections[collection_handle] %}
+
+{% if collection %}
+  {% paginate collection.products by 12 %}
+    {% for product in collection.products %}
+      <div class="col-lg-3 col-sm-6">
+        <div class="col-inner">
+          <div class="box-product">
+            <div class="img-product">
+              <a href="{{ product.url }}">
+                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+              </a>
+            </div>
+            <div class="box-title-product">
+              <a href="{{ product.url }}">{{ product.title }}</a>
+              <div class="price-product">
+                <p>{{ product.price | money }}</p><span>{{ product.compare_at_price_max | money_with_currency }}</span>
+              </div>
+            </div>
+            <div class="box-rate-product">
+              <div class="rate-product">
+                {% render 'product-review' product: product,  handle:product.handle %}
+              </div>
+              <div class="box-btn-add-cart">
+                {% render 'product-card' product: product %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <p>Không có sản phẩm nào</p>
+    {% endfor %}
+  {% endpaginate %}
+{% else %}
+  <p>Bộ sưu tập không tồn tại</p>
+{% endif %}
