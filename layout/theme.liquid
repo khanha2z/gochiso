@@ -151,6 +151,14 @@
     <link href="https://cdn.shopify.com/extensions/5e6ff13f-c46f-47b2-bcf0-f6dd3ee372bf/wishlist-myappgurus-36/assets/app.css" rel="stylesheet" type="text/css" media="all">
     <script>      
         window.shopUrl = 'https://gochiso-mall.myshopify.com';
+        window.routes = {
+            cart_add_url: '/cart/add',
+            cart_change_url: '/cart/change',
+            cart_update_url: '/cart/update',
+            cart_url: '/cart',
+            predictive_search_url: '/search/suggest',
+        };
+    
         window.myappgurus = window.myappgurus || {};
         if (typeof(window.myappgurus) != undefined) {
           window.myappgurus.wishlist = {
