@@ -102,7 +102,7 @@
           </div>
         
           <div class="row pt-3">
-     {% paginate collections.products by 12 %}
+
               {% for product in collection.products limit:5 %}
                 <div class="col-lg-3 col-sm-6">
                   <div class="col-inner">
@@ -132,7 +132,7 @@
               {% else %}
                 <p>no matches 1</p>
               {% endfor %}
-        {% endpaginate %}
+ 
           </div>
 
       </div>
