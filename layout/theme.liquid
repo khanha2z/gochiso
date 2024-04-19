@@ -257,6 +257,9 @@
             <div class="img-wrap"><img src="{{ 'logo-footer.png' | asset_url  }}" alt="" class="img-fluid"></div>
         </div>
     </div>
+    <script>      
+        window.shopUrl = '{{ routes.root_url }}';
+    </script>
     <script src="{{ 'jquery.js' | asset_url }}" defer="defer"></script>
     <script src="https://unpkg.com/focus-trap/dist/focus-trap.umd.js" defer="defer"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer="defer"></script>
