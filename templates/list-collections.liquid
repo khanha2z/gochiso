@@ -139,7 +139,7 @@
   </div>
 </section>
 
- {%- for collection in collections -%}
+ {%- for collection in collections.products limit:5 %}
    <div>
         <p><a href="{{ collection.url | within: collection }}">
                               <img src="{{ collection.featured_image.src | img_url: 'large' }}" alt="{{ collection.featured_image.alt | escape }}">
