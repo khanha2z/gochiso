@@ -101,39 +101,42 @@
             </div>
           </div>
         
-          <div class="row pt-3">
-
-              {% for product in collection.products limit:5 %}
-                <div class="col-lg-3 col-sm-6">
-                  <div class="col-inner">
-                      <div class="box-product">
-                          <div class="img-product">
-                            <a href="{{ product.url | within: collection }}">
-                              <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-                            </a>
-                          </div>
-                          <div class="box-title-product">
-                              <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-                              <div class="price-product">
-                                  <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
-                              </div>
-                          </div>
-                          <div class="box-rate-product">
-                              <div class="rate-product">
-                                  {% render 'product-review' product: product,  handle:product.handle %}
-                              </div>
-                              <div class="box-btn-add-cart">
-                                {% render 'product-card' product: product %}
-                              </div>
-                          </div>
-                      </div>
+          {% paginate collection.products by 12 %}
+              <div class="row pt-3">
+                {% for product in collection.products %}
+                  <div class="col-lg-3 col-sm-6">
+                    <div class="col-inner">
+                        <div class="box-product">
+                            <div class="img-product">
+                              <a href="{{ product.url | within: collection }}">
+                                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                              </a>
+                            </div>
+                            <div class="box-title-product">
+                                <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                                <div class="price-product">
+                                    <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
+                                </div>
+                            </div>
+                            <div class="box-rate-product">
+                                <div class="rate-product">
+                                    {% render 'product-review' product: product,  handle:product.handle %}
+                                </div>
+                                <div class="box-btn-add-cart">
+                                  {% render 'product-card' product: product %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                   </div>
-                </div>
-              {% else %}
-                <p>no matches 1</p>
-              {% endfor %}
- 
-          </div>
+                {% else %}
+                  <div class="alert alert-danger" role="alert">
+                    No matches
+                  </div>
+                {% endfor %}
+              </div>
+              {% if paginate.pages > 1 %}<div class="pagination-wrapper">{{ paginate | default_pagination }}</div>{% endif %}
+          {% endpaginate %}
 
       </div>
   </div>
