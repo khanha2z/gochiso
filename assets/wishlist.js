@@ -346,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	var addWishlistBtn = (customArray) => {
 		let wishlistBtn = document.querySelectorAll('.wishlistBtn');
 		wishlistBtn.forEach(curr => {
-			let productHandle = curr.getAttribute('pro_handle');
+			let productHandle = decodeURI(curr.getAttribute('pro_handle'));
 
 			curr.addEventListener('click', () => {
 				if (curr.classList.contains('addedtowishlist_icon')) {
