@@ -743,6 +743,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	var wishlistProductsData = () => {
 		let productData = '';
+		let shopUrl = window.location.hostname;
+
 		async function fetchData() {
 			productData += `<div class='popupcontent'>
 				<div class='popup-content-main header' style='max-width: 1000px'>
