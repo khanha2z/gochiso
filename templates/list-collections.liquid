@@ -140,8 +140,10 @@
 </section>
 
  {%- for collection in collections -%}
-        <a href="{{ collection.url | within: collection }}">
+   <div>
+        <p><a href="{{ collection.url | within: collection }}">
                               <img src="{{ collection.featured_image.src | img_url: 'large' }}" alt="{{ collection.featured_image.alt | escape }}">
-                            </a>
+                            </a></p>
    <a href="{{ collection.url | within: collection }}">{{ collection.title }}</a>
+   </div>
       {%- endfor -%}
