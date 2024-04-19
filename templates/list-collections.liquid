@@ -22,48 +22,6 @@
   </div>
 </section>
 {% render 'breadcrumbs' %}
-
-<section>
-  <div class="list-best-product">
-      <div class="container">
-          <div class="main-title mx-auto">
-              <h2>Best Product</h2>
-              <p>人気ランキング</p>
-          </div>
-          <div class="row g-4 pt-4 product-best">
-            {% for product in collections.best-products.products limit:4 %}
-              <div class="col-lg-3 col-sm-6 product-item-{{ forloop.index }}">
-                <div class="col-inner">
-                  <div class="box-product">
-                      <div class="img-product">
-                        <a href="{{ product.url | within: collection }}">
-                          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-                        </a>
-                      </div>
-                      <div class="box-title-product">
-                          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-                          <div class="price-product">
-                              <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
-                          </div>
-                      </div>
-                      <div class="box-rate-product">
-                          <div class="rate-product">
-                              {% render 'product-review' product: product,  handle:product.handle %}
-                          </div>
-                          <div class="box-btn-add-cart">
-                            {% render 'product-card' product: product %}
-                          </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            {% endfor %}
-          <div>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
 <section>
   <div class="list-product">
       <div class="container">
