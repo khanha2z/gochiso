@@ -101,22 +101,30 @@
             </div>
           </div>
 
-        {% paginate collection.products by 2 %}
-  <h1>{{ collection.title }}</h1>
-  {% for product in collection.products %}
-    <div class="abc">
-      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-      {{ product.price | money }}
-      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-      <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+<h1>{{ page_title }}</h1>
+
+<ul>
+  {%- for collection in collections -%}
+    <li>
+      <!--
+        These control flow tags check to see if there is a featured image for a collection.
+        If there isn't one, then we assign the image from the first product in the collection.
+      -->
+      {%- if collection.image -%}
+        {%- assign collection_image = collection.image -%}
+      {%- elsif collection.products.first and collection.products.first.images != empty -%}
+        {%- assign collection_image = collection.products.first.featured_image -%}
+      {%- else -%}
+        {%- assign collection_image = blank -%}
+      {%- endif -%}
+
+      <a href="{{ collection.url }}">
+        <img src="{{ collection_image | img_url: '480x' }}" alt="">
+        {{ collection.title }}
       </a>
-    </div>
-  {% else %}
-    <p>no matches</p>
-  {% endfor %}
-  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
-{% endpaginate %}
+    </li>
+  {%- endfor -%}
+</ul>
         
   
 
