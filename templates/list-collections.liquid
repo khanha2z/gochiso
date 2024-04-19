@@ -139,11 +139,18 @@
   </div>
 </section>
 
-{% for collection in collections %}
-{% if collection.image %}
-  {{ collection.image | image_url: width: 450, height: 450 | image_tag: collection.image.alt }}
-{% else %}
-  {% assign alt = collection.title | escape %}
-  {{ collection.products.first.image | image_url: width: 450, height: 450 | image_tag: alt }}
-{% endif %}
-{% endfor %}
+ {%- for collection in collections -%}
+        <li
+          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+        >
+          {% render 'card-collection',
+            card_collection: collection,
+            media_aspect_ratio: section.settings.image_ratio,
+            columns: 3
+          %}
+        </li>
+      {%- endfor -%}
