@@ -39,7 +39,7 @@
         "disabled": false,
         "settings": {
           "visible_page_button": true,
-          "target_class": ".img-product"
+          "target_class": ".wishlist-box"
         }
       }
     }

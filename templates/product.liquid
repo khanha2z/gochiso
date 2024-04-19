@@ -72,7 +72,7 @@
                   </div>
                   <div class="col-md-9">
                       <!-- product-large-slider -->
-                      <div class="swiper product-large-slider img-product">
+                      <div class="swiper product-large-slider">
                           <div class="swiper-wrapper">
                               {% for image in product.images %}
                                 <div class="swiper-slide">
@@ -88,7 +88,7 @@
           <div class="col-lg-5">
               <div class="product-info">
                   <div class="element-header">
-                        <h2 itemprop="name" class="title-product">{{ product.title }}</h2>
+                        <h2 itemprop="name" class="title-product  wishlist-box"><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h2>
                         <div class="rating-container d-flex gap-0 align-items-center">
                                 <div id='epr-product-title-review' data-product-id='{{ product.id }}' data-product-handle='{{ product.handle }}' data-product-title='{{ product.title }}'></div>
                         </div>
@@ -190,7 +190,7 @@
                             <div class="col-lg-12">
                               <div class="col-inner">
                                 <div class="box-product">
-                                    <div class="img-product">
+                                    <div class="img-product wishlist-box">
                                         <a href="{{ product.url | within: collection }}">
                                             <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
                                         </a>

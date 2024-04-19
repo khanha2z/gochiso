@@ -40,7 +40,7 @@
           <div class="col-lg-3 col-sm-6 product-item">
             <div class="col-inner">
               <div class="box-product">
-                  <div class="img-product">
+                  <div class="img-product wishlist-box">
                     {% if item.featured_image %}
                       <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
                         {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
