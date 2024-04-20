@@ -108,42 +108,6 @@
 
         <div id="cart-errors"></div>
       </div>
-
-      <div class="drawer__footer">
-        <!-- Start blocks -->
-        <!-- Subtotals -->
-
-        <div class="cart-drawer__footer">
-          <div class="totals" role="status">
-            <h2 class="totals__subtotal">Subtotal</h2>
-            <p class="totals__subtotal-value">{{ cart.total_price | money_without_trailing_zeros }}</p>
-          </div>
-
-          <div></div>
-
-          <small class="tax-note caption-large rte">Taxes and shipping calculated at checkout </small>
-        </div>
-
-        <!-- CTAs -->
-
-        <div class="cart__ctas">
-          <noscript>
-            <button type="submit" class="cart__update-button button button--secondary" form="CartDrawer-Form">
-              Update
-            </button>
-          </noscript>
-
-          <button
-            type="submit"
-            id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
-            name="checkout"
-            form="CartDrawer-Form"
-          >
-            Check out
-          </button>
-        </div>
-      </div>
     </div>
   </div>
 </div>
