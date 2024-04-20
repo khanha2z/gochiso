@@ -47,11 +47,6 @@ list {% endcomment %}
 </section>
 {% render 'breadcrumbs' %}
 
-<script>
-  console.log( {% collections | json %} );
-  console.log( {% collection | json %} );
-</script>
-
 {% if !collection.url %}
   <section>
     <div class="list-best-product">
@@ -176,3 +171,10 @@ list {% endcomment %}
       </div>
   </div>
 </section>
+
+<h1>AAAAAA</h1>
+
+<script>
+  console.log( {% collections | json %} );
+  console.log( {% collection | json %} );
+</script>
