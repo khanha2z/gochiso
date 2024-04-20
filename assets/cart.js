@@ -128,6 +128,10 @@ class CartItems extends HTMLElement {
       .then((state) => {
         const parsedState = JSON.parse(state);
 
+        console.log(addCommas(parseInt(parsedState.items_subtotal_price)));
+
+        $('.totals__subtotal-value').html('¥' + addCommas(parseInt(parsedState.items_subtotal_price)));
+
         const quantityElement =
           document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
         const items = document.querySelectorAll('.cart-item');
@@ -154,12 +158,6 @@ class CartItems extends HTMLElement {
           );
         });
         const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
-
-
-        if (parsedState.items_subtotal_price) {
-          $('.totals__subtotal-value').html('¥' + addCommas(parseInt(parsedState.items_subtotal_price)));
-        }
-
 
         let message = '';
         if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
