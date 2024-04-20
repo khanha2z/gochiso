@@ -275,6 +275,56 @@
             <div class="img-wrap"><img src="{{ 'logo-footer.png' | asset_url  }}" alt="" class="img-fluid"></div>
         </div>
     </div>
+    {% javascript %}
+    class StickyHeader extends HTMLElement {
+        constructor() {
+        super();
+        }
+
+        connectedCallback() {
+        this.header = document.querySelector('.section-header');
+        this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
+        this.headerBounds = {};
+
+        this.setHeaderHeight();
+
+        window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
+
+        if (this.headerIsAlwaysSticky) {
+            this.header.classList.add('shopify-section-header-sticky');
+        };
+
+        this.currentScrollTop = 0;
+        this.preventReveal = false;
+        this.predictiveSearch = this.querySelector('predictive-search');
+
+        this.onScrollHandler = this.onScroll.bind(this);
+        this.hideHeaderOnScrollUp = () => this.preventReveal = true;
+
+        this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+        window.addEventListener('scroll', this.onScrollHandler, false);
+
+        this.createObserver();
+        }
+
+
+        disconnectedCallback() {
+        this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+        window.removeEventListener('scroll', this.onScrollHandler);
+        }
+
+        createObserver() {
+        let observer = new IntersectionObserver((entries, observer) => {
+            this.headerBounds = entries[0].intersectionRect;
+            observer.disconnect();
+        });
+
+        observer.observe(this.header);
+        }
+    }
+
+  customElements.define('sticky-header', StickyHeader);
+{% endjavascript %}
     <script src="{{ 'jquery.js' | asset_url }}" defer="defer"></script>
     <script src="https://unpkg.com/focus-trap/dist/focus-trap.umd.js" defer="defer"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer="defer"></script>
