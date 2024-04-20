@@ -30,9 +30,13 @@
               <p>商品一覧</p>
           </div>
 
-          {% paginate collection.products by 12 %}
+          <script>
+            console.log( {% collections | json %})
+          </script>
+
+          {% paginate collections.products by 12 %}
             <div class="row pt-3">
-              {% for product in collection.products %}
+              {% for product in collections.products %}
                 <div class="col-lg-3 col-sm-6">
                   <div class="col-inner">
                       <div class="box-product">
