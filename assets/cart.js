@@ -156,8 +156,8 @@ class CartItems extends HTMLElement {
         const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
 
 
-        if (state.items_subtotal_price) {
-          $('.totals__subtotal-value').html('¥' + addCommas(parseInt(state.items_subtotal_price)));
+        if (parsedState.items_subtotal_price) {
+          $('.totals__subtotal-value').html('¥' + addCommas(parseInt(parsedState.items_subtotal_price)));
         }
 
 
