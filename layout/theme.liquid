@@ -160,6 +160,8 @@
         }
     </script>
 
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+
     <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
 </head>
 <body class="{% if template.name == "index" %} home {% endif %}{% if template.name == "page.about" %} page-about {% endif %}">
@@ -275,7 +277,6 @@
             <div class="img-wrap"><img src="{{ 'logo-footer.png' | asset_url  }}" alt="" class="img-fluid"></div>
         </div>
     </div>
-    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'jquery.js' | asset_url }}" defer="defer"></script>
     <script src="https://unpkg.com/focus-trap/dist/focus-trap.umd.js" defer="defer"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer="defer"></script>
