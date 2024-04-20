@@ -178,7 +178,7 @@ class CartItems extends HTMLElement {
 
         publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
 
-        $('.totals__subtotal-value').value('¥' + parseInt(state.items_subtotal_price));
+        $('.totals__subtotal-value').html('¥' + parseInt(state.items_subtotal_price));
         
       })
       .catch(() => {
