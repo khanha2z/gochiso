@@ -158,6 +158,25 @@
             "target_class" : ".wishlist-box"
           }
         }
+
+        window.cartStrings = {
+            error:  `Please try again.`,
+            quantityError: `You can only add [quantity] of this item to your cart.`,
+        };
+
+        window.variantStrings = {
+            addToCart: `Add to cart`,
+            soldOut: `Sold out`,
+            unavailable: `Unavailable`,
+            unavailable_with_option: `[value] - Unavailable`,
+        };
+
+        window.accessibilityStrings = {
+            imageAvailable: `Image [index] is now available in gallery view`,
+            shareSuccess: `Link copied to clipboard`,
+            pauseSlideshow: `Pause slideshow`,
+            playSlideshow: `Play slideshow`,
+        };
     </script>
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
