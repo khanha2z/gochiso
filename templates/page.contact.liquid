@@ -14,7 +14,7 @@
               <img src="{{"cloud-1.svg" | asset_url}}" alt="">
           </div>
           <h2 class="title-en">Contact</h2>
-          <h3 class="title-jp">接触</h3>
+          <h3 class="title-jp">お問い合わせ</h3>
       </div>
       <div class="bg-anim-1"></div>
       <div class="bg-anim-2"></div>
@@ -27,7 +27,7 @@
             <li>
             <a href="/">Top</a>
             </li>
-            <li><span>接触</span></li>
+            <li><span>お問い合わせ</span></li>
         </ul>
     </div>
 </div>
@@ -35,25 +35,25 @@
   <div class="container">
       <div class="box-form-contact">
 {% form 'contact' %}
-  {% if form.posted_successfully? %} Thank you for your contact {% endif %}
+  {% if form.posted_successfully? %} ご連絡ありがとうございます {% endif %}
   {{ form.errors | default_errors }}
-    <div class="title-form">お問い合わせ</div>
+    <div class="title-form">お問い合わせフォーム</div>
     <div class="row">
         <div class="col-12 col-lg-6">
-            <label for="ContactFormName">First name</label>
-            <input type="text" placeholder="Enter your first name" class="form-control" id="ContactFormName" name="contact[name]">
+            <label for="ContactFormName">氏名</label>
+            <input type="text" placeholder="" class="form-control" id="ContactFormName" name="contact[name]">
         </div>
         <div class="col-12 col-lg-6">
-            <label for="ContactFormEmail">Last name</label>
-            <input type="email" placeholder="Enter your email" class="form-control" id="ContactFormEmail" name="contact[email]">
+            <label for="ContactFormEmail">メールアドセンス</label>
+            <input type="email" placeholder="" class="form-control" id="ContactFormEmail" name="contact[email]">
         </div>
         <div class="col-12">
-            <label for="ContactFormPhone">Phone number</label>
-            <input type="tel" id="ContactFormPhone" placeholder="+1 201-555-0123" class="form-control" name="contact[phone]">
+            <label for="ContactFormPhone">電話番号</label>
+            <input type="tel" id="ContactFormPhone" placeholder="" class="form-control" name="contact[phone]">
         </div>
         <div class="col-12">
-            <label for="ContactFormMessage">Message</label>
-            <textarea rows="10" id="ContactFormMessage" placeholder="Please provide a short description of your business and any questions you have about Designership design systems." class="form-control" name="contact[body]"></textarea>
+            <label for="ContactFormMessage">メッセージ</label>
+            <textarea rows="10" id="ContactFormMessage" placeholder="" class="form-control" name="contact[body]"></textarea>
         </div>
         <div class="col-12">
             <input type="submit" value="送信する">
