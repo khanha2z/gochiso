@@ -10,8 +10,6 @@ class CartRemoveButton extends HTMLElement {
   }
 }
 
-const ON_CHANGE_DEBOUNCE_TIMER = 500;
-
 customElements.define('cart-remove-button', CartRemoveButton);
 
 function debounce(fn, wait) {
