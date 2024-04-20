@@ -105,7 +105,7 @@ list {% endcomment %}
                         <label for="#"><span>キーワードで探す</span><input type="text" class="form-control" placeholder="キーワードを入力"></label>
                         <label for="#">
                             <span>カテゴリー</span>
-                            <select>
+                            <select id="collection_list">
                                 <option value="/collections/all">商品一覧</option>
                                 {%- for collection in collections -%}
                                   <option value="/collections/{{ collection.handle }}">{{ collection.title }}</option>
@@ -169,3 +169,12 @@ list {% endcomment %}
       </div>
   </div>
 </section>
+
+<script>
+
+  $('#collection_list').change(function(){
+    var handle = $(this).val();   
+    window.location.replace( handle );
+  });
+
+</script>
