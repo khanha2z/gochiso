@@ -130,7 +130,7 @@ class CartItems extends HTMLElement {
 
         console.log(addCommas(parseInt(parsedState.items_subtotal_price)));
 
-        $('.totals__subtotal-value').html('¥' + addCommas(parseInt(parsedState.items_subtotal_price)));
+        $('.totals__subtotal-value').html('¥' + addCommas(parseInt(parsedState.items_subtotal_price) / 100));
 
         const quantityElement =
           document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
