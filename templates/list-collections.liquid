@@ -26,36 +26,46 @@
   <div class="list-product">
       <div class="container">
           <div class="main-title mx-auto">
-              <h2>Product Category</h2>
+              <h2>Collections</h2>
               <p>商品一覧</p>
           </div>
-          <div class="row pt-3">
-            {%- for collection in collections -%}
-              <div class="col-lg-3 col-sm-6">
+
+          {% paginate collection.products by 12 %}
+            <div class="row pt-3">
+              {% for product in collection.products %}
+                <div class="col-lg-3 col-sm-6">
                   <div class="col-inner">
                       <div class="box-product">
-                        <div class="img-product wishlist-box">
-                          <a href="{{ product.url | within: collection }}">
-                            {%- if collection.image -%}
-                              {%- assign collection_image = collection.image -%}
-                            {%- elsif collection.products.first and collection.products.first.images != empty -%}
-                              {%- assign collection_image = collection.products.first.featured_image -%}
-                            {%- else -%}
-                              {%- assign collection_image = blank -%}
-                            {%- endif -%}
-                            <img src="{{ collection_image | img_url: '480x' }}" alt="">
-                          </a>
-                        </div>
-                        <div class="box-title-product">
-                          <a href="{{ collection.url }}">
-                            {{ collection.title }}
-                          </a>
-                        </div>
+                          <div class="img-product wishlist-box">
+                            <a href="{{ product.url | within: collection }}">
+                              <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                            </a>
+                          </div>
+                          <div class="box-title-product">
+                              <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                              <div class="price-product">
+                                  <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
+                              </div>
+                          </div>
+                          <div class="box-rate-product">
+                              <div class="rate-product">
+                                  {% render 'product-review' product: product,  handle:product.handle %}
+                              </div>
+                              <div class="box-btn-add-cart">
+                                {% render 'product-card' product: product %}
+                              </div>
+                          </div>
                       </div>
                   </div>
-              </div>
-            {%- endfor -%}
-          </div>
+                </div>
+              {% else %}
+                <div class="alert alert-danger" role="alert">
+                  No matches
+                </div>
+              {% endfor %}
+            </div>
+            {% if paginate.pages > 1 %}<div class="pagination-wrapper">{{ paginate | default_pagination }}</div>{% endif %}
+          {% endpaginate %}
         
   
 
