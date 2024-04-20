@@ -48,7 +48,8 @@ list {% endcomment %}
 {% render 'breadcrumbs' %}
 
 <script>
-  console.log( {% collections | json %} )
+  console.table( {% collections | json %} );
+  console.table( {% collections | json %} );
 </script>
 
 {% if !collection.url %}
