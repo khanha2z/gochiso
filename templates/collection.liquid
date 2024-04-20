@@ -43,7 +43,7 @@ list {% endcomment %}
 </section>
 {% render 'breadcrumbs' %}
 
-{% if !collection.url %}
+{% if !collection.handle %}
   <section>
     <div class="list-best-product">
         <div class="container">
@@ -104,9 +104,10 @@ list {% endcomment %}
                         <label for="#">
                             <span>カテゴリー</span>
                             <select>
-                                <option value="すべてのカテゴリー">すべてのカテゴリー</option>
-                                <option value="すべてのカテゴリー">すべてのカテゴリー</option>
-                                <option value="すべてのカテゴリー">すべてのカテゴリー</option>
+                                <option value="/collections/all">商品一覧</option>
+                                {%- for collection in collections -%}
+                                  <option value="/collections/{{ collection.handle }}">{{ collection.title }}</option>
+                                {%- endfor -%}
                             </select>
                         </label>
                     </div>
@@ -126,7 +127,6 @@ list {% endcomment %}
             </div>
           </div>
       
-     
           {% paginate collection.products by 12 %}
             <div class="row pt-3">
               {% for product in collection.products %}
@@ -167,8 +167,3 @@ list {% endcomment %}
       </div>
   </div>
 </section>
-
-<script>
-  console.log( {{ collections | json }});
-  console.log( {{ collection | json }});
-</script>
