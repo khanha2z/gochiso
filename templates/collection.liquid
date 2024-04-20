@@ -43,7 +43,9 @@ list {% endcomment %}
 </section>
 {% render 'breadcrumbs' %}
 
-{% if !collection.handle %}
+{% if collection.handle %}
+
+{% else %}
   <section>
     <div class="list-best-product">
         <div class="container">
