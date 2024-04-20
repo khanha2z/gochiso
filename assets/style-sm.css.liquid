@@ -524,6 +524,7 @@
     
     .popup .popup-content-main.footer {
         margin-top: 10px;
+        padding: 10px;
     }
     .popup .popup-main-wrapper .popup-content-main .mag-popup-pro-url .mag-popup-pro-atc {
         margin-top: 0;
@@ -532,6 +533,18 @@
     }
     .popup .popup-main-wrapper .popup-content-main .mag-popup-pro-url .mag-popup-pro-price,.popup  .popup-main-wrapper .popup-content-main .mag-popup-pro-url .mag-popup-pro-atc {
         font-size: 15px;
+    }
+    .popup .mag-popup-pro-action {
+        display: flex;
+        width: 100%;
+    }
+    
+    .popup .popup-main-wrapper button.mag-add-to-cart, .popup-main-wrapper button.mag-remove-wishlist {
+        width: 50%;
+        min-width: 50%;
+    }
+    body.popup-open .view-wishlist-bottom-btn.wishlist-center {
+        z-index: 1 !important;
     }
 } 
 @media (max-width: 448px) {
