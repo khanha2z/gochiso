@@ -1279,7 +1279,7 @@ class ProductRecommendations extends HTMLElement {
 
 customElements.define('product-recommendations', ProductRecommendations);
 
-$(document).on("change","collection_list", function () {
+$(document).on("change","#collection_list", function () {
   var handle = $(this).find('option:selected').val();
   window.location.replace( handle );
 });
