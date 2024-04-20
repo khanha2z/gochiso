@@ -31,8 +31,8 @@
           </div>
 
           <script>
-            console.log( {% collections | json %});
-            console.log( {% collection | json %});
+            console.log( {{ collections | json }});
+            console.log( {{ collection | json }});
           </script>
 
           {% comment %} {% paginate collections.products by 12 %}

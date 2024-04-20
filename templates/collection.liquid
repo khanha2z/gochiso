@@ -168,9 +168,7 @@ list {% endcomment %}
   </div>
 </section>
 
-<h1>AAAAAA</h1>
-
 <script>
-  console.log( {% collections | json %} );
-  console.log( {% collection | json %} );
+  console.log( {{ collections | json }});
+  console.log( {{ collection | json }});
 </script>
