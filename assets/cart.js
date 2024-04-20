@@ -178,7 +178,7 @@ class CartItems extends HTMLElement {
 
         publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
 
-        $('.totals__subtotal-value').html('¥' + parseInt(state.items_subtotal_price));
+        $('.totals__subtotal-value').html('¥' + addCommas(parseInt(state.items_subtotal_price)));
         
       })
       .catch(() => {
@@ -255,4 +255,18 @@ if (!customElements.get('cart-note')) {
       }
     }
   );
+}
+
+
+function addCommas(nStr)
+{
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
 }
