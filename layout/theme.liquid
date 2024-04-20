@@ -290,40 +290,6 @@
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-    <script>
-        connectedCallback() {
-            this.header = document.querySelector('.section-header');
-            this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
-            this.headerBounds = {};
-
-            this.setHeaderHeight();
-
-            window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
-
-            if (this.headerIsAlwaysSticky) {
-                this.header.classList.add('shopify-section-header-sticky');
-            };
-
-            this.currentScrollTop = 0;
-            this.preventReveal = false;
-            this.predictiveSearch = this.querySelector('predictive-search');
-
-            this.onScrollHandler = this.onScroll.bind(this);
-            this.hideHeaderOnScrollUp = () => this.preventReveal = true;
-
-            this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
-            window.addEventListener('scroll', this.onScrollHandler, false);
-
-            this.createObserver();
-        }
-
-
-        disconnectedCallback() {
-        this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
-        window.removeEventListener('scroll', this.onScrollHandler);
-        }
-
-    </script>
 </body>
 </html>
 
