@@ -546,6 +546,45 @@
     body.popup-open .view-wishlist-bottom-btn.wishlist-center {
         z-index: 1 !important;
     }
+    form#cart .shopify-section .cart-items td {
+        width: 49%;
+    }
+    
+    form#cart .shopify-section .cart-items tr {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    form#cart .shopify-section .cart-item>td+td {
+        padding: 0;
+        font-size: 16px;
+        align-items: center;
+    }
+    
+    form#cart .shopify-section a.cart-item__name {
+        font-size: 16px;
+    }
+    
+    form#cart .product-option {
+        font-size: 15px;
+    }
+    
+    form#cart .cart-item__totals {
+        justify-content: flex-start;
+    }
+    
+    form#cart .price {
+        font-size: 20px;
+    }
+    
+    form#cart .shopify-section .cart-items .cart-items__heading--quantity, form#cart .shopify-section .cart-item .cart-item__quantity,form#cart .shopify-section .cart-item__quantity--info quantity-popover>*, .no-js .cart-item .cart-item__quantity--info {
+        padding-left: 0;
+    }
+    
+    form#cart input.quantity__input {
+        width: 80px;
+    }
 } 
 @media (max-width: 448px) {
   .box-product-button {
