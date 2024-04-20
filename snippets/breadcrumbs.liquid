@@ -9,9 +9,10 @@
       <a href="{{ routes.all_products_collection_url }}">食品一覧</a>
       </li> {% endcomment %}
       <li>
-        <a href="/collections/all"><span>{{ collection.title }}</span></a></li>
-      
+        <a href="/collections/all"><span>{{ collection.title }}</span></a>
+      </li>
     {% endif %}
+
     {% if template contains 'collections' %}
       <li><a href="/collections/all"><span>商品</span></a></li>
     {% endif %}

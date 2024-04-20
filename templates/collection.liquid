@@ -33,7 +33,12 @@ list {% endcomment %}
               <img src="{{"cloud-1.svg" | asset_url}}" alt="">
           </div>
           <h2 class="title-en">Collection</h2>
-          <h3 class="title-jp">商品一覧</h3>
+          {% if collection.url %}
+            <h3 class="title-jp">{{ collection.title }} の商品一覧</h3>
+          {% else %}
+            <h3 class="title-jp">商品一覧</h3>
+          {% endif %}
+          
       </div>
       <div class="bg-anim-1"></div>
       <div class="bg-anim-2"></div>
@@ -41,47 +46,55 @@ list {% endcomment %}
   </div>
 </section>
 {% render 'breadcrumbs' %}
-<section>
-  <div class="list-best-product">
-      <div class="container">
-          <div class="main-title mx-auto">
-              <h2>Best Product</h2>
-              <p>人気ランキング</p>
-          </div>
-          <div class="row g-4 pt-4 product-best">
-            {% for product in collections.best-products.products limit:4 %}
-              <div class="col-lg-3 col-sm-6 product-item-{{ forloop.index }}">
-                <div class="col-inner">
-                  <div class="box-product">
-                      <div class="img-product wishlist-box">
-                        <a href="{{ product.url | within: collection }}">
-                          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-                        </a>
-                      </div>
-                      <div class="box-title-product">
-                          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-                          <div class="price-product">
-                              <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
-                          </div>
-                      </div>
-                      <div class="box-rate-product">
-                          <div class="rate-product">
-                              {% render 'product-review' product: product,  handle:product.handle %}
-                          </div>
-                          <div class="box-btn-add-cart">
-                            {% render 'product-card' product: product %}
-                          </div>
-                      </div>
+
+<script>
+  console.log( {% collections | json %} )
+</script>
+
+{% if !collection.url %}
+  <section>
+    <div class="list-best-product">
+        <div class="container">
+            <div class="main-title mx-auto">
+                <h2>Best Product</h2>
+                <p>人気ランキング</p>
+            </div>
+            <div class="row g-4 pt-4 product-best">
+              {% for product in collections.best-products.products limit:4 %}
+                <div class="col-lg-3 col-sm-6 product-item-{{ forloop.index }}">
+                  <div class="col-inner">
+                    <div class="box-product">
+                        <div class="img-product wishlist-box">
+                          <a href="{{ product.url | within: collection }}">
+                            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                          </a>
+                        </div>
+                        <div class="box-title-product">
+                            <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                            <div class="price-product">
+                                <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
+                            </div>
+                        </div>
+                        <div class="box-rate-product">
+                            <div class="rate-product">
+                                {% render 'product-review' product: product,  handle:product.handle %}
+                            </div>
+                            <div class="box-btn-add-cart">
+                              {% render 'product-card' product: product %}
+                            </div>
+                        </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            {% endfor %}
-          <div>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
+              {% endfor %}
+            <div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+{% endif %}
+
 {%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id="gspfProduct" type="template/html">{{- productTemplate | replace: "script>", "scripttag>" -}}</script>{%- endunless -%}
 <section>
   <div class="list-product">
