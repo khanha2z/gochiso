@@ -120,9 +120,7 @@
                             <button type="submit" name="add" id="AddToCart">カートに入れる</button>
                         </div>
 
-                        <div class="mag-pdp-wishlist" pro_handle="{{ product.handle }}"
-                            pro-url="{{ product.url }}">
-                        </div>
+                        <div class="mag-pdp-wishlist" data-product-handle="{{ product.handle }}" data-product-id="{{ product.selected_or_first_available_variant.id }}"></div>
                     {%- endform -%}
                 </div>
             </div>
