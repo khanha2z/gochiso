@@ -79,12 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
 					<span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
 				</div>
 				<div class="popup-body">
-					<p>製品をウィッシュリストから削除してもよろしいですか?</p>
+					<p>お気に入り商品一覧から削除してもよろしいですか?</p>
 				</div>
 				<div class="popup-footer">
 					<div class="popup-footer-btn">
 						<div class="popupbtn cancel">キャンクル</div>
-						<div class="popupbtn delete">取り除く</div>
+						<div class="popupbtn delete">削除</div>
 					</div> 
 				</div>
 			</div>
@@ -868,7 +868,7 @@ document.addEventListener("DOMContentLoaded", () => {
 						</div>`;
 					}));
 				} else {
-					productData += `<div class='popup-content-main no-products' style='max-width: 1000px'>ウィッシュリストの項目が見つかりませんでした。</div>`;
+					productData += `<div class='popup-content-main no-products' style='max-width: 1000px'>お気に入り商品が見つかりませんでした。</div>`;
 				}
 			}
 			productData += `</div>
@@ -1046,7 +1046,7 @@ document.addEventListener("DOMContentLoaded", () => {
 							window.location.href = '/cart';
 						});
 				} else {
-					appendToast('製品が選択されていません', true)
+					appendToast('商品が選択されていません', true)
 				}
 			});
 		}
@@ -1066,7 +1066,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					appendToast('Removed', false);
 					location.reload();
 				} else {
-					appendToast('製品が選択されていません', true);
+					appendToast('商品が選択されていません', true);
 				}
 			});
 		}
