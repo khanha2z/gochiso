@@ -55,80 +55,82 @@
                   </div>
                       <!-- / product-large-slider -->
               </div>
-          </div>
-          <div class="col-lg-5">
-              <div class="product-info">
-                  <div class="element-header">
-                        <h2 itemprop="name" class="title-product">{{ product.title }}</h2>
-                        <div class="rating-container d-flex gap-0 align-items-center">
-                            <div id='epr-product-title-review' data-product-id='{{ product.id }}' data-product-handle='{{ product.handle }}' data-product-title='{{ product.title }}'></div>
-                        </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="product-info">
+                    <div class="element-header">
+                            <h2 itemprop="name" class="title-product">{{ product.title }}</h2>
+                            <div class="rating-container d-flex gap-0 align-items-center">
+                                <div id='epr-product-title-review' data-product-id='{{ product.id }}' data-product-handle='{{ product.handle }}' data-product-title='{{ product.title }}'></div>
+                            </div>
 
-                        {% comment %} <div class="mag-pdp-wishlist" pro_handle="{{ product.handle }}"
-                            pro-url="{{ product.url }}">
-                        </div> {% endcomment %}
-                  </div>
-                  <hr>
-                  <div class="product-price pt-3 pb-3">
-                      <strong>{{ current_variant.price | money }}</strong><del class="ms-2">{{ current_variant.compare_at_price | money }}</del>
-                  </div>
-                  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-                    {% comment %} <label for="Quantity">quantity</label> {% endcomment %}
-                    <select name="id" id="productSelect" class="d-none">
-                        {% for variant in product.variants %}
-                            {% if variant.available %}
-                            <option value="{{ variant.id }}">
-                                {{ variant.title }} - {{ product.compare_at_price | money }}
-                            </option>
-                            {% else %}
-                            <option disabled="disabled">
-                                {{ variant.title }} - sold out
-                            </option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <input type="text" id="productSelect" value="{{ variant.id }}" hidden>
-                    <div class="cart-wrap">
-                        <div class="product-quantity pt-2">
-                            <div class="stock-button-wrap">
-                                <div class="d-flex flex-wrap align-items-center gap-2">
-                                    <span>購入数</span>
-                                    <div class="input-group product-qty align-items-center w-50 me-3">
-                                        <span class="input-group-btn">
-                                            <button type="button"
-                                                class="quantity-left-minus btn btn-light btn-number"
-                                                data-type="minus">
-                                                -
-                                            </button>
-                                        </span>
-                                        <input type="text" id="quantity" name="quantity"
-                                            class="form-control input-number text-center p-2 mx-1" value="1">
-                                        <span class="input-group-btn">
-                                            <button type="button"
-                                                class="quantity-right-plus btn btn-light btn-number"
-                                                data-type="plus" data-field="">
-                                                +
-                                            </button>
-                                        </span>
+                            <div class="mag-pdp-wishlist" pro_handle="{{ product.handle }}"
+                                pro-url="{{ product.url }}">
+                            </div>
+                    </div>
+                    <hr>
+                    <div class="product-price pt-3 pb-3">
+                        <strong>{{ current_variant.price | money }}</strong><del class="ms-2">{{ current_variant.compare_at_price | money }}</del>
+                    </div>
+                    
+                    {%- form 'product', product -%}
+                        {% comment %} <label for="Quantity">quantity</label> {% endcomment %}
+                        <select name="id" id="productSelect" class="d-none">
+                            {% for variant in product.variants %}
+                                {% if variant.available %}
+                                <option value="{{ variant.id }}">
+                                    {{ variant.title }} - {{ product.compare_at_price | money }}
+                                </option>
+                                {% else %}
+                                <option disabled="disabled">
+                                    {{ variant.title }} - sold out
+                                </option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+
+                        <input type="text" id="productSelect" value="{{ variant.id }}" hidden>
+
+                        <div class="cart-wrap">
+                            <div class="product-quantity pt-2">
+                                <div class="stock-button-wrap">
+                                    <div class="d-flex flex-wrap align-items-center gap-2">
+                                        <span>購入数</span>
+                                        <div class="input-group product-qty align-items-center w-50 me-3">
+                                            <span class="input-group-btn">
+                                                <button type="button"
+                                                    class="quantity-left-minus btn btn-light btn-number"
+                                                    data-type="minus">
+                                                    -
+                                                </button>
+                                            </span>
+                                            <input type="text" id="quantity" name="quantity"
+                                                class="form-control input-number text-center p-2 mx-1" value="1">
+                                            <span class="input-group-btn">
+                                                <button type="button"
+                                                    class="quantity-right-plus btn btn-light btn-number"
+                                                    data-type="plus" data-field="">
+                                                    +
+                                                </button>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="box-product-button">
-                        <button type="submit" name="add" id="AddToCart">カートに入れる</button>
-                        <button type="submit" id="checkout" class="cart__checkout-button buynow button" name="checkout" form="cart"></button>
-                        {% form 'product', product ... %}
+                          
+                        <div class="box-product-button">
+                            <button type="submit" name="add" id="AddToCart">カートに入れる</button>
+                            <button type="submit" id="checkout" class="cart__checkout-button buynow button" name="checkout" form="cart"></button>
                             {{ form | payment_terms }}
-                        {% endform %}
-                    </div>
-                  </form>
-
-              </div>
-          </div>
-      </div>
-  </div>
+                        </div>
+                    {%- endform -%}
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
 <section>
   <div class="container">
       <div class="product-infor">
