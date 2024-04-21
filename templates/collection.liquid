@@ -33,10 +33,10 @@ list {% endcomment %}
               <img src="{{"cloud-1.svg" | asset_url}}" alt="">
           </div>
           <h2 class="title-en">Collection</h2>
-          {% if collection.handle %}
-            <h3 class="title-jp">{{ collection.title }} の商品一覧</h3>
-          {% else %}
+          {% if collection.handle == "all" %}
             <h3 class="title-jp">商品一覧</h3>
+          {% else %}
+            <h3 class="title-jp">{{ collection.title }}の商品一覧</h3>
           {% endif %}
           
       </div>
