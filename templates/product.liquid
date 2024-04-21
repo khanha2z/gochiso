@@ -85,6 +85,7 @@
                             {% endfor %}
                         </select>
 
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                         <input type="text" id="productSelect" value="{{ variant.id }}" hidden>
 
                         <div class="cart-wrap">
@@ -117,7 +118,6 @@
                           
                         <div class="box-product-button">
                             <button type="submit" name="add" id="AddToCart">カートに入れる</button>
-                            <button type="submit" id="checkout" class="cart__checkout-button buynow button" name="checkout" form="cart"></button>
                             {{ form | payment_terms }}
                         </div>
 
