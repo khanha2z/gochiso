@@ -2366,7 +2366,12 @@ body .view-wishlist-bottom-btn.wishlist-center{
 .box-product-button a, .box-product-button button{
     width: 100%;
 }
-.mag_wishlist svg,.view-wishlist svg{
+.mag_wishlist svg{
+    width: 22px;
+    height: 22px;
+  fill: blue;
+}
+.mag_wishlist svg.view-wishlist .addtowishlist_text  svg{
     width: 22px;
     height: 22px;
   fill: red;
@@ -2390,10 +2395,10 @@ footer{
 .product-option,.price--end{
   font-weight:600;
 }
-a,button{
+a,button,summary{
   transition: all 0.5s;
   opacity:1
 }
-a:hover,button:hover{
+a:hover,button:hover,summary:hover{
   opacity:0.6;
 }
