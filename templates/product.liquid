@@ -63,10 +63,6 @@
                             <div class="rating-container d-flex gap-0 align-items-center">
                                 <div id='epr-product-title-review' data-product-id='{{ product.id }}' data-product-handle='{{ product.handle }}' data-product-title='{{ product.title }}'></div>
                             </div>
-
-                            <div class="mag-pdp-wishlist" pro_handle="{{ product.handle }}"
-                                pro-url="{{ product.url }}">
-                            </div>
                     </div>
                     <hr>
                     <div class="product-price pt-3 pb-3">
@@ -123,6 +119,10 @@
                             <button type="submit" name="add" id="AddToCart">カートに入れる</button>
                             <button type="submit" id="checkout" class="cart__checkout-button buynow button" name="checkout" form="cart"></button>
                             {{ form | payment_terms }}
+                        </div>
+
+                        <div class="mag-pdp-wishlist" pro_handle="{{ product.handle }}"
+                            pro-url="{{ product.url }}">
                         </div>
                     {%- endform -%}
                 </div>
