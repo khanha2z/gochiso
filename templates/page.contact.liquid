@@ -35,7 +35,6 @@
   <div class="container">
       <div class="box-form-contact">
 {% form 'contact' %}
-  {% if form.posted_successfully? %} ご連絡ありがとうございます {% endif %}
   {{ form.errors | default_errors }}
     <div class="title-form">お問い合わせフォーム</div>
     <div class="row">
@@ -59,6 +58,7 @@
             <input type="submit" value="送信する">
         </div>
     </div>
+    {% if form.posted_successfully? %}<div class="form-success">お問い合わせいただきありがとうございます。後ほど、担当者よりご連絡をさせていただきます。今しばらくお待ちいただきますようお願い申し上げます。</div> {% endif %}
 {% endform %}
 
 </div>
