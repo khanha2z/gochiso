@@ -32,6 +32,11 @@
 {% if comment and comment.created_at %}
   {% assign number_of_comments = article.comments_count %}
 {% endif %}
+
+<script>
+  console.log( {{ blog | json }});
+</script>
+
 <section id="single-content">
   <div class="container">
       <div class="single-content mt-85">

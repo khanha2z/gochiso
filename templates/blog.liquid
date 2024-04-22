@@ -29,6 +29,12 @@
 </section>
 {% render 'breadcrumbs' %}
 {% paginate blog.articles by 5 %}
+
+<script>
+  console.log( {{ blog | json }});
+</script>
+
+
 <section>
   <div class="list-news-archive">
       <div class="container">
