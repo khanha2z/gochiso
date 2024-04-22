@@ -1,173 +1,200 @@
-{% comment %} {% paginate collection.products by 2 %}
-  <h1>{{ collection.title }}</h1>
-  {% for product in collection.products %}
-    <div>
-      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-      {{ product.price | money }}
-      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-      <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-      </a>
-    </div>
-  {% else %}
-    <p>no matches</p>
-  {% endfor %}
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
-{% endpaginate %}
-list {% endcomment %}
+{% comment %}
+  {% paginate collection.products by 2 %}
+    <h1>{{ collection.title }}</h1>
+    {% for product in collection.products %}
+      <div>
+        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        {{ product.price | money }}
+        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+        <a href="{{ product.url | within: collection }}">
+          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        </a>
+      </div>
+    {% else %}
+      <p>no matches</p>
+    {% endfor %}
+    {% if paginate.pages > 1 %}
+      {{ paginate | default_pagination }}
+    {% endif %}
+  {% endpaginate %}
+  list
+{% endcomment %}
 <section>
   <div class="page-header">
-      <div class="container">
-          <div class="cloud-1">
-              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
-          </div>
-          <div class="cloud-2">
-              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
-          </div>
-          <div class="cloud-3">
-              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
-          </div>
-          <div class="cloud-4">
-              <img src="{{"cloud-1.svg" | asset_url}}" alt="">
-          </div>
-          <h2 class="title-en">Collection</h2>
-          {% if collection.handle == "all" %}
-            <h3 class="title-jp">商品一覧</h3>
-          {% else %}
-            <h3 class="title-jp">{{ collection.title }}の商品一覧</h3>
-          {% endif %}
-          
+    <div class="container">
+      <div class="cloud-1">
+        <img src="{{"cloud-1.svg" | asset_url}}" alt="">
       </div>
-      <div class="bg-anim-1"></div>
-      <div class="bg-anim-2"></div>
-      <div class="bg-anim-3"></div>
+      <div class="cloud-2">
+        <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+      </div>
+      <div class="cloud-3">
+        <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+      </div>
+      <div class="cloud-4">
+        <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+      </div>
+      <h2 class="title-en">Collection</h2>
+      {% if collection.handle == 'all' %}
+        <h3 class="title-jp">商品一覧</h3>
+      {% else %}
+        <h3 class="title-jp">{{ collection.title }}の商品一覧</h3>
+      {% endif %}
+    </div>
+    <div class="bg-anim-1"></div>
+    <div class="bg-anim-2"></div>
+    <div class="bg-anim-3"></div>
   </div>
 </section>
 {% render 'breadcrumbs' %}
 
-{% if collection.handle == "all" %}
+{% if collection.handle == 'all' %}
   <section>
     <div class="list-best-product">
-        <div class="container">
-            <div class="main-title mx-auto">
-                <h2>Best Product</h2>
-                <p>人気ランキング</p>
-            </div>
-            <div class="row g-4 pt-4 product-best">
-              {% for product in collections.best-products.products limit:4 %}
-                <div class="col-lg-3 col-sm-6 product-item-{{ forloop.index }}">
-                  <div class="col-inner">
-                    <div class="box-product">
-                        <div class="img-product wishlist-box">
-                          <a href="{{ product.url | within: collection }}">
-                            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-                          </a>
-                        </div>
-                        <div class="box-title-product">
-                            <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-                            <div class="price-product">
-                                <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
-                            </div>
-                        </div>
-                        <div class="box-rate-product">
-                            <div class="rate-product">
-                                {% render 'product-review' product: product,  handle:product.handle %}
-                            </div>
-                            <div class="box-btn-add-cart">
-                              {% render 'product-card' product: product %}
-                            </div>
-                        </div>
+      <div class="container">
+        <div class="main-title mx-auto">
+          <h2>Best Product</h2>
+          <p>人気ランキング</p>
+        </div>
+        <div class="row g-4 pt-4 product-best">
+          {% for product in collections['best-products'].products limit: 4 %}
+            <div class="col-lg-3 col-sm-6 product-item-{{ forloop.index }}">
+              <div class="col-inner">
+                <div class="box-product">
+                  <div class="img-product wishlist-box">
+                    <a href="{{ product.url | within: collection }}">
+                      <img
+                        src="{{ product.featured_image.src | img_url: 'large' }}"
+                        alt="{{ product.featured_image.alt | escape }}"
+                      >
+                    </a>
+                  </div>
+                  <div class="box-title-product">
+                    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                    <div class="price-product">
+                      <p>{{ product.price | money }}</p>
+                      <span>{{ product.compare_at_price | money }}</span>
+                    </div>
+                  </div>
+                  <div class="box-rate-product">
+                    <div class="rate-product">
+                      {% render 'product-review', product: product, handle: product.handle %}
+                    </div>
+                    <div class="box-btn-add-cart">
+                      {% render 'product-card', product: product %}
                     </div>
                   </div>
                 </div>
-              {% endfor %}
-            <div>
-                </div>
+              </div>
             </div>
+          {% endfor %}
+          <div></div>
         </div>
+      </div>
     </div>
   </section>
 {% endif %}
 
-{%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id="gspfProduct" type="template/html">{{- productTemplate | replace: "script>", "scripttag>" -}}</script>{%- endunless -%}
+{%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}
+{%- unless productTemplate contains 'Liquid error' -%}
+  <script id="gspfProduct" type="template/html">
+    {{- productTemplate | replace: "script>", "scripttag>" -}}
+  </script>
+{%- endunless -%}
 <section>
   <div class="list-product">
-      <div class="container">
-          <div class="main-title mx-auto">
-              <h2>Product list</h2>
-              <p>商品一覧</p>
-          </div>
+    <div class="container">
+      <div class="main-title mx-auto">
+        <h2>Product list</h2>
+        <p>商品一覧</p>
+      </div>
 
-          <div class="row py-5 box-product-filters">
-            <div class="col-lg-8 col-sm-12">
-                <div class="col-inner">
-                    <div class="box-product-filter">
-                        <label for="#"><span>キーワードで探す</span><input type="text" class="form-control" placeholder="キーワードを入力"></label>
-                        <label for="#">
-                            <span>カテゴリー</span>
-                            <select id="collection_list">
-                                <option value="/collections/all">商品一覧</option>
-                                {%- for collection in collections -%}
-                                  <option value="/collections/{{ collection.handle }}">{{ collection.title }}</option>
-                                {%- endfor -%}
-                            </select>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-12">
-                <div class="col-inner">
-                    <div class="box-product-filter-price">
-                        <label for="#">
-                            <span>価格帯で絞り込む</span>
-                            <input type="number" name="filter.v.price.gte" id="Filter-filter.v.price.gte" class="form-control" placeholder="">
-                            <span>～</span>
-                            <input type="number" name="filter.v.price.lte" id="Filter-filter.v.price.lte" class="form-control" placeholder="">
-                        </label>
-                    </div>
-                </div>
+      <div class="row py-5 box-product-filters">
+        <div class="col-lg-12 col-sm-12">
+          <div class="col-inner">
+            <div class="box-product-filter">
+              <label for="#"
+                ><span>キーワードで探す</span>
+                <input type="text" id="title_search" name="q" class="form-control" placeholder="キーワードを入力">
+              </label>
+
+              <label for="#">
+                <span>カテゴリー</span>
+                <select id="collection_list">
+                  <option value="/collections/all">商品一覧</option>
+
+                  {% assign collection_handle = collection.handle %}
+                  
+                  {%- for collection in collections -%}
+                    <option value="/collections/{{ collection.handle }}" {{ collection_handle == collection.handle ? "selected" : "" }} >{{ collection.title }}</option>
+                  {%- endfor -%}
+                </select>
+              </label>
+
+              <label for="#">
+                <span>価格帯で絞り込む</span>
+                <input
+                  type="number"
+                  name="filter.v.price.gte"
+                  id="price_gte"
+                  class="form-control"
+                  placeholder=""
+                >
+                <span>～</span>
+                <input
+                  type="number"
+                  name="filter.v.price.lte"
+                  id="price_lte"
+                  class="form-control"
+                  placeholder=""
+                >
+                <a onclick="alert('Search by Price')"><img src="{{ 'icon-search.png' | asset_url  }}" alt=""></a>
+              </label>
             </div>
           </div>
-      
-          {% paginate collection.products by 12 %}
-            <div class="row pt-3">
-              {% for product in collection.products %}
-                <div class="col-lg-3 col-sm-6">
-                  <div class="col-inner">
-                      <div class="box-product">
-                          <div class="img-product wishlist-box">
-                            <a href="{{ product.url | within: collection }}">
-                              <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-                            </a>
-                          </div>
-                          <div class="box-title-product">
-                              <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-                              <div class="price-product">
-                                  <p>{{ product.price | money }}</p><span>{{ product.compare_at_price | money }}</span>
-                              </div>
-                          </div>
-                          <div class="box-rate-product">
-                              <div class="rate-product">
-                                  {% render 'product-review' product: product,  handle:product.handle %}
-                              </div>
-                              <div class="box-btn-add-cart">
-                                {% render 'product-card' product: product %}
-                              </div>
-                          </div>
-                      </div>
+        </div>
+      </div>
+
+      {% paginate collection.products by 12 %}
+        <div class="row pt-3">
+          {% for product in collection.products %}
+            <div class="col-lg-3 col-sm-6">
+              <div class="col-inner">
+                <div class="box-product">
+                  <div class="img-product wishlist-box">
+                    <a href="{{ product.url | within: collection }}">
+                      <img
+                        src="{{ product.featured_image.src | img_url: 'large' }}"
+                        alt="{{ product.featured_image.alt | escape }}"
+                      >
+                    </a>
+                  </div>
+                  <div class="box-title-product">
+                    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                    <div class="price-product">
+                      <p>{{ product.price | money }}</p>
+                      <span>{{ product.compare_at_price | money }}</span>
+                    </div>
+                  </div>
+                  <div class="box-rate-product">
+                    <div class="rate-product">
+                      {% render 'product-review', product: product, handle: product.handle %}
+                    </div>
+                    <div class="box-btn-add-cart">
+                      {% render 'product-card', product: product %}
+                    </div>
                   </div>
                 </div>
-              {% else %}
-                <div class="alert alert-danger" role="alert">
-                  商品が見つかりません
-                </div>
-              {% endfor %}
+              </div>
             </div>
-            {% if paginate.pages > 1 %}<div class="pagination-wrapper">{{ paginate | default_pagination }}</div>{% endif %}
-          {% endpaginate %}
-            
-      </div>
+          {% else %}
+            <div class="alert alert-danger" role="alert">商品が見つかりません</div>
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+          <div class="pagination-wrapper">{{ paginate | default_pagination }}</div>
+        {% endif %}
+      {% endpaginate %}
+    </div>
   </div>
 </section>
