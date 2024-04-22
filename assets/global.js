@@ -1281,7 +1281,7 @@ customElements.define('product-recommendations', ProductRecommendations);
 
 $(document).on("change","#collection_list", function () {
   var handle = $(this).find('option:selected').val();
-  
+
   window.location.replace( handle );
 });
 
@@ -1293,10 +1293,12 @@ $(document).on("click","#btn_search_price", function () {
   window.location.replace( "/collections/" + handle + "?filter.v.price.gte=" + price_gte + "&filter.v.price.lte=" + price_lte );
 });
 
-$(document).on("keyup","#title_search", function () {
+$(document).on("keyup","#title_search", function (e) {
   var q = $(this).val();
 
-  window.location.replace( "/search?q=" + q );
+  if (e.key === 'Enter' || e.keyCode === 13) {
+    window.location.replace( "/search?q=" + q );
+  }
 });
 
 
