@@ -32,11 +32,6 @@
 {% if comment and comment.created_at %}
   {% assign number_of_comments = article.comments_count %}
 {% endif %}
-
-<script>
-  console.log( {{ article | json }});
-</script>
-
 <section id="single-content">
   <div class="container">
       <div class="single-content mt-85">
@@ -98,6 +93,11 @@
   {% endpaginate %}
 {% endif %}
 
+
+<script>
+  console.log( {{ blog.previous_article | json }});
+  console.log( {{ blog.next_article | json }});
+</script>
 
 <div class="grid">
   {% if blog.previous_article %}
