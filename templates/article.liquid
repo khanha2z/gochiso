@@ -99,48 +99,18 @@
   console.log( {{ blog.next_article | json }});
 </script>
 
-<div class="grid">
-  {% if blog.previous_article %}
-    <div style="float: right;clear: right;margin-right: 30px;">
-      <a href="{{ blog.previous_article.url }}" 
-		style="
-			height: 44px;
-			width: 44px;
-			cursor: pointer;
-			background-color: var(--white-color);
-			border-radius: 50%;
-			color: #8d8d8d;
-			display: inline-flex;
-			align-items: center;
-			text-transform: none;
-			justify-content: center;
-		">
-        <svg class="icon icon--tail-left" viewBox="0 0 24 24" role="presentation">
-          <path fill="currentColor" d="M1.293 11.293L9 3.586 10.414 5l-6 6H22c.553 0 1 .448 1 1s-.447 1-1 1H4.414l6 6L9 20.414l-7.707-7.707c-.391-.391-.391-1.023 0-1.414z"></path>
-        </svg>
-      </a>
-    </div>
-  {% endif %}
-  
-  {% if blog.next_article %}
-    <div style="float: left; clear: left">
-      <a href="{{ blog.next_article.url }}"
-		style="
-			height: 44px;
-			width: 44px;
-			cursor: pointer;
-			background-color: var(--white-color);
-			border-radius: 50%;
-			color: #8d8d8d;
-			display: inline-flex;
-			align-items: center;
-			text-transform: none;
-			justify-content: center;
-		">
-        <svg class="icon icon--tail-right" viewBox="0 0 24 24" role="presentation">
-          <path fill="currentColor" d="M22.707 11.293L15 3.586 13.586 5l6 6H2c-.553 0-1 .448-1 1s.447 1 1 1h17.586l-6 6L15 20.414l7.707-7.707c.391-.391.391-1.023 0-1.414z"></path>
-        </svg>
-      </a>
-    </div>
-  {% endif %}
+<div class="pagination-list flex-col text-center">
+  <ul class="pagenavi" role="navigation">
+    {% if blog.previous_article %}
+      <li><a href="{{ blog.previous_article.url }}" class="previouspostslink">前へ</a></li>
+    {% endif %}
+
+      <li>
+          <a class="btn btn-main btn-home-single" rel="next" aria-label="一覧へ" href="{{ blog.url | escape }}"><span>一覧に戻る</span></a>
+      </li>
+
+    {% if blog.next_article %}
+      <li><a href="{{ blog.next_article.url }}" class="nextpostslink">次へ</a></li>
+    {% endif %}
+  </ul>
 </div>
