@@ -102,12 +102,12 @@
                             {{ 'products.product.price.sale_price' | t }}
                           </span>
                           <strong class="cart-item__final-price product-option">
-                            {{ item.final_price | money }}
+                            {{ item.final_price | money }}（税込）
                           </strong>
                         </div>
                       {%- else -%}
                         <div class="product-option">
-                          {{ item.original_price | money }}
+                          {{ item.original_price | money }}（税込）
                         </div>
                       {%- endif -%}
 
