@@ -131,7 +131,7 @@ list {% endcomment %}
             </div>
           </div>
       
-          {% paginate collection.products by 4 %}
+          {% paginate collection.products by 12 %}
             <div class="row pt-3">
               {% for product in collection.products %}
                 <div class="col-lg-3 col-sm-6">
@@ -161,7 +161,7 @@ list {% endcomment %}
                 </div>
               {% else %}
                 <div class="alert alert-danger" role="alert">
-                  No matches
+                  商品が見つかりません
                 </div>
               {% endfor %}
             </div>

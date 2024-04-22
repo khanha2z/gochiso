@@ -28,7 +28,8 @@
   </div>
 </section>
 {% render 'breadcrumbs' %}
-{% paginate blog.articles by 5 %}
+
+{% paginate blog.articles by 10 %}
 
 <section>
   <div class="list-news-archive">
@@ -52,6 +53,10 @@
                   <div class="title">
                     <a href="{{ article.url }}">{{ article.title }}</a>
                   </div>
+              </div>
+            {% else %}
+              <div class="alert alert-danger" role="alert">
+                投稿が見つかりません
               </div>
             {% endfor %}            
           </div>
