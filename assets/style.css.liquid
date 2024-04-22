@@ -2410,6 +2410,7 @@ a:hover,button:hover,summary:hover{
 
 .pagination-list {
     position: relative;
+    padding: 0 16px;
 }
 
 
@@ -2428,22 +2429,17 @@ ul.pagenavi li {
     list-style: none;
 }
 
-.pagenavi a.previouspostslink, a.pre-btn {
-    padding-right: 0;
-    left: 0px;
-    right: unset;
-    background-position: center left;
-    background-image: url(../images/icon-prev.svg);
-    justify-content: flex-end;
-}
-
-.pagenavi a.nextpostslink, a.pre-btn {
+.pagenavi a.previouspostslink nextpostslink, a.pre-btn {
     padding-right: 0;
     left: 0px;
     right: unset;
     background-position: center left;
     background-image: url(../images/icon-next.svg);
     justify-content: flex-end;
+}
+
+.pagenavi a.nextpostslink, a.pre-btn {
+    background-image: url(../images/icon-next.svg);
 }
 
 .pagenavi a.nextpostslink,
