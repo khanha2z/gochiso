@@ -2415,7 +2415,6 @@ a:hover,button:hover,summary:hover{
 
 ul.pagenavi {
     max-width: 100%;
-    margin: 0 auto;
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
@@ -2426,9 +2425,10 @@ ul.pagenavi {
 
 ul.pagenavi li {
     margin: 5px 0;
+    list-style: none;
 }
 
-.wp-pagenavi a.previouspostslink, a.pre-btn {
+.pagenavi a.previouspostslink, a.pre-btn {
     padding-right: 0;
     left: 0px;
     right: unset;
@@ -2437,13 +2437,35 @@ ul.pagenavi li {
     justify-content: flex-end;
 }
 
-.wp-pagenavi a.previouspostslink, a.pre-btn {
+.pagenavi a.previouspostslink, a.pre-btn {
     padding-right: 0;
     left: 0px;
     right: unset;
     background-position: center left;
     background-image: url(../images/icon-next.svg);
     justify-content: flex-end;
+}
+
+.pagenavi a.nextpostslink,
+.pagenavi a.previouspostslink,
+a.next-btn,
+a.pre-btn {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #3252b6;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-size: 39px 10px;
+    background-repeat: no-repeat;
+    background-position: center right;
+    text-decoration: none;
+    justify-content: flex-start;
 }
 
 a.btn.btn-main.btn-home-single {
