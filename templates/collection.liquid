@@ -47,6 +47,10 @@ list {% endcomment %}
 </section>
 {% render 'breadcrumbs' %}
 
+<script>
+  console.log( {{ collection | json }} )
+</script>
+
 {% if collection.handle %}
 
 {% else %}
