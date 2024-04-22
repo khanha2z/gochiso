@@ -15,7 +15,7 @@
               <img src="{{"cloud-1.svg" | asset_url}}" alt="">
           </div>
           <h2 class="title-en">News</h2>
-          <h3 class="title-jp">お知らせ</h3>
+          <h3 class="title-jp">{{ blog.title | escape }}</h3>
       </div>
       <div class="bg-anim-1"></div>
       <div class="bg-anim-2"></div>
@@ -29,7 +29,7 @@
       <div class="container">
           <div class="main-title mx-auto">
               <h2>News</h2>
-              <p>お知らせ</p>
+              <p>{{ blog.title | escape }}</p>
           </div>
           <div class="list-home-news mt-5">
             {% for article in blog.articles %}
