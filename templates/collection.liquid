@@ -51,7 +51,7 @@ list {% endcomment %}
   console.log( {{ collection | json }} )
 </script>
 
-{% if collection && collection.handle %}
+{% if collection == null && collection.handle == null %}
   <section>
     <div class="list-best-product">
         <div class="container">
