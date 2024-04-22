@@ -126,7 +126,7 @@
                   {% assign collection_handle = collection.handle %}
                   
                   {%- for collection in collections -%}
-                    <option value="/collections/{{ collection.handle }}" {{ collection_handle == collection.handle ? "selected" : "" }} >{{ collection.title }}</option>
+                    <option value="/collections/{{ collection.handle }}" {% if collection_handle == collection.handle -%}  selected {% endif -%} >{{ collection.title }}</option>
                   {%- endfor -%}
                 </select>
               </label>
