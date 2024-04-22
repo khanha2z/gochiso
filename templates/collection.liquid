@@ -59,18 +59,6 @@ list {% endcomment %}
                 <h2>Best Product</h2>
                 <p>人気ランキング</p>
             </div>
-            
-        </div>
-    </div>
-  </section>
-{% else %}
-  <section>
-    <div class="list-best-product">
-        <div class="container">
-            <div class="main-title mx-auto">
-                <h2>Best Product</h2>
-                <p>人気ランキング</p>
-            </div>
             <div class="row g-4 pt-4 product-best">
               {% for product in collections.best-products.products limit:4 %}
                 <div class="col-lg-3 col-sm-6 product-item-{{ forloop.index }}">
