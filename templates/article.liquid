@@ -94,23 +94,20 @@
 {% endif %}
 
 
-<script>
-  console.log( {{ blog.previous_article | json }});
-  console.log( {{ blog.next_article | json }});
-</script>
+<div class="container">
+  <div class="pagination-list flex-col text-center mt-4 mb-4">
+    <ul class="pagenavi" role="navigation">
+      {% if blog.previous_article %}
+        <li><a href="{{ blog.previous_article.url }}" class="previouspostslink">前へ</a></li>
+      {% endif %}
 
-<div class="pagination-list flex-col text-center mt-4 mb-4">
-  <ul class="pagenavi" role="navigation">
-    {% if blog.previous_article %}
-      <li><a href="{{ blog.previous_article.url }}" class="previouspostslink">前へ</a></li>
-    {% endif %}
+        <li>
+            <a class="btn btn-main btn-home-single" rel="next" aria-label="一覧へ" href="{{ blog.url | escape }}"><span>一覧に戻る</span></a>
+        </li>
 
-      <li>
-          <a class="btn btn-main btn-home-single" rel="next" aria-label="一覧へ" href="{{ blog.url | escape }}"><span>一覧に戻る</span></a>
-      </li>
-
-    {% if blog.next_article %}
-      <li><a href="{{ blog.next_article.url }}" class="nextpostslink">次へ</a></li>
-    {% endif %}
-  </ul>
+      {% if blog.next_article %}
+        <li><a href="{{ blog.next_article.url }}" class="nextpostslink">次へ</a></li>
+      {% endif %}
+    </ul>
+  </div>
 </div>
