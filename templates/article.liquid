@@ -15,9 +15,9 @@
           </div>
 
           {% if blog.url == "/blogs/blog" %}
-            <h2>Blog</h2>
+            <h2 class="title-en">Blog</h2>
           {% else %}
-            <h2>News</h2>
+            <h2 class="title-en">News</h2>
           {% endif %}
 
           <h3 class="title-jp">{{ blog.title | escape }}一覧</h3>
@@ -32,6 +32,10 @@
 {% if comment and comment.created_at %}
   {% assign number_of_comments = article.comments_count %}
 {% endif %}
+
+<script>
+  console.log( {{ blog.url | json }});
+</script>
 
 <section id="single-content">
   <div class="container">
