@@ -5,28 +5,23 @@
       <a href="{{ routes.root_url }}">トップ</a>
     </li>
 
-    {% if collection.handle %}
-      <li>
-        <a href="/collections/all"><span>商品一覧</span></a>
-      </li>
-
-      {% if template contains 'product' %}
-        <li>
-          <a href="/collections/{{ collection.handle }}"><span>{{ collection.title }}</span></a>
-        </li>
-      {% else %}
-        <li>
-          <span>{{ collection.title }}</span>
-        </li>
-      {% endif %}
-
-    {% endif %}
-
     {% if template contains 'collections' %}
       <li><a href="/collections/all"><span>商品一覧</span></a></li>
     {% endif %}
 
+    {% if collection.handle && contains 'collections' %}
+      <li>
+        <span>{{ collection.title }}</span>
+      </li>
+    {% endif %}
+
     {% if template contains 'product' %}
+      <li>
+        <a href="/collections/all"><span>商品一覧</span></a>
+      </li>
+      <li>
+        <a href="/collections/{{ collection.handle }}"><span>{{ collection.title }}</span></a>
+      </li>
       <li>
         <span>{{ product.title }}</span>
       </li>
