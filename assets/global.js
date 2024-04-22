@@ -1281,5 +1281,22 @@ customElements.define('product-recommendations', ProductRecommendations);
 
 $(document).on("change","#collection_list", function () {
   var handle = $(this).find('option:selected').val();
+  
   window.location.replace( handle );
 });
+
+$(document).on("click","#btn_search_price", function () {
+  var price_gte = $('#price_gte').val() ?? '';
+  var price_lte = $('#price_gte').val() ?? '';
+  var handle = $(this).data('handle');
+
+  window.location.replace( "/collections/" + handle + "?filter.v.price.gte=" + price_gte + "&filter.v.price.lte=" + price_lte );
+});
+
+$(document).on("keyup","#title_search", function () {
+  var q = $(this).val();
+
+  window.location.replace( "/search?q=" + q );
+});
+
+
