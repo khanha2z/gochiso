@@ -19,9 +19,11 @@
       <li>
         <a href="/collections/all"><span>商品一覧</span></a>
       </li>
-      <li>
-        <a href="/collections/{{ collection.handle }}"><span>{{ collection.title }}</span></a>
-      </li>
+      {% if collection.handle %}
+        <li>
+          <a href="/collections/{{ collection.handle }}"><span>{{ collection.title }}</span></a>
+        </li>
+      {% endif %}
       <li>
         <span>{{ product.title }}</span>
       </li>
