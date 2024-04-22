@@ -1293,10 +1293,10 @@ $(document).on("click","#btn_search_price", function () {
   window.location.replace( "/collections/" + handle + "?filter.v.price.gte=" + pricegte + "&filter.v.price.lte=" + pricelte );
 });
 
-$(document).on("keyup","#title_search", function (e) {
-  var q = $(this).val();
+$(document).on("click","#btn_title_search", function (e) {
+  var q = $('#title_search').val() ?? '';
 
-  if (e.key === 'Enter' || e.keyCode === 13) {
+  if (q != undefined && q != "") {
     window.location.replace( "/search?q=" + q );
   }
 });
