@@ -1286,11 +1286,11 @@ $(document).on("change","#collection_list", function () {
 });
 
 $(document).on("click","#btn_search_price", function () {
-  var price_gte = $('#price_gte').val() ?? '';
-  var price_lte = $('#price_lte').val() ?? '';
+  var pricegte = $('#price_gte').val() ?? '';
+  var pricelte = $('#price_lte').val() ?? '';
   var handle = $(this).data('handle');
 
-  window.location.replace( "/collections/" + handle + "?filter.v.price.gte=" + price_gte + "&filter.v.price.lte=" + price_lte );
+  window.location.replace( "/collections/" + handle + "?filter.v.price.gte=" + pricegte + "&filter.v.price.lte=" + pricelte );
 });
 
 $(document).on("keyup","#title_search", function (e) {
