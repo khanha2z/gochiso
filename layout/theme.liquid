@@ -7,9 +7,9 @@
   <meta name="description" content="{{ page_description | escape }}">
 
 
-{% if settings.favicon != blank -%}
-    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
-{%- endif %}
+    {% if settings.favicon != blank -%}
+        <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif %}
 
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -26,10 +26,7 @@
   {% render 'social-meta-tags' %}
   
   {% style %}
-      
-
-      :root {
-       
+      :root {       
         --media-padding: {{ settings.media_padding }}px;
         --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
         --media-border-width: {{ settings.media_border_thickness }}px;
