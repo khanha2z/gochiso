@@ -31,9 +31,8 @@
 {% paginate blog.articles by 5 %}
 
 <script>
-  console.log( {{ blog | json }});
+  console.log( {{ blog.url | json }});
 </script>
-
 
 <section>
   <div class="list-news-archive">
