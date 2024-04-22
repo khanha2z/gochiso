@@ -14,7 +14,7 @@
               <img src="{{"cloud-1.svg" | asset_url}}" alt="">
           </div>
 
-          {% if blog.url == "blog" %}
+          {% if blog.url == "/blogs/blog" %}
             <h2>Blog</h2>
           {% else %}
             <h2>News</h2>
@@ -32,10 +32,6 @@
 {% if comment and comment.created_at %}
   {% assign number_of_comments = article.comments_count %}
 {% endif %}
-
-<script>
-  console.log( {{ blog.url | json }});
-</script>
 
 <section id="single-content">
   <div class="container">

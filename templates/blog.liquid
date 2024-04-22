@@ -15,7 +15,7 @@
               <img src="{{"cloud-1.svg" | asset_url}}" alt="">
           </div>
           
-          {% if blog.url == "blog" %}
+          {% if blog.url == "/blogs/blog" %}
             <h2 class="title-en">Blog</h2>
           {% else %}
             <h2 class="title-en">News</h2>
@@ -30,15 +30,11 @@
 {% render 'breadcrumbs' %}
 {% paginate blog.articles by 5 %}
 
-<script>
-  console.log( {{ blog.url | json }});
-</script>
-
 <section>
   <div class="list-news-archive">
       <div class="container">
           <div class="main-title mx-auto">
-              {% if blog.url == "blog" %}
+              {% if blog.url == "/blogs/blog" %}
                 <h2>Blog</h2>
               {% else %}
                 <h2>News</h2>
