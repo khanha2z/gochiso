@@ -47,11 +47,7 @@ list {% endcomment %}
 </section>
 {% render 'breadcrumbs' %}
 
-<script>
-  console.log( {{ collection | json }} )
-</script>
-
-{% if collection == null && collection.handle == null %}
+{% if collection.handle == "all" %}
   <section>
     <div class="list-best-product">
         <div class="container">
