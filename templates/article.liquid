@@ -99,7 +99,7 @@
   console.log( {{ blog.next_article | json }});
 </script>
 
-<div class="pagination-list flex-col text-center">
+<div class="pagination-list flex-col text-center mt-4 mb-4">
   <ul class="pagenavi" role="navigation">
     {% if blog.previous_article %}
       <li><a href="{{ blog.previous_article.url }}" class="previouspostslink">前へ</a></li>
