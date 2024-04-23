@@ -133,7 +133,7 @@
                 </select>
               </label>
 
-              <label for="#">
+              <label for="#" class="d-none">
                 <span>価格帯で絞り込む</span>
                 <input
                   type="number"
@@ -141,6 +141,7 @@
                   id="price_gte"
                   class="form-control"
                   placeholder=""
+                  min="0"
                 >
                 <span>～</span>
                 <input
@@ -149,6 +150,7 @@
                   id="price_lte"
                   class="form-control"
                   placeholder=""
+                  min="0"
                 >
                 <a id="btn_search_price" data-handle="{{ collection_handle ?? 'all' }}" style="width: 40px; height: 40px;"><img src="{{ 'icon-search.png' | asset_url  }}" alt=""></a>
               </label>
