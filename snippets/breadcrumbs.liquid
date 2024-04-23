@@ -9,10 +9,12 @@
       <li><a href="/collections/all"><span>商品一覧</span></a></li>
     {% endif %}
 
-    {% if collection.handle && template contains 'collections' %}
-      <li>
-        <span>{{ collection.title }}</span>
-      </li>
+    {% if collection.handle%}
+      {% if template contains 'collections' %}
+        <li>
+          <span>{{ collection.title }}</span>
+        </li>
+      {% endif %}
     {% endif %}
 
     {% if template contains 'product' %}
