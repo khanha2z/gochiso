@@ -79,7 +79,7 @@
           class="article-template__social-sharing page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {{ block.shopify_attributes }}
         >
-          {% assign share_url = request.origin | append: article.url %}
+          {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
           {% render 'share-button', block: block, share_link: share_url %}
         </div>
     {%- endcase -%}
