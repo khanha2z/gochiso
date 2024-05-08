@@ -2743,7 +2743,38 @@ a.btn.btn-main.btn-home-single {
     transition: all 0.5;
     position: relative;
 }
+.search-modal.modal__content.gradient {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    min-height: unset;
+    align-items: center;
+}
 
+.search-modal__content {
+    padding: 0;
+}
+
+header button.search-modal__close-button.link {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    background-color: #fff !important;
+    width: 40px;
+    height: 40px;
+}
+
+button.search__button.field__button {
+    background: rgb(35, 175, 164) !important;
+    right: 0;
+    height: calc(100% - 2px);
+    top: 50%;
+    transform: translateY(-50%);
+}
 @media(min-width:768px) {
     .box-product-filter label:first-child {
         margin-right: 15px;
