@@ -2775,8 +2775,13 @@ button.search__button.field__button {
     top: 50%;
     transform: translateY(-50%);
 }
-.search__button field__button svg.icon.icon-search{
-  background-image: url('{{ "icon-search.png" | asset_url }}');
+.search__button.field__button svg.icon.icon-search{
+  background-image: url('{{ "icon-search-2.png" | asset_url }}');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;
+  height: 30px;
 }
 @media(min-width:768px) {
     .box-product-filter label:first-child {
