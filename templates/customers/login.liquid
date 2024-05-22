@@ -43,6 +43,13 @@
                     </div>
                 
                     <button type="submit" class="btn btn-block mb-2">ログイン</button>
+
+                    <div class="switch-login-section">
+                        {{ 'customer.login_page.dont_have_an_account' | t }} <a href="{{ routes.account_register_url }}" class="text-button">{{ 'customer.login_page.create_account' | t }}</a>
+                        <div>
+                            <a href="#recover" class="text-button">{{ 'customer.login_page.forgot_password' | t }}</a>
+                        </div>
+                    </div>
                 {% endform %}
                 
                 <p class="welcome mb-2">パスワードをお忘れですか</p>
