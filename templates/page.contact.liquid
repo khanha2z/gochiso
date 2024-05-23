@@ -32,35 +32,35 @@
     </div>
 </div>
 <section>
-  <div class="container">
-      <div class="box-form-contact">
-{% form 'contact' %}
-  {{ form.errors | default_errors }}
-    <div class="title-form">お問い合わせフォーム</div>
-    <div class="row">
-        <div class="col-12 col-lg-6">
-            <label for="ContactFormName">氏名</label>
-            <input type="text" placeholder="" class="form-control" id="ContactFormName" name="contact[name]">
-        </div>
-        <div class="col-12 col-lg-6">
-            <label for="ContactFormEmail">メールアドレス</label>
-            <input type="email" placeholder="" class="form-control" id="ContactFormEmail" name="contact[email]">
-        </div>
-        <div class="col-12">
-            <label for="ContactFormPhone">電話番号</label>
-            <input type="tel" id="ContactFormPhone" placeholder="" class="form-control" name="contact[phone]">
-        </div>
-        <div class="col-12">
-            <label for="ContactFormMessage">お問い合わせ内容</label>
-            <textarea rows="10" id="ContactFormMessage" placeholder="" class="form-control" name="contact[body]"></textarea>
-        </div>
-        <div class="col-12">
-            <input type="submit" value="送信する">
+    <div class="container">
+        <div class="box-form-contact">
+            {% form 'contact' %}
+                {{ form.errors | default_errors }}
+                <div class="title-form">お問い合わせフォーム</div>
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <label for="ContactFormName">氏名</label>
+                        <input type="text" placeholder="" class="form-control" id="ContactFormName" name="contact[name]">
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <label for="ContactFormEmail">メールアドレス</label>
+                        <input type="email" placeholder="" class="form-control" id="ContactFormEmail" name="contact[email]">
+                    </div>
+                    <div class="col-12">
+                        <label for="ContactFormPhone">電話番号</label>
+                        <input type="tel" id="ContactFormPhone" placeholder="" class="form-control" name="contact[phone]">
+                    </div>
+                    <div class="col-12">
+                        <label for="ContactFormMessage">お問い合わせ内容</label>
+                        <textarea rows="10" id="ContactFormMessage" placeholder="" class="form-control" name="contact[body]"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <input type="submit" value="送信する">
+                    </div>
+                </div>
+                {% if form.posted_successfully? %}<div class="form-success">お問い合わせいただきありがとうございます。後ほど、担当者よりご連絡をさせていただきます。今しばらくお待ちいただきますようお願い申し上げます。</div> {% endif %}
+            {% endform %}
+
         </div>
     </div>
-    {% if form.posted_successfully? %}<div class="form-success">お問い合わせいただきありがとうございます。後ほど、担当者よりご連絡をさせていただきます。今しばらくお待ちいただきますようお願い申し上げます。</div> {% endif %}
-{% endform %}
-
-</div>
-</div>
 </section>
