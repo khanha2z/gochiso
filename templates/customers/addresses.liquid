@@ -63,7 +63,10 @@
 
                         <div class=" form-group">
                             <label class="input-label" for="province">都道府県</label>
-                            <select name="address[province]" /></select>
+                            <select name="address[province]" 
+                                data-default="{{ form.province }}"    
+                                autocomplete="address-level1"    >
+                            </select>
                         </div>
                         <div class=" form-group">
                             <label class="input-label" for="city">市区町村</label>
