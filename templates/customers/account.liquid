@@ -14,8 +14,8 @@
             <div class="cloud-4">
                 <img src="{{"cloud-1.svg" | asset_url}}" alt="">
             </div>
-            <h2 class="title-en">Register</h2>
-            <h3 class="title-jp">アカウント登録</h3>
+            <h2 class="title-en">My Account</h2>
+            <h3 class="title-jp">マイアカウント</h3>
         </div>
         <div class="bg-anim-1"></div>
         <div class="bg-anim-2"></div>
@@ -28,12 +28,12 @@
       <div class="row">
         <div class="small-12 columns">
           <div class="myaccount--header">
-            <h1 class="myaccount--title">{{ 'customer.account.title' | t }}</h1>
+            
             <p>
               <a
                 href="{{ routes.account_logout_url }}"
                 title="{{ 'customer.account.log_out' | t | escape }}"
-                class="myaccount--link"
+                class="btn btn-main"
               >
                 {% render 'svg-icons' with 'thb-log-out' %}
                 <span class="text-button">ログアウト</span>
@@ -139,7 +139,7 @@
 <style>
   .login-wrap {
     padding: 120px 0px;
-    background-color: #f1f1f5;
+    background-color: white;
     position: relative;
   }
 
