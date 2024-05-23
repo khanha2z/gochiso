@@ -46,7 +46,10 @@
                             <label class="input-label" for="phone">電話番号</label>
                             <input type="tel" value="" name="address[phone]" />
                         </div>
-
+                        <div class="form-group">
+                            <label class="input-label" for="country">国</label>
+                            <select name="address[country]" /></select>
+                        </div>
 
                         <div class=" form-group">
                             <label class="input-label" for="zip">郵便番号</label>
@@ -54,77 +57,40 @@
                         </div>
 
                         <div class=" form-group">
-                            <label class="input-label" for="country"国</label>
-                            <select id="AddressCountryNew" name="address[country]" data-default="{{ form.country | default: '日本' }}" autocomplete="country">data-provinces="{{ all_country_option_tags | replace: '[&quot;Aichi&quot;,&quot;愛知県&quot;],[&quot;Akita&quot;,&quot;秋田県&quot;],[&quot;Aomori&quot;,&quot;青森県&quot;],[&quot;Chiba&quot;,&quot;千葉県&quot;],[&quot;Ehime&quot;,&quot;愛媛県&quot;],[&quot;Fukui&quot;,&quot;福井県&quot;],[&quot;Fukuoka&quot;,&quot;福岡県&quot;],[&quot;Fukushima&quot;,&quot;福島県&quot;],[&quot;Gifu&quot;,&quot;岐阜県&quot;],[&quot;Gunma&quot;,&quot;群馬県&quot;],[&quot;Hiroshima&quot;,&quot;広島県&quot;],[&quot;Hokkaidō&quot;,&quot;北海道&quot;],[&quot;Hyōgo&quot;,&quot;兵庫県&quot;],[&quot;Ibaraki&quot;,&quot;茨城県&quot;],[&quot;Ishikawa&quot;,&quot;石川県&quot;],[&quot;Iwate&quot;,&quot;岩手県&quot;],[&quot;Kagawa&quot;,&quot;香川県&quot;],[&quot;Kagoshima&quot;,&quot;鹿児島県&quot;],[&quot;Kanagawa&quot;,&quot;神奈川県&quot;],[&quot;Kumamoto&quot;,&quot;熊本県&quot;],[&quot;Kyōto&quot;,&quot;京都府&quot;],[&quot;Kōchi&quot;,&quot;高知県&quot;],[&quot;Mie&quot;,&quot;三重県&quot;],[&quot;Miyagi&quot;,&quot;宮城県&quot;],[&quot;Miyazaki&quot;,&quot;宮崎県&quot;],[&quot;Nagano&quot;,&quot;長野県&quot;],[&quot;Nagasaki&quot;,&quot;長崎県&quot;],[&quot;Nara&quot;,&quot;奈良県&quot;],[&quot;Niigata&quot;,&quot;新潟県&quot;],[&quot;Okayama&quot;,&quot;岡山県&quot;],[&quot;Okinawa&quot;,&quot;沖縄県&quot;],[&quot;Saga&quot;,&quot;佐賀県&quot;],[&quot;Saitama&quot;,&quot;埼玉県&quot;],[&quot;Shiga&quot;,&quot;滋賀県&quot;],[&quot;Shimane&quot;,&quot;島根県&quot;],[&quot;Shizuoka&quot;,&quot;静岡県&quot;],[&quot;Tochigi&quot;,&quot;栃木県&quot;],[&quot;Tokushima&quot;,&quot;徳島県&quot;],[&quot;Tottori&quot;,&quot;鳥取県&quot;],[&quot;Toyama&quot;,&quot;富山県&quot;],[&quot;Tōkyō&quot;,&quot;東京都&quot;],[&quot;Wakayama&quot;,&quot;和歌山県&quot;],[&quot;Yamagata&quot;,&quot;山形県&quot;],[&quot;Yamaguchi&quot;,&quot;山口県&quot;],[&quot;Yamanashi&quot;,&quot;山梨県&quot;],[&quot;Ōita&quot;,&quot;大分県&quot;],[&quot;Ōsaka&quot;,&quot;大阪府&quot;]', '[&quot;Hokkaidō&quot;,&quot;北海道&quot;],[&quot;Aomori&quot;,&quot;青森県&quot;],[&quot;Iwate&quot;,&quot;岩手県&quot;],[&quot;Miyagi&quot;,&quot;宮城県&quot;],[&quot;Akita&quot;,&quot;秋田県&quot;],[&quot;Yamagata&quot;,&quot;山形県&quot;],[&quot;Fukushima&quot;,&quot;福島県&quot;],[&quot;Ibaraki&quot;,&quot;茨城県&quot;],[&quot;Tochigi&quot;,&quot;栃木県&quot;],[&quot;Gunma&quot;,&quot;群馬県&quot;],[&quot;Saitama&quot;,&quot;埼玉県&quot;],[&quot;Chiba&quot;,&quot;千葉県&quot;],[&quot;Tōkyō&quot;,&quot;東京都&quot;],[&quot;Kanagawa&quot;,&quot;神奈川県&quot;],[&quot;Niigata&quot;,&quot;新潟県&quot;],[&quot;Toyama&quot;,&quot;富山県&quot;],[&quot;Ishikawa&quot;,&quot;石川県&quot;],[&quot;Fukui&quot;,&quot;福井県&quot;],[&quot;Yamanashi&quot;,&quot;山梨県&quot;],[&quot;Nagano&quot;,&quot;長野県&quot;],[&quot;Gifu&quot;,&quot;岐阜県&quot;],[&quot;Shizuoka&quot;,&quot;静岡県&quot;],[&quot;Aichi&quot;,&quot;愛知県&quot;],[&quot;Mie&quot;,&quot;三重県&quot;],[&quot;Shiga&quot;,&quot;滋賀県&quot;],[&quot;Kyōto&quot;,&quot;京都府&quot;],[&quot;Ōsaka&quot;,&quot;大阪府&quot;],[&quot;Hyōgo&quot;,&quot;兵庫県&quot;],[&quot;Nara&quot;,&quot;奈良県&quot;],[&quot;Wakayama&quot;,&quot;和歌山県&quot;],[&quot;Tottori&quot;,&quot;鳥取県&quot;],[&quot;Shimane&quot;,&quot;島根県&quot;],[&quot;Okayama&quot;,&quot;岡山県&quot;],[&quot;Hiroshima&quot;,&quot;広島県&quot;],[&quot;Yamaguchi&quot;,&quot;山口県&quot;],[&quot;Tokushima&quot;,&quot;徳島県&quot;],[&quot;Kagawa&quot;,&quot;香川県&quot;],[&quot;Ehime&quot;,&quot;愛媛県&quot;],[&quot;Kōchi&quot;,&quot;高知県&quot;],[&quot;Fukuoka&quot;,&quot;福岡県&quot;],[&quot;Saga&quot;,&quot;佐賀県&quot;],[&quot;Nagasaki&quot;,&quot;長崎県&quot;],[&quot;Kumamoto&quot;,&quot;熊本県&quot;],[&quot;Ōita&quot;,&quot;大分県&quot;],[&quot;Miyazaki&quot;,&quot;宮崎県&quot;],[&quot;Kagoshima&quot;,&quot;鹿児島県&quot;],[&quot;Okinawa&quot;,&quot;沖縄県&quot;]'}}"
-</select>
-                        </div>
-
-                        <div class=" form-group">
                             <label class="input-label" for="province">都道府県</label>
-                            <select id="AddressProvince_{{ form.id }}" name="address[province]" data-default="{{ form.province }}" autocomplete="address-level1″>{{ shipping_address.province | replace: 'Aichi', '愛知県' | replace: 'Akita', '秋田 県' | replace: 'Aomori', '青森県' | replace: 'Chiba', '千葉県' | replace: 'Ehime', '愛 媛県' | replace: 'Fukui', '福井県' | replace: 'Fukuoka', '福岡県' | replace: 'Fukushima', '福島県' | replace: 'Gifu', '岐阜県' | replace: 'Gunma', '群馬県' | replace: 'Hiroshima', '広島県' | replace: 'Hokkaidō', '北海道' | replace: 'Hyōgo', '兵庫県' | replace: 'Ibaraki', '茨城県' | replace: 'Ishikawa', '石川県' | replace: 'Iwate', '岩手県' | replace: 'Kagawa', '香川県' | replace: 'Yamanashi', '山梨県' | replace: 'Yamaguchi', '山口県' | replace: 'Kōchi', '高知県' | replace: 'Kumamoto', '熊本県' | replace: 'Kyōto', '京都府' | replace: 'Mie', '三重県' | replace: 'Yamagata', '山形県' | replace: 'Miyazaki', '宮崎県' | replace: 'Nagano', '長野県' | replace: 'Nagasaki', '長崎県' | replace: 'Nara', '奈良県' | replace: 'Niigata', '新潟県' | replace: 'Ōita', '大分県' | replace: 'Okayama', '岡山県' | replace: 'Okinawa', '沖縄県' | replace: 'Ōsaka', '大阪府' | replace: 'Saga', '佐賀 県' | replace: 'Saitama', '埼玉県' | replace: 'Shiga', '滋賀県' | replace: 'Shimane', '島根県' | replace: 'Shizuoka', '静岡県' | replace: 'Tochigi', '栃木県' | replace: 'Tokushima', '徳島県' | replace: 'Tottori', '鳥取県' | replace: 'Toyama', '富山県' | replace: 'Tōkyō', '東京都' | replace: 'Miyagi', '宮城県' | replace: 'Wakayama', '和 歌山県' | replace: 'Kanagawa', '神奈川県' | replace: 'Kagoshima', '鹿児島県' }}</select>
+                            <select name="address[province]" /></select>
                         </div>
                         <div class=" form-group">
                             <label class="input-label" for="city">市区町村</label>
                             <input type="text"  class="form-control value="" name="address[city]" />
                         </div>
                         <div class=" form-group">
-                            <label class="input-label" for="address1">丁目・番地・号</label>
+                            <label class="input-label" for="address1">住所</label>
                             <input type="text"  class="form-control value="" name="address[address1]" />
                         </div>
 
                         <!--<div class=" form-group">
-                            <label class="input-label" for="address2">丁目・番地・号</label>
+                            <label class="input-label" for="address2">建物名部、屋番号など</label>
                             <input type="text"  class="form-control value="" name="address[address2]" />
                         </div>-->
 
                         <div class=" form-group">
-                            <label class="input-label" for="company">建物名／会社名・部屋番号</label>
+                            <label class="input-label" for="company">会社名</label>
                             <input type="text"  class="form-control value="" name="address[company]" />
                         </div>
 
 
-                        <!-- See docs for @shopify/theme-addresses to support Country and Province -->
-                        <div class="form-group">
-                            <label class="input-label" for="country">国</label>
-                            <select name="address[country]" />{{ all_country_option_tags  | replace: '[&quot;Aichi&quot;,&quot;愛知県&quot;],[&quot;Akita&quot;,&quot;秋田県&quot;],[&quot;Aomori&quot;,&quot;青森県&quot;],[&quot;Chiba&quot;,&quot;千葉県&quot;],[&quot;Ehime&quot;,&quot;愛媛県&quot;],[&quot;Fukui&quot;,&quot;福井県&quot;],[&quot;Fukuoka&quot;,&quot;福岡県&quot;],[&quot;Fukushima&quot;,&quot;福島県&quot;],[&quot;Gifu&quot;,&quot;岐阜県&quot;],[&quot;Gunma&quot;,&quot;群馬県&quot;],[&quot;Hiroshima&quot;,&quot;広島県&quot;],[&quot;Hokkaidō&quot;,&quot;北海道&quot;],[&quot;Hyōgo&quot;,&quot;兵庫県&quot;],[&quot;Ibaraki&quot;,&quot;茨城県&quot;],[&quot;Ishikawa&quot;,&quot;石川県&quot;],[&quot;Iwate&quot;,&quot;岩手県&quot;],[&quot;Kagawa&quot;,&quot;香川県&quot;],[&quot;Kagoshima&quot;,&quot;鹿児島県&quot;],[&quot;Kanagawa&quot;,&quot;神奈川県&quot;],[&quot;Kumamoto&quot;,&quot;熊本県&quot;],[&quot;Kyōto&quot;,&quot;京都府&quot;],[&quot;Kōchi&quot;,&quot;高知県&quot;],[&quot;Mie&quot;,&quot;三重県&quot;],[&quot;Miyagi&quot;,&quot;宮城県&quot;],[&quot;Miyazaki&quot;,&quot;宮崎県&quot;],[&quot;Nagano&quot;,&quot;長野県&quot;],[&quot;Nagasaki&quot;,&quot;長崎県&quot;],[&quot;Nara&quot;,&quot;奈良県&quot;],[&quot;Niigata&quot;,&quot;新潟県&quot;],[&quot;Okayama&quot;,&quot;岡山県&quot;],[&quot;Okinawa&quot;,&quot;沖縄県&quot;],[&quot;Saga&quot;,&quot;佐賀県&quot;],[&quot;Saitama&quot;,&quot;埼玉県&quot;],[&quot;Shiga&quot;,&quot;滋賀県&quot;],[&quot;Shimane&quot;,&quot;島根県&quot;],[&quot;Shizuoka&quot;,&quot;静岡県&quot;],[&quot;Tochigi&quot;,&quot;栃木県&quot;],[&quot;Tokushima&quot;,&quot;徳島県&quot;],[&quot;Tottori&quot;,&quot;鳥取県&quot;],[&quot;Toyama&quot;,&quot;富山県&quot;],[&quot;Tōkyō&quot;,&quot;東京都&quot;],[&quot;Wakayama&quot;,&quot;和歌山県&quot;],[&quot;Yamagata&quot;,&quot;山形県&quot;],[&quot;Yamaguchi&quot;,&quot;山口県&quot;],[&quot;Yamanashi&quot;,&quot;山梨県&quot;],[&quot;Ōita&quot;,&quot;大分県&quot;],[&quot;Ōsaka&quot;,&quot;大阪府&quot;]', '[&quot;Hokkaidō&quot;,&quot;北海道&quot;],[&quot;Aomori&quot;,&quot;青森県&quot;],[&quot;Iwate&quot;,&quot;岩手県&quot;],[&quot;Miyagi&quot;,&quot;宮城県&quot;],[&quot;Akita&quot;,&quot;秋田県&quot;],[&quot;Yamagata&quot;,&quot;山形県&quot;],[&quot;Fukushima&quot;,&quot;福島県&quot;],[&quot;Ibaraki&quot;,&quot;茨城県&quot;],[&quot;Tochigi&quot;,&quot;栃木県&quot;],[&quot;Gunma&quot;,&quot;群馬県&quot;],[&quot;Saitama&quot;,&quot;埼玉県&quot;],[&quot;Chiba&quot;,&quot;千葉県&quot;],[&quot;Tōkyō&quot;,&quot;東京都&quot;],[&quot;Kanagawa&quot;,&quot;神奈川県&quot;],[&quot;Niigata&quot;,&quot;新潟県&quot;],[&quot;Toyama&quot;,&quot;富山県&quot;],[&quot;Ishikawa&quot;,&quot;石川県&quot;],[&quot;Fukui&quot;,&quot;福井県&quot;],[&quot;Yamanashi&quot;,&quot;山梨県&quot;],[&quot;Nagano&quot;,&quot;長野県&quot;],[&quot;Gifu&quot;,&quot;岐阜県&quot;],[&quot;Shizuoka&quot;,&quot;静岡県&quot;],[&quot;Aichi&quot;,&quot;愛知県&quot;],[&quot;Mie&quot;,&quot;三重県&quot;],[&quot;Shiga&quot;,&quot;滋賀県&quot;],[&quot;Kyōto&quot;,&quot;京都府&quot;],[&quot;Ōsaka&quot;,&quot;大阪府&quot;],[&quot;Hyōgo&quot;,&quot;兵庫県&quot;],[&quot;Nara&quot;,&quot;奈良県&quot;],[&quot;Wakayama&quot;,&quot;和歌山県&quot;],[&quot;Tottori&quot;,&quot;鳥取県&quot;],[&quot;Shimane&quot;,&quot;島根県&quot;],[&quot;Okayama&quot;,&quot;岡山県&quot;],[&quot;Hiroshima&quot;,&quot;広島県&quot;],[&quot;Yamaguchi&quot;,&quot;山口県&quot;],[&quot;Tokushima&quot;,&quot;徳島県&quot;],[&quot;Kagawa&quot;,&quot;香川県&quot;],[&quot;Ehime&quot;,&quot;愛媛県&quot;],[&quot;Kōchi&quot;,&quot;高知県&quot;],[&quot;Fukuoka&quot;,&quot;福岡県&quot;],[&quot;Saga&quot;,&quot;佐賀県&quot;],[&quot;Nagasaki&quot;,&quot;長崎県&quot;],[&quot;Kumamoto&quot;,&quot;熊本県&quot;],[&quot;Ōita&quot;,&quot;大分県&quot;],[&quot;Miyazaki&quot;,&quot;宮崎県&quot;],[&quot;Kagoshima&quot;,&quot;鹿児島県&quot;],[&quot;Okinawa&quot;,&quot;沖縄県&quot;]'}}</select>
-                        </div>
-
-
-
-                    <button type="submit" class="btn btn-block mb-2">追加</button>                    
+                        <button type="submit" class="btn btn-block mb-2">住所を追加する</button>                    
                 {% endform %}
   
             </div>
         </div>
         
-        <div class="small-12 large-4 columns myaccount-sidebar">
-          <div class="main-title"><p>{{ 'customer.account.details' | t }}</p></div>
-          {% if customer.default_address %}
-            <label>住所</label>
-            <address>
-              {{ customer.default_address.address1 -}}
-              <br>
-              {% if customer.default_address.address2 != '' %}
-                {{ customer.default_address.address2 -}}
-                <br>
-              {% endif %}
-              {{ customer.default_address.city }},
-              {% if address.default_address.province_code %}{{ customer.default_address.province_code }}, {% endif -%}
-              {{- customer.default_address.country -}}
-              <br>
-              {{ customer.default_address.zip -}}
-              <br>
-              {{ customer.default_address.phone }}
-            </address>
-          {% endif %}
-          <a href="{{ routes.account_addresses_url }}" class="btn btn-main" style="margin-left:0">
-            住所設定
-          </a>
-        </div>
-    </div>
-  </section>
   
   <style>
+  select{
+    width:100%;height:48px;
+  }
     .login-wrap {
         padding: 40px 0px 120px;
         background-color: white;
