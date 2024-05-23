@@ -44,7 +44,7 @@
       </div>
       <div class="row">
         <div class="small-12 large-8 columns myaccount-content">
-          <h4>{{ 'customer.orders.title' | t }}</h4>
+          <div class="main-title"><p>{{ 'customer.orders.title' | t }}</p></div>
           {% paginate customer.orders by 20 %}
             {%- if customer.orders.size > 0 -%}
               <table class="no-borders">
@@ -108,7 +108,7 @@
           {% endpaginate %}
         </div>
         <div class="small-12 large-4 columns myaccount-sidebar">
-          <h4>{{ 'customer.account.details' | t }}</h4>
+          <div class="main-title"><p>{{ 'customer.account.details' | t }}</p></div>
           {% if customer.default_address %}
             <label>{{ 'customer.account.default_address' | t }}</label>
             <address>
@@ -192,5 +192,8 @@
   }
   a.btn.btn-main::after{
     display:none;
+  }
+  .login-wrap{
+    margin-top:40px;
   }
 </style>
