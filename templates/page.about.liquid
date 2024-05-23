@@ -147,41 +147,11 @@
     <div class="home-region">
         <div class="container">
             <div class="main-title mx-auto">
-                <h2>Regional specialties</h2>
-                <p>地域の特産品</p>
+                <h2>Company</h2>
+                <p>会社案内</p>
             </div>
-            <div class="row pt-3 product-slide-sm">
-                {% for product in collections.hamada.products limit:4 %}
-                  <div class="col-lg-3 col-sm-6">
-                    <div class="col-inner">
-                      <div class="box-product">
-                          <div class="img-product wishlist-box">
-                            <a href="{{ product.url | within: collection }}">
-                              <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-                            </a>
-                          </div>
-                          <div class="box-title-product">
-                              <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-                              <div class="price-product">
-                                  <p>{{ product.price | money }}</p><span>{{ variant.price | money_with_currency }}</span>
-                              </div>
-                          </div>
-                          <div class="box-rate-product">
-                              <div class="rate-product">
-                                {% render 'product-review' product: product,  handle:product.handle %}
-                              </div>
-                              <div class="box-btn-add-cart">
-                                {% render 'product-card' product: product %}
-                              </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                {% endfor %}  
-              </div>
-            <div class="pt-5">
-                <a href="#" class="btn btn-main">もっと見る</a>
-            </div>
+            <div class="company-infor">
+            <table class="bl_cont_table"><tbody><tr><th><strong>会社名</strong></th><td>株式会社バント　（英文表記：Bunt Inc.）</td></tr><tr><th><strong>設立</strong></th><td>2013年12月</td></tr><tr><th><strong>資本金</strong></th><td>¥10,000,000</td></tr><tr><th><strong>主要取引先銀行</strong></th><td>みずほ銀行　築地支店<br>山陰合同銀行 雲南支店</td></tr><tr><th><strong>代表取締役</strong></th><td>渡辺 浩平</td></tr></tbody></table></div>
         </div>
     </div>
 </section>
