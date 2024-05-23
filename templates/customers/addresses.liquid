@@ -48,7 +48,12 @@
                         </div>
                         <div class="form-group">
                             <label class="input-label" for="country">国</label>
-                            <select name="address[country]" /></select>
+                            <select name="address[country]"
+                                data-default="{{ form.country }}"    
+                                autocomplete="country"    
+                            >
+                                {{ all_country_option_tags }}
+                            </select>
                         </div>
 
                         <div class=" form-group">
