@@ -27,7 +27,7 @@
         <div class="container">
             <div class="box-login mb-5">
                 <p class="welcome mb-2">ログイン</p>
-                <p class="note">サービスの利用を開始するにはログインしてください</p>
+                <p class="note"></p>
                 
                 {% form 'customer_login' %}
                     {{ form.errors | default_errors }}
@@ -45,7 +45,7 @@
                     <button type="submit" class="btn btn-block mb-2">ログイン</button>
 
                     <div class="switch-login-section">
-                        {{ 'customer.login_page.dont_have_an_account' | t }} <a href="{{ routes.account_register_url }}" class="text-button">{{ 'customer.login_page.create_account' | t }}</a>
+                        <a href="{{ routes.account_register_url }}" class="text-button">{{ 'customer.login_page.create_account' | t }}</a>
                         <div>
                             <a href="#recover" class="text-button">{{ 'customer.login_page.forgot_password' | t }}</a>
                         </div>
@@ -55,7 +55,7 @@
 
             <div class="box-login">                
                 <p class="welcome mb-2">パスワードをお忘れですか</p>
-                <p class="note">サービスの利用を開始するにはログインしてください</p>
+                <p class="note"></p>
                 {% form 'recover_customer_password' %}
                     {{ form.errors | default_errors }}
                 
@@ -64,7 +64,7 @@
                         <input name="customer[email]" type="email" class="form-control " id="customer_email">
                     </div>                
                 
-                    <button type="submit" class="btn btn-block mb-2">ログイン</button>
+                    <button type="submit" class="btn btn-block mb-2">パスワードリセット</button>
                 {% endform %}
             </div>
         </div>
