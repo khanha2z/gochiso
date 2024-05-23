@@ -1,5 +1,27 @@
 <!-- /templates/customers/account.liquid -->
-
+<section>
+    <div class="page-header">
+        <div class="container">
+            <div class="cloud-1">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <div class="cloud-2">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <div class="cloud-3">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <div class="cloud-4">
+                <img src="{{"cloud-1.svg" | asset_url}}" alt="">
+            </div>
+            <h2 class="title-en">Register</h2>
+            <h3 class="title-jp">アカウント登録</h3>
+        </div>
+        <div class="bg-anim-1"></div>
+        <div class="bg-anim-2"></div>
+        <div class="bg-anim-3"></div>
+    </div>
+</section>
 <section id="home-contact" class="login">
   <div class="login-wrap">
     <div class="container">
@@ -14,7 +36,7 @@
                 class="myaccount--link"
               >
                 {% render 'svg-icons' with 'thb-log-out' %}
-                <span class="text-button">{{ 'customer.account.log_out' | t }}</span>
+                <span class="text-button">ログアウト</span>
               </a>
             </p>
           </div>
@@ -131,22 +153,6 @@
     box-shadow: 0 3px 4px rgba(153, 155, 168, 0.25);
     font-size: 14px;
     color: #25324b;
-  }
-
-  #home-contact::after {
-    border: none;
-    background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  #home-contact::after {
-    border: none;
-    background-image: url(https://edge.edu.a2ztech.vn/assets/images/ellipse.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
   }
 
   .box-login .welcome {
