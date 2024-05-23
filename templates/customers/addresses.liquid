@@ -162,25 +162,3 @@
         border-color: #E0C143 !important;
     }
 </style>
-
-
-<script>
-
-    window.addEventListener('load', () => {
-        if (Shopify && Shopify.CountryProvinceSelector) {
-        
-            document.querySelectorAll('[data-address-country-select]').forEach((select) => {
-                const formId = select.dataset.formId;
-                // eslint-disable-next-line no-new
-                new Shopify.CountryProvinceSelector(`AddressCountry_${formId}`, `AddressProvince_${formId}`, {
-                hideElement: `AddressProvinceContainer_${formId}`
-                });
-            });
-        
-            // eslint-disable-next-line no-new
-            new Shopify.CountryProvinceSelector('AddressCountryNew', 'AddressProvinceNew', {
-                hideElement: 'AddressProvinceContainerNew'
-            });
-        }
-    });
-</script>
